@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.CertificateDetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    mc:Ignorable="d">
+    <page:BasePage.ToolbarItems>
+        <ToolbarItem Command="{Binding DownloadAndShareCertificateCommand}" IconImageSource="share_button" />
+    </page:BasePage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ffimageloading:CachedImage
+                Grid.Row="0"
+                HorizontalOptions="FillAndExpand"
+                MinimumHeightRequest="340"
+                Source="{Binding CertificateImage}"
+                VerticalOptions="Fill" />
+            <StackLayout Grid.Row="1">
+                <Label
+                    Padding="20,0,20,0"
+                    d:Text="Certificate"
+                    Style="{StaticResource SubtitleStyle}"
+                    Text="{l10n:Translate CertificateLabel}"
+                    TextColor="Black" />
+                <Label
+                    Padding="20,0,20,10"
+                    d:Text="Safety Training"
+                    Style="{StaticResource CaptionStyle}"
+                    Text="{Binding CertifiedItem}"
+                    TextColor="{StaticResource DownloadManagementIconsColor}" />
+                <Label
+                    Padding="20,0,20,0"
+                    d:Text="Date"
+                    Style="{StaticResource SubtitleStyle}"
+                    Text="{l10n:Translate DateLabel}"
+                    TextColor="Black" />
+                <Label
+                    Padding="20,0,20,0"
+                    d:Text="9/1/2020"
+                    Style="{StaticResource CaptionStyle}"
+                    Text="{Binding EarnedDate}"
+                    TextColor="{StaticResource DownloadManagementIconsColor}" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</page:BasePage>

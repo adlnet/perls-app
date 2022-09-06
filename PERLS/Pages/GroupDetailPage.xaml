@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.GroupDetailPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    x:Name="Page"
+    Title="{Binding Name}">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="Tiles">
+                <StackLayout Margin="0" Spacing="0">
+                    <StackLayout Orientation="Horizontal">
+                        <Label
+                            Margin="{StaticResource Space}"
+                            HorizontalOptions="Start"
+                            Style="{DynamicResource HeadingStyle}"
+                            Text="{Binding Name}" />
+                    </StackLayout>
+                    <component:TileGroup
+                        x:Name="Tiles"
+                        HeightRequest="300"
+                        ItemPadding="{StaticResource Space}"
+                        SelectionChangedCommand="{Binding BindingContext.NavigateCommand, Source={x:Reference Page}}"
+                        SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference Tiles}}"
+                        SelectionMode="Single" />
+                </StackLayout>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <component:PERLSCollectionView
+            x:Name="Collection"
+            ItemSizingStrategy="{Binding ElementSizingStrategy}"
+            ItemTemplate="{StaticResource Tiles}"
+            ItemsSource="{Binding Elements}"
+            SelectionChangedCommand="{Binding NavigateCommand}"
+            SelectionMode="Single">
+            <component:PERLSCollectionView.Header>
+                <StackLayout>
+                    <ffimageloading:CachedImage
+                        Aspect="AspectFill"
+                        HeightRequest="200"
+                        LoadingPlaceholder="loading"
+                        Source="{Binding Image}" />
+                    <Label
+                        Margin="10,0"
+                        LineBreakMode="TailTruncation"
+                        MaxLines="3"
+                        Style="{DynamicResource TitleStyle}"
+                        Text="{Binding Name}" />
+                    <Label
+                        Margin="10,0,10,30"
+                        LineBreakMode="TailTruncation"
+                        MaxLines="3"
+                        Style="{DynamicResource BodyStyle}"
+                        Text="{Binding Description}" />
+                </StackLayout>
+            </component:PERLSCollectionView.Header>
+            <component:PERLSCollectionView.EmptyView>
+                <component:CenteredImageTitleDetailView
+                    Title="{Binding EmptyMessageTitle}"
+                    Detail="{Binding EmptyLabel}"
+                    Image="{Binding EmptyImageName}"
+                    IsVisible="{Binding IsEmpty, FallbackValue=False}" />
+            </component:PERLSCollectionView.EmptyView>
+        </component:PERLSCollectionView>
+    </ContentPage.Content>
+</page:BasePage>

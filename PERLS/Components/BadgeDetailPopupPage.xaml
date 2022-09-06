@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<popup:PopupPage
+    x:Class="PERLS.Components.BadgeDetailPopupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:popupAnimation="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup">
+    <popup:PopupPage.Animation>
+        <popupAnimation:MoveAnimation
+            DurationIn="300"
+            DurationOut="300"
+            PositionIn="Bottom"
+            PositionOut="Bottom" />
+    </popup:PopupPage.Animation>
+    <StackLayout VerticalOptions="End">
+        <BoxView
+            BackgroundColor="Transparent"
+            HeightRequest="15"
+            HorizontalOptions="FillAndExpand" />
+        <StackLayout
+            Padding="20,20,20,20"
+            BackgroundColor="{DynamicResource BackgroundColor}"
+            Orientation="Horizontal">
+            <ffimageloading:CachedImage
+                Aspect="AspectFit"
+                ErrorPlaceholder="{Binding Placeholder}"
+                HeightRequest="120"
+                LoadingPlaceholder="{Binding Placeholder}"
+                Source="{Binding ImageUri}"
+                WidthRequest="120" />
+            <BoxView WidthRequest="5" />
+            <StackLayout VerticalOptions="Center">
+                <Label
+                    FontAttributes="Bold"
+                    HorizontalTextAlignment="Start"
+                    Style="{StaticResource TextStyle}"
+                    Text="{Binding DetailLabel}" />
+                <Label Text="{Binding Description}" TextColor="{DynamicResource PrimaryTextColor}" />
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</popup:PopupPage>

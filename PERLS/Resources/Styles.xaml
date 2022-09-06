@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    x:Class="PERLS.Resources.Styles"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:local="clr-namespace:PERLS.Resources"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup">
+    <ResourceDictionary.MergedDictionaries>
+        <local:Colors />
+    </ResourceDictionary.MergedDictionaries>
+    <x:String x:Key="NormalFont">Open Sans</x:String>
+    <x:String x:Key="BoldFont">Open Sans-Bold</x:String>
+    <x:String x:Key="ExtraBoldFont">Open Sans-ExtraBold</x:String>
+    <x:String x:Key="SemiBoldFont">Open Sans-SemiBold</x:String>
+    <x:String x:Key="TileFont">Lato Medium</x:String>
+    <x:Double x:Key="Space">10</x:Double>
+    <Thickness x:Key="SpaceTop">0,10,0,0</Thickness>
+    <Thickness x:Key="SpaceLeftAndRight">10,0</Thickness>
+    <Thickness x:Key="SpaceTopAndBottom">0,10</Thickness>
+    <x:Double x:Key="Spacing">20</x:Double>
+    <Style ApplyToDerivedTypes="True" TargetType="ContentPage">
+        <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
+    </Style>
+    <Style ApplyToDerivedTypes="True" TargetType="popup:PopupPage">
+        <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
+    </Style>
+    <Style x:Key="Tile" TargetType="Frame">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="IsClippedToBounds" Value="False" />
+        <Setter Property="HasShadow" Value="False" />
+        <Setter Property="BackgroundColor" Value="LightGray" />
+    </Style>
+    <Style x:Key="UserNameStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontSize" Value="Title" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="UserEmailStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}" />
+        <Setter Property="HorizontalTextAlignment" Value="Center" />
+    </Style>
+    <Style x:Key="OptionsStyle" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+    <Style
+        x:Key="Card"
+        BasedOn="{StaticResource Tile}"
+        TargetType="Frame">
+        <Setter Property="Margin" Value="15,10,15,15" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="HasShadow" Value="True" />
+        <Setter Property="IsClippedToBounds" Value="True" />
+    </Style>
+    <Style x:Key="PillButtonStyle" TargetType="Button">
+        <Setter Property="CornerRadius" Value="24" />
+        <Setter Property="HeightRequest" Value="48" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="Margin" Value="22,16,22,0" />
+        <Setter Property="Padding" Value="{StaticResource SpaceLeftAndRight}" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="BackgroundColor" Value="{DynamicResource SecondaryColor}" />
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                <Setter Property="BackgroundColor" Value="{DynamicResource DisabledButtonColor}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style x:Key="SmallButtonStyle" TargetType="Button">
+        <Setter Property="BorderColor" Value="{DynamicResource SecondaryColor}" />
+        <Setter Property="BorderWidth" Value="2" />
+        <Setter Property="CornerRadius" Value="22" />
+        <Setter Property="FontAttributes" Value="None" />
+        <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}" />
+        <Setter Property="Padding" Value="15,0" />
+        <Style.Triggers>
+            <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                <Setter Property="TextColor" Value="{DynamicResource DisabledButtonColor}" />
+                <Setter Property="BorderColor" Value="{DynamicResource DisabledButtonColor}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource NormalFont}" />
+    </Style>
+    <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+        <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}" />
+    </Style>
+    <Style TargetType="SearchBar">
+        <Setter Property="Margin">
+            <OnPlatform x:TypeArguments="Thickness">
+                <On Platform="iOS" Value="0,0,0,10" />
+                <On Platform="Android" Value="10" />
+            </OnPlatform>
+        </Setter>
+    </Style>
+    <Style TargetType="Picker">
+        <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+    </Style>
+    <Style x:Key="TextStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource NormalFont}" />
+        <!--
+            Font attributes do not work with embedded fonts: https://github.com/xamarin/Xamarin.Forms/issues/12558
+            But we can use a little trick with triggers to make them work.
+        -->
+        <Style.Triggers>
+            <Trigger TargetType="Label" Property="FontAttributes" Value="Bold">
+                <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    <Style
+        x:Key="TextDarkStyle"
+        BasedOn="{StaticResource TextStyle}"
+        TargetType="Label">
+        <Setter Property="TextColor" Value="Black" />
+    </Style>
+    <Style
+        x:Key="EnhancedDashboardTitle"
+        BasedOn="{StaticResource TextStyle}"
+        TargetType="Label" />
+    <Style
+        x:Key="TitleStyle"
+        BasedOn="{StaticResource TextStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+    </Style>
+    <Style
+        x:Key="TileTitleStyle"
+        BasedOn="{StaticResource TitleStyle}"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource SemiBoldFont}" />
+    </Style>
+    <Style
+        x:Key="QuizTitleStyle"
+        BasedOn="{StaticResource TitleStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="28" />
+    </Style>
+    <Style
+        x:Key="QuizAnswerStyle"
+        BasedOn="{StaticResource TextStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="18" />
+    </Style>
+    <Style x:Key="TagsStyle" TargetType="Button">
+        <Setter Property="FontSize" Value="Small" />
+        <Setter Property="FontAttributes" Value="None" />
+        <Setter Property="FontFamily" Value="{StaticResource SemiBoldFont}" />
+    </Style>
+    <Style
+        x:Key="HeadingStyle"
+        BasedOn="{StaticResource TitleStyle}"
+        TargetType="Label">
+        <!--  This is intentionally the same font size as title. This could change in the future so we want to keep separate title and heading styles.  -->
+        <Setter Property="FontSize" Value="Large" />
+    </Style>
+    <Style
+        x:Key="SubtitleStyle"
+        BasedOn="{StaticResource TextStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontFamily" Value="{StaticResource BoldFont}" />
+    </Style>
+    <Style
+        x:Key="BodyStyle"
+        BasedOn="{StaticResource TextStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="Body" />
+    </Style>
+    <Style
+        x:Key="CaptionStyle"
+        BasedOn="{StaticResource TextStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="Small" />
+        <Setter Property="TextColor" Value="{DynamicResource GrayColor}" />
+    </Style>
+    <Style
+        x:Key="CaptionTwoStyle"
+        BasedOn="{StaticResource TextStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="Small" />
+        <Setter Property="TextColor" Value="{DynamicResource SecondaryColor}" />
+    </Style>
+    <Style
+        x:Key="NowPlayingTitleStyle"
+        BasedOn="{StaticResource TextStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="37" />
+        <Setter Property="FontAttributes" Value="None" />
+        <Setter Property="TextColor" Value="White" />
+    </Style>
+    <Style
+        x:Key="NowPlayingInformationStyle"
+        BasedOn="{StaticResource TextStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="White" />
+    </Style>
+    <Style TargetType="{x:Type ffimageloading:CachedImage}">
+        <Setter Property="BitmapOptimizations" Value="True" />
+        <Setter Property="DownsampleToViewSize" Value="True" />
+    </Style>
+    <Style x:Key="RemoteCachedImage" TargetType="{x:Type ffimageloading:CachedImage}">
+        <Setter Property="BitmapOptimizations" Value="True" />
+        <Setter Property="DownsampleToViewSize" Value="True" />
+        <Setter Property="ErrorPlaceholder" Value="placeholder" />
+        <Setter Property="LoadingPlaceholder" Value="placeholder" />
+    </Style>
+    <Style x:Key="TabBarStyle" TargetType="Element">
+        <Setter Property="Shell.TabBarBackgroundColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="Shell.TabBarForegroundColor" Value="{DynamicResource PrimaryColor}" />
+        <Setter Property="Shell.TabBarUnselectedColor" Value="{DynamicResource TertiaryColor}" />
+        <Setter Property="Shell.TabBarTitleColor" Value="{DynamicResource SecondaryColor}" />
+        <Setter Property="Shell.BackgroundColor" Value="{DynamicResource BackgroundColor}" />
+        <Setter Property="Shell.ForegroundColor" Value="{DynamicResource SecondaryColor}" />
+        <Setter Property="Shell.TitleColor" Value="{DynamicResource SecondaryColor}" />
+        <Setter Property="Shell.DisabledColor" Value="{DynamicResource ShellDisabledColor}" />
+        <Setter Property="Shell.UnselectedColor" Value="{DynamicResource PrimaryColor}" />
+    </Style>
+    <Style
+        x:Key="OnboardingTitleStyle"
+        BasedOn="{StaticResource TextStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="FontFamily" Value="{StaticResource ExtraBoldFont}" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+    </Style>
+    <Style
+        x:Key="OnboardingDescriptionStyle"
+        BasedOn="{StaticResource TextStyle}"
+        TargetType="Label">
+        <Setter Property="FontSize" Value="Default" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+    </Style>
+    <Style x:Key="OnboardingButtonStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="Subtitle" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+    </Style>
+    <Style x:Key="OnboardingSmallButtonStyle" TargetType="Button">
+        <Setter Property="FontSize" Value="Caption" />
+        <Setter Property="FontAttributes" Value="None" />
+        <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+    </Style>
+    <Style x:Key="OnboardingGradientStyle" TargetType="AbsoluteLayout">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0,1">
+                    <GradientStop Offset="0.1" Color="Transparent" />
+                    <GradientStop Offset="1.0" Color="Transparent" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="NavBarLogoStyle" TargetType="ffimageloading:CachedImage">
+        <Setter Property="HeightRequest" Value="30" />
+        <Setter Property="Aspect" Value="AspectFit" />
+        <Setter Property="AbsoluteLayout.LayoutBounds" Value="0.5,0.5" />
+        <Setter Property="AbsoluteLayout.LayoutFlags" Value="PositionProportional" />
+    </Style>
+    <Style x:Key="NavBarLogoLayoutStyle" TargetType="AbsoluteLayout">
+        <Setter Property="Margin" Value="8" />
+    </Style>
+    <Style ApplyToDerivedTypes="true" TargetType="NavigationPage">
+        <Setter Property="BarTextColor" Value="{DynamicResource PrimaryTextColor}"/>
+    </Style>
+</ResourceDictionary>

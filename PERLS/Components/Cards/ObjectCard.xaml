@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<card:BaseCard
+    x:Class="PERLS.Components.Cards.ObjectCard"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:card="clr-namespace:PERLS.Components.Cards"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:effect="clr-namespace:PERLS.Effects"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="This"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <ScrollView
+            x:Name="MainScroll"
+            Padding="0"
+            Orientation="Vertical">
+            <FlexLayout Direction="Column">
+                <FlexLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapRecognizer" />
+                </FlexLayout.GestureRecognizers>
+                <component:Tile
+                    x:Name="Tile"
+                    Title="{Binding Name}"
+                    AbsoluteLayout.LayoutBounds="0,0,0,0"
+                    AltColor="{Binding AltColor}"
+                    FlexLayout.Grow="0"
+                    FlexLayout.Shrink="0"
+                    HeightRequest="{Binding CardHeight, Source={x:Reference This}}"
+                    Image="{Binding Image}"
+                    IsSelected="{Binding IsSelected}"
+                    Tags="{Binding ItemTags}" />
+                <StackLayout>
+                    <Label
+                        x:Name="TitleLabel"
+                        Padding="0,10,0,0"
+                        d:Text="Title"
+                        BindingContext="{x:Reference Tile}"
+                        LineBreakMode="TailTruncation"
+                        MaxLines="2"
+                        Style="{DynamicResource TileTitleStyle}"
+                        Text="{Binding Title}">
+                        <Label.Effects>
+                            <effect:ShadowEffect Radius="3" Color="#66000000" />
+                        </Label.Effects>
+                    </Label>
+                    <component:TagsView
+                        BindingContext="{x:Reference Tile}"
+                        IsVisible="{Binding Tags, Converter={StaticResource HasTagsConverter}}"
+                        MaxLines="1"
+                        TagSource="{Binding Tags}" />
+                    <Label
+                        x:Name="DetailLabel"
+                        d:Text="Content description. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+                        Style="{DynamicResource BodyStyle}"
+                        Text="{Binding Description}" />
+                </StackLayout>
+            </FlexLayout>
+        </ScrollView>
+    </ContentView.Content>
+</card:BaseCard>

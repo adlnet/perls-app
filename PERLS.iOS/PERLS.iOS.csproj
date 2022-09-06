@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EF430004-D844-4777-B9A3-B08DAC44B6E4}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{89a4fe7c-635d-49c9-8d8c-5cd363c0d68d}</TemplateGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>PERLS.iOS</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>PERLS.iOS</AssemblyName>
+    <MtouchEnableSGenConc>true</MtouchEnableSGenConc>
+    <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <CodeAnalysisRuleSet>$(SolutionDir)\stylecop.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\$(Platform)\$(Configuration)\$(AssemblyName).xml</DocumentationFile>
+    <Deterministic>true</Deterministic>
+    <OutputPath>bin\$(Platform)\$(Configuration)</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Developer</CodesignKey>
+    <PackageIdentifier>net.usalearning.perls</PackageIdentifier>
+    <AppName>PERLS Dev</AppName>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG</DefineConstants>
+    <MtouchLink>None</MtouchLink>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchUseLlvm>false</MtouchUseLlvm>
+    <MtouchNoDSymUtil>true</MtouchNoDSymUtil>
+    <OptimizePNGs>false</OptimizePNGs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>RELEASE</DefineConstants>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchDebug>false</MtouchDebug>
+    <MtouchUseLlvm>true</MtouchUseLlvm>
+    <OptimizePNGs>true</OptimizePNGs>
+  </PropertyGroup>
+  <PropertyGroup Condition="Exists('$(SolutionDir)\UnityLibrary.iOS\NativeReferences\UnityFramework.framework')">
+    <DefineConstants>$(DefineConstants);ENABLE_UNITY_FRAMEWORK;</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'iPhoneSimulator' ">
+    <MtouchArch>x86_64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'iPhone' ">
+    <MtouchArch>ARM64</MtouchArch>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)|$(Configuration)' == 'iPhone|Debug' ">
+    <MtouchExtraArgs>--aot=nopagetrampolines,ntrampolines=40960,nrgctx-trampolines=40960,nrgctx-fetch-trampolines=256,ngsharedvt-trampolines=4096,nimt-trampolines=4096</MtouchExtraArgs>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)|$(Configuration)' == 'iPhone|Release' ">
+    <MtouchExtraArgs>--optimize=experimental-xforms-product-type --aot=nopagetrampolines,ntrampolines=40960,nrgctx-trampolines=40960,nrgctx-fetch-trampolines=256,ngsharedvt-trampolines=4096,nimt-trampolines=4096</MtouchExtraArgs>
+  </PropertyGroup>
+  <PropertyGroup Condition="$(DefineConstants.CONTAINS('ENABLE_UNITY_FRAMEWORK'))">
+    <!-- When including a Unity framework, force Xamarin to bundle Mono as a separate framework. -->
+    <MtouchExtraArgs>$(MtouchExtraArgs) --mono:framework</MtouchExtraArgs>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderers\DefaultButtonRenderer.cs" />
+    <Compile Include="Renderers\WebViewRenderer.cs" />
+    <Compile Include="ClearCookies.cs" />
+    <Compile Include="Renderers\DefaultSearchBarRenderer.cs" />
+    <Compile Include="Renderers\DefaultShellRenderer.cs" />
+    <Compile Include="Renderers\CustomNaviBarAppearance.cs" />
+    <Compile Include="Effects\LabelShadowEffect.cs" />
+    <Compile Include="Renderers\PERLSShellSectionRenderer.cs" />
+    <Compile Include="Renderers\DefaultCollectionViewRenderer.cs" />
+    <Compile Include="Renderers\PERLSItemsViewController.cs" />
+    <Compile Include="Renderers\PERLSShellSectionRootHeader.cs" />
+    <Compile Include="Renderers\DefaultFrameRenderer.cs" />
+    <Compile Include="DocumentOpener.cs" />
+    <Compile Include="Analytics\AppCenterAnalytics.cs" />
+    <Compile Include="Renderers\BasePageRenderer.cs" />
+    <Compile Include="Effects\DarkenEffect.cs" />
+    <Compile Include="AppleFileProcessor.cs" />
+    <Compile Include="Effects\JavaScriptHandlerEffect.cs" />
+    <Compile Include="Effects\JavaScriptHandlerEffectDelegate.cs" />
+    <Compile Include="FirebaseMessagingService.cs" />
+    <Compile Include="NativeHttpClientHandler.cs" />
+    <Compile Include="NotificationAccessService.cs" />
+    <BundleResource Include="google-services.plist" />
+    <Compile Include="BrowserService.cs" />
+    <BundleResource Include="Settings.bundle\Root.plist" />
+    <Compile Include="Renderers\WebViewNavigationDelegate.cs" />
+    <BundleResource Include="Resources\icon_add_group.png" />
+    <BundleResource Include="Resources\icon_add_group%402x.png" />
+    <BundleResource Include="Resources\icon_add_group%403x.png" />
+    <Compile Include="SettingsService.cs" />
+    <Compile Include="Renderers\PERLSShellItemRenderer.cs" />
+    <Compile Include="Renderers\LocalizableCollectionViewFlowLayout.cs" />
+    <Compile Include="Renderers\XamarinShellSectionRootHeader.cs" />
+    <BundleResource Include="Resources\bookmark_toolbar_filled.png" />
+    <BundleResource Include="Resources\bookmark_toolbar_filled%402x.png" />
+    <BundleResource Include="Resources\bookmark_toolbar_unfilled.png" />
+    <BundleResource Include="Resources\bookmark_toolbar_unfilled%402x.png" />
+    <BundleResource Include="Resources\bookmark_toolbar_unfilled%403x.png" />
+    <BundleResource Include="Resources\bookmark_toolbar_filled%403x.png" />
+    <Compile Include="Effects\EntryNoLineEffect.cs" />
+    <BundleResource Include="Resources\insights.png" />
+    <BundleResource Include="Resources\insights%402x.png" />
+    <BundleResource Include="Resources\insights%403x.png" />
+    <Compile Include="Renderers\DefaultScrollViewRenderer.cs" />
+    <Compile Include="Services\ShareService.cs" />
+    <Compile Include="Services\CalendarService.cs" />
+    <Compile Include="Renderers\WebViewUIDelegate.cs" />
+    <BundleResource Include="Resources\custom_goals%403x.png" />
+    <BundleResource Include="Resources\custom_goals%402x.png" />
+    <BundleResource Include="Resources\custom_goals.png" />
+    <Compile Include="Services\UnityLibrary.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\tab_home.png" />
+    <BundleResource Include="Resources\tab_home%403x.png" />
+    <BundleResource Include="Resources\tab_home%402x.png" />
+    <BundleResource Include="Resources\tab_search%403x.png" />
+    <BundleResource Include="Resources\tab_search%402x.png" />
+    <BundleResource Include="Resources\tab_search.png" />
+    <BundleResource Include="Resources\tab_account.png" />
+    <BundleResource Include="Resources\tab_account%403x.png" />
+    <BundleResource Include="Resources\tab_account%402x.png" />
+    <BundleResource Include="Resources\placeholder.png" />
+    <BundleResource Include="Resources\placeholder%402x.png" />
+    <BundleResource Include="Resources\placeholder%403x.png" />
+    <BundleResource Include="Resources\loading.png" />
+    <BundleResource Include="Resources\loading%402x.png" />
+    <BundleResource Include="Resources\loading%403x.png" />
+    <BundleResource Include="Resources\eye%403x.png" />
+    <BundleResource Include="Resources\eye%402x.png" />
+    <BundleResource Include="Resources\eye.png" />
+    <BundleResource Include="Resources\gray_arrow.png" />
+    <BundleResource Include="Resources\gray_arrow%402x.png" />
+    <BundleResource Include="Resources\gray_arrow%403x.png" />
+    <BundleResource Include="Resources\close_button%402x.png" />
+    <BundleResource Include="Resources\close_button%403x.png" />
+    <BundleResource Include="Resources\close_button.png" />
+    <BundleResource Include="Resources\bookmark_filled.png" />
+    <BundleResource Include="Resources\bookmark_filled%402x.png" />
+    <BundleResource Include="Resources\bookmark_filled%403x.png" />
+    <BundleResource Include="Resources\bookmark_unfilled%402x.png" />
+    <BundleResource Include="Resources\bookmark_unfilled%403x.png" />
+    <BundleResource Include="Resources\bookmark_unfilled.png" />
+    <BundleResource Include="Resources\avatar_settings.png" />
+    <BundleResource Include="Resources\avatar_settings%402x.png" />
+    <BundleResource Include="Resources\avatar_settings%403x.png" />
+    <BundleResource Include="Resources\sign_up_button.png" />
+    <BundleResource Include="Resources\sign_up_button%402x.png" />
+    <BundleResource Include="Resources\sign_up_button%403x.png" />
+    <BundleResource Include="Resources\back_white.png" />
+    <BundleResource Include="Resources\back_white%402x.png" />
+    <BundleResource Include="Resources\back_white%403x.png" />
+    <BundleResource Include="Resources\menu_avatar.png" />
+    <BundleResource Include="Resources\menu_avatar%403x.png" />
+    <BundleResource Include="Resources\menu_avatar%402x.png" />
+    <BundleResource Include="Resources\no_search_result%402x.png" />
+    <BundleResource Include="Resources\no_search_result%403x.png" />
+    <BundleResource Include="Resources\no_search_result.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon_20.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon_29.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon_40.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon_58.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon_60.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon_76.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon_80.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon_87.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon_120.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon_152.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon_167.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon_180.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\appicon_1024.png" />
+    <BundleResource Include="Resources\splashBackground.png" />
+    <BundleResource Include="Resources\splashBackground%402x.png" />
+    <BundleResource Include="Resources\splashBackground%403x.png" />
+    <BundleResource Include="Resources\icon_no_shadow.png" />
+    <BundleResource Include="Resources\icon_no_shadow%403x.png" />
+    <BundleResource Include="Resources\icon_no_shadow%402x.png" />
+    <BundleResource Include="Resources\icon_no_shadow_inverted.png" />
+    <BundleResource Include="Resources\icon_no_shadow_inverted%402x.png" />
+    <BundleResource Include="Resources\icon_no_shadow_inverted%403x.png" />
+    <BundleResource Include="Resources\emptyBookmark%403x.png" />
+    <BundleResource Include="Resources\emptyBookmark%402x.png" />
+    <BundleResource Include="Resources\emptyBookmark.png" />
+    <BundleResource Include="Resources\emptyHistory%403x.png" />
+    <BundleResource Include="Resources\emptyHistory%402x.png" />
+    <BundleResource Include="Resources\emptyHistory.png" />
+    <BundleResource Include="Resources\error%403x.png" />
+    <BundleResource Include="Resources\error%402x.png" />
+    <BundleResource Include="Resources\error.png" />
+    <BundleResource Include="Resources\test_complete_mark%403x.png" />
+    <BundleResource Include="Resources\test_complete_mark%402x.png" />
+    <BundleResource Include="Resources\test_complete_mark.png" />
+    <BundleResource Include="Resources\tab_media.png" />
+    <BundleResource Include="Resources\tab_media%402x.png" />
+    <BundleResource Include="Resources\tab_media%403x.png" />
+    <BundleResource Include="Resources\media_play%402x.png" />
+    <BundleResource Include="Resources\media_play%403x.png" />
+    <BundleResource Include="Resources\media_play.png" />
+    <BundleResource Include="Resources\skip_back%403x.png" />
+    <BundleResource Include="Resources\skip_back%402x.png" />
+    <BundleResource Include="Resources\skip_back.png" />
+    <BundleResource Include="Resources\skip_forward%402x.png" />
+    <BundleResource Include="Resources\skip_forward%403x.png" />
+    <BundleResource Include="Resources\skip_forward.png" />
+    <BundleResource Include="Resources\nowplaying_play%403x.png" />
+    <BundleResource Include="Resources\nowplaying_play%402x.png" />
+    <BundleResource Include="Resources\nowplaying_play.png" />
+    <BundleResource Include="Resources\nowplaying_pause%402x.png" />
+    <BundleResource Include="Resources\nowplaying_pause%403x.png" />
+    <BundleResource Include="Resources\nowplaying_pause.png" />
+    <BundleResource Include="Resources\media_pause%402x.png" />
+    <BundleResource Include="Resources\media_pause%403x.png" />
+    <BundleResource Include="Resources\media_pause.png" />
+    <BundleResource Include="Resources\scrubber_thumb.png" />
+    <BundleResource Include="Resources\scrubber_thumb%403x.png" />
+    <BundleResource Include="Resources\scrubber_thumb%402x.png" />
+    <BundleResource Include="Resources\alarm.png" />
+    <BundleResource Include="Resources\alarm%402x.png" />
+    <BundleResource Include="Resources\alarm%403x.png" />
+    <BundleResource Include="Resources\annotation_delete.png" />
+    <BundleResource Include="Resources\annotation_delete%402x.png" />
+    <BundleResource Include="Resources\annotation_delete%403x.png" />
+    <BundleResource Include="Resources\annotation_icon.png" />
+    <BundleResource Include="Resources\annotation_icon%402x.png" />
+    <BundleResource Include="Resources\annotation_icon%403x.png" />
+    <BundleResource Include="Resources\carrot.png" />
+    <BundleResource Include="Resources\carrot%402x.png" />
+    <BundleResource Include="Resources\carrot%403x.png" />
+    <BundleResource Include="Resources\share_button%403x.png" />
+    <BundleResource Include="Resources\share_button%402x.png" />
+    <BundleResource Include="Resources\share_button.png" />
+    <BundleResource Include="Resources\icon_awesome_hashtag.png" />
+    <BundleResource Include="Resources\icon_awesome_hashtag%402x.png" />
+    <BundleResource Include="Resources\icon_awesome_hashtag%403x.png" />
+    <BundleResource Include="Resources\shareResourceIcon.png" />
+    <BundleResource Include="Resources\shareResourceIcon%402x.png" />
+    <BundleResource Include="Resources\shareResourceIcon%403x.png" />
+    <BundleResource Include="Resources\tab_groups.png" />
+    <BundleResource Include="Resources\tab_groups%402x.png" />
+    <BundleResource Include="Resources\tab_groups%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.9" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms.PageControl" Version="1.2.0" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.2" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.0.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.0.0" />
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.470" />
+    <PackageReference Include="Float.Corcav.Behaviors" Version="3.0.0.3" />
+    <PackageReference Include="Float.XFormsTouch" Version="2.0.0.10" />
+    <PackageReference Include="Float.TinCan" Version="1.0.3.29" />
+    <PackageReference Include="Float.TinCan.QueuedLRS" Version="1.0.0.1" />
+    <PackageReference Include="Float.FileDownloader" Version="1.0.0.5" />
+    <PackageReference Include="StyleCop.Analyzers">
+      <Version>1.1.118</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers">
+      <Version>3.3.1</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Float.Core" Version="1.0.0.10" />
+    <PackageReference Include="Plugin.MediaManager" Version="1.0.7" />
+    <PackageReference Include="Xamarin.Build.Download" Version="0.10.0" />
+    <PackageReference Include="Xamarin.Firebase.iOS.CloudMessaging" Version="4.7.1" />
+    <PackageReference Include="Xamarin.Firebase.iOS.InstanceID" Version="4.8.0" />
+    <PackageReference Include="Xamarin.Firebase.iOS.Core" Version="6.10.4" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <PackageReference Include="Xamarin.TestCloud.Agent" Version="0.23.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="$(SolutionDir)\stylecop.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDir)\PERLS.Data\PERLS.Data.csproj" />
+    <ProjectReference Include="$(SolutionDir)\PERLS.DataImplementation\PERLS.DataImplementation.csproj" />
+    <ProjectReference Include="$(SolutionDir)\PERLS\PERLS.csproj" />
+    <ProjectReference Include="$(SolutionDir)\UnityLibrary.iOS\UnityLibrary.iOS.csproj" Condition="$(DefineConstants.CONTAINS('ENABLE_UNITY_FRAMEWORK'))">
+      <Name>UnityLibrary.iOS</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Renderers\" />
+    <Folder Include="Effects\" />
+    <Folder Include="Analytics\" />
+    <Folder Include="Assets.xcassets\AppIcon.appiconset\" />
+    <Folder Include="Settings.bundle\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+</Project>

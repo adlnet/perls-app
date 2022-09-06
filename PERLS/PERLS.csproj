@@ -1,0 +1,96 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <DocumentationFile>bin\$(Configuration)\netstandard2.0\PERLS.xml</DocumentationFile>
+    <Deterministic>true</Deterministic>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <RootNamespace>PERLS</RootNamespace>
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="$(SolutionDir)\stylecop.json" />
+  </ItemGroup>
+  <PropertyGroup>
+    <CodeAnalysisRuleSet>$(SolutionDir)\stylecop.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugType>full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="Components\" />
+    <Folder Include="Converters\" />
+    <Folder Include="Coordinators\" />
+    <Folder Include="Effects\" />
+    <Folder Include="Pages\" />
+    <Folder Include="Providers\" />
+    <Folder Include="Services\" />
+    <Folder Include="Templates\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\Fonts\" />
+    <Folder Include="Updates\" />
+    <Folder Include="Components\Blocks\" />
+    <Folder Include="Components\Sections\" />
+    <Folder Include="Components\Chips\" />
+    <Folder Include="Services\HttpServerResponder\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="1.2.0.223" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="1.68.1.1" />
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.442" />
+    <PackageReference Include="Float.FileDownloader" Version="1.0.0.5" />
+    <PackageReference Include="Xamarin.Forms.PageControl" Version="1.2.0" />
+    <PackageReference Include="Float.Corcav.Behaviors" Version="3.0.0.3" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="3.4.3" />
+    <PackageReference Include="Microsoft.AppCenter" Version="3.4.3" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="3.4.3" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Float.XFormsTouch" Version="2.0.0.10" />
+    <PackageReference Include="Plugin.MediaManager" Version="1.0.7" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="Float.TinCan.ActivityLibrary" Version="1.0.0.10" />
+    <PackageReference Include="Float.HttpServer" Version="1.0.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDir)\PERLS.Data\PERLS.Data.csproj" />
+    <ProjectReference Include="$(SolutionDir)\PERLS.DataImplementation\PERLS.DataImplementation.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Resources\Fonts\OpenSansBold.ttf" />
+    <None Remove="Resources\Fonts\OpenSansBoldItalic.ttf" />
+    <None Remove="Resources\Fonts\OpenSansExtraBold.ttf" />
+    <None Remove="Resources\Fonts\OpenSansItalic.ttf" />
+    <None Remove="Resources\Fonts\OpenSansRegular.ttf" />
+    <None Remove="Resources\Fonts\OpenSansSemiBold.ttf" />
+    <None Remove="Components\Blocks\" />
+    <None Remove="Components\Sections\" />
+    <None Remove="Components\Chips\" />
+    <None Remove="Ical.Net" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Fonts\OpenSansBold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\OpenSansBoldItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\OpenSansExtraBold.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\OpenSansItalic.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\OpenSansRegular.ttf" />
+    <EmbeddedResource Include="Resources\Fonts\OpenSansSemiBold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Components\GroupTileGroup.xaml.cs">
+      <DependentUpon>GroupTileGroup.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

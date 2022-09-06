@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="PERLS.Components.Blocks.ChipBlockView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:chips="clr-namespace:PERLS.Components.Chips"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:vm="clr-namespace:PERLS.Data.ViewModels.Blocks;assembly=PERLS.Data"
+    x:DataType="vm:ChipBlockViewModel">
+    <ContentView.Content>
+        <component:AutoDeselectingPERLSCollectionView
+            x:Name="Chips"
+            Margin="-10,0"
+            HeightRequest="56"
+            HorizontalScrollBarVisibility="Never"
+            ItemsSource="{Binding FirstContents}"
+            SelectedItem="{Binding SelectedItem}"
+            SelectionChangedCommand="{Binding OnSelectionChanged}"
+            SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference Chips}}"
+            SelectionMode="Single">
+            <CollectionView.EmptyView>
+                <component:CenteredImageTitleDetailView
+                    Title="{Binding EmptyMessageTitle}"
+                    Detail="{Binding EmptyLabel}"
+                    Image="{Binding EmptyImageName}" />
+            </CollectionView.EmptyView>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout HorizontalItemSpacing="10" Orientation="Horizontal" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <chips:ChipView />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <CollectionView.Header>
+                <!--
+                    "Padding" before the first element so that it aligns with the items around it.
+                    This is preferred over adding margin/padding to the parent so that the item
+                    can scroll all the way to the edge of the screen.
+                -->
+                <BoxView WidthRequest="0" />
+
+            </CollectionView.Header>
+            <CollectionView.Footer>
+                <ContentView>
+
+                    <ContentView.Triggers>
+                        <DataTrigger
+                            Binding="{Binding HasMore}"
+                            TargetType="ContentView"
+                            Value="False">
+                            <Setter Property="WidthRequest" Value="0" />
+                            <Setter Property="IsVisible" Value="False" />
+                        </DataTrigger>
+                    </ContentView.Triggers>
+                    <Frame
+                        Margin="0,0,10,0"
+                        Padding="24,12"
+                        BackgroundColor="{DynamicResource SecondaryColor}"
+                        CornerRadius="6"
+                        HasShadow="False"
+                        HeightRequest="56"
+                        MinimumWidthRequest="128">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OnSelectionChanged}" CommandParameter="{Binding .}" />
+                        </Frame.GestureRecognizers>
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Style="{DynamicResource TextStyle}"
+                            Text="{l10n:Translate ViewMoreButtonLabel}"
+                            TextColor="White"
+                            VerticalTextAlignment="Center" />
+                    </Frame>
+                </ContentView>
+            </CollectionView.Footer>
+        </component:AutoDeselectingPERLSCollectionView>
+    </ContentView.Content>
+</ContentView>

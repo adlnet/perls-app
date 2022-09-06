@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.DownloadPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <AbsoluteLayout BackgroundColor="{DynamicResource BackgroundColor}">
+            <Label
+                AbsoluteLayout.LayoutBounds="0.5,0.1,0.9,0.1"
+                AbsoluteLayout.LayoutFlags="All"
+                HorizontalTextAlignment="Center"
+                Style="{StaticResource BodyStyle}"
+                Text="{Binding PackageName}"
+                VerticalTextAlignment="Center" />
+            <StackLayout
+                AbsoluteLayout.LayoutBounds="0.5,0.5"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                HorizontalOptions="CenterAndExpand"
+                Orientation="Vertical"
+                Spacing="16"
+                VerticalOptions="Center">
+                <ffimageloading:CachedImage
+                    HeightRequest="64"
+                    IsVisible="True"
+                    Source="{Binding ProgressIcon}"
+                    WidthRequest="64" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="22"
+                    HorizontalTextAlignment="Center"
+                    LineHeight="1.23"
+                    Style="{StaticResource HeadingStyle}"
+                    Text="{Binding Downloading}" />
+                <BoxView HeightRequest="38" />
+                <Button
+                    BackgroundColor="Transparent"
+                    Command="{Binding CancelCommand}"
+                    FontSize="16"
+                    IsEnabled="{Binding CanCancel}"
+                    Text="{Binding CancelLabel}" />
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</page:BasePage>

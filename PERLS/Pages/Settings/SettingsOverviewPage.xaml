@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.Settings.SettingsOverviewPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    FlowDirection="{x:Static Device.FlowDirection}"
+    mc:Ignorable="d">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="HorizontalTextAlignment" Value="Center" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding CloseCommand}" IconImageSource="close_button" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ListView
+            x:Name="List"
+            BackgroundColor="{DynamicResource BackgroundColor}"
+            ItemSelected="OnItemSelected"
+            ItemsSource="{Binding Options}"
+            RowHeight="80"
+            SelectedItem="{Binding SelectedItem}">
+            <ListView.Header>
+                <StackLayout Spacing="0">
+                    <Frame
+                        Margin="0,50,0,10"
+                        Padding="0"
+                        CornerRadius="50"
+                        HeightRequest="100"
+                        HorizontalOptions="Center"
+                        IsClippedToBounds="True"
+                        WidthRequest="100">
+                        <ffimageloading:CachedImage
+                            Aspect="AspectFill"
+                            ErrorPlaceholder="tab_account"
+                            LoadingPlaceholder="tab_account"
+                            Source="{Binding UserAvatar}" />
+                    </Frame>
+                    <Label
+                        d:Text="John Doe"
+                        Style="{DynamicResource UserNameStyle}"
+                        Text="{Binding UserName}" />
+                    <Label
+                        Margin="0,0,0,40"
+                        d:Text="jdoe@website.com"
+                        Style="{DynamicResource UserEmailStyle}"
+                        Text="{Binding UserEmail}" />
+                </StackLayout>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout
+                            Padding="20,10,20,10"
+                            BackgroundColor="{DynamicResource BackgroundColor}"
+                            Orientation="Horizontal"
+                            VerticalOptions="Center">
+                            <Label
+                                d:Text="Settings Label"
+                                HorizontalOptions="StartAndExpand"
+                                Style="{DynamicResource OptionsStyle}"
+                                Text="{Binding Text, Converter={StaticResource UppercaseConverter}}"
+                                TextColor="{Binding TextColor}"
+                                VerticalTextAlignment="Center" />
+                            <ffimageloading:CachedImage IsVisible="{Binding ShowArrow}" Source="gray_arrow" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.Footer>
+                <Label
+                    Padding="20,10,20,10"
+                    d:Text="Version 1.0.0 (123)"
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource CaptionStyle}"
+                    Text="{Binding AppInfo}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="4" Tapped="TapGestureRecognizer_Tapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </ListView.Footer>
+        </ListView>
+    </ContentPage.Content>
+</page:BasePage>

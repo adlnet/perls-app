@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<card:FlippableCard
+    x:Class="PERLS.Components.Cards.FlashCardCard"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:card="clr-namespace:PERLS.Components.Cards"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:dynamic="clr-namespace:PERLS.Data.ParagraphLayout.Components;assembly=PERLS.Data"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    IsFlipped="{Binding IsFlipped}"
+    mc:Ignorable="d">
+    <ContentView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <AbsoluteLayout x:Name="Main" BackgroundColor="{DynamicResource FlashCardColor}">
+            <!--  Front of the Flash Card  -->
+            <AbsoluteLayout
+                x:Name="FrontOfCard"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                IsVisible="true">
+                <Grid
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All"
+                    RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="70" />
+                    </Grid.RowDefinitions>
+                    <ScrollView
+                        Grid.Row="0"
+                        Padding="10"
+                        Scrolled="MainScrollScrolled">
+                        <StackLayout Spacing="20" VerticalOptions="Center">
+                            <dynamic:VerticalParagraphLayout Margin="0,80,0,0" Paragraphs="{Binding Body}" />
+                            <ffimageloadingsvg:SvgCachedImage
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                HeightRequest="70"
+                                Source="resource://PERLS.Data.Resources.flashcard_icon.svg?Assembly=PERLS.Data"
+                                VerticalOptions="Start"
+                                WidthRequest="70">
+                                <ffimageloading:CachedImage.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding FlipCardCommand}" />
+                                </ffimageloading:CachedImage.GestureRecognizers>
+                            </ffimageloadingsvg:SvgCachedImage>
+                        </StackLayout>
+                    </ScrollView>
+                    <ContentView
+                        Grid.Row="1"
+                        Padding="10"
+                        BackgroundColor="{Binding Path=BackgroundColor, Source={x:Reference Main}, Converter={StaticResource AltColorConverter}}">
+                        <component:TagsView
+                            AlternateColor="True"
+                            MaxLines="2"
+                            TagSource="{Binding ItemTags}" />
+                    </ContentView>
+                </Grid>
+                <component:BookmarkToggle
+                    AbsoluteLayout.LayoutBounds="1,0,60,40"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    BindingContext="{Binding BookmarkState}" />
+                <component:CompletionIndicator AbsoluteLayout.LayoutBounds="20,20,35,35" BindingContext="{Binding CompletionState}" />
+                <component:MoreInfoIndicator
+                    x:Name="Recommendation"
+                    Margin="0,0,15,0"
+                    AbsoluteLayout.LayoutBounds="1,55,45,30"
+                    AbsoluteLayout.LayoutFlags="XProportional"
+                    AlternateColor="True"
+                    BindingContext="{Binding MoreInfoStateViewModel}" />
+            </AbsoluteLayout>
+            <!--  Back of the Flash Card  -->
+            <AbsoluteLayout
+                x:Name="BackOfCard"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                InputTransparent="true"
+                Opacity="0"
+                RotationY="180">
+                <Grid
+                    Padding="10"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <ffimageloading:CachedImage
+                        Grid.Row="0"
+                        HorizontalOptions="Start"
+                        Source="back_white">
+                        <ffimageloading:CachedImage.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding FlipCardCommand}" />
+                        </ffimageloading:CachedImage.GestureRecognizers>
+                    </ffimageloading:CachedImage>
+                    <ScrollView Grid.Row="1">
+                        <dynamic:VerticalParagraphLayout Paragraphs="{Binding BackBody}" VerticalOptions="CenterAndExpand" />
+                    </ScrollView>
+                </Grid>
+                <component:BookmarkToggle
+                    AbsoluteLayout.LayoutBounds="1,0,60,40"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    BindingContext="{Binding BookmarkState}" />
+            </AbsoluteLayout>
+        </AbsoluteLayout>
+    </ContentView.Content>
+</card:FlippableCard>

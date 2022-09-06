@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <!-- Global default labels -->
+    <data name="DoneLabel" xml:space="preserve">
+        <value>Done</value>
+        <comment>Default button label for closing a modal</comment>
+    </data>
+    <data name="CloseLabel" xml:space="preserve">
+        <value>CLOSE</value>
+        <comment>A slightly less default button label for closing a modal</comment>
+    </data>
+    <data name="NewEmptyMessage">
+        <value>There’s nothing new right now</value>
+        <comment>label for when a collection New is empty</comment>
+    </data>
+    <data name="TrendingEmptyMessage">
+        <value>There’s nothing trending right now</value>
+        <comment>label for when a collection Trending is empty</comment>
+    </data>
+    <data name="RecommendationsEmptyTitle">
+        <value>There are no recommendations yet</value>
+        <comment>Title for when recommendations are empty</comment>
+    </data>
+    <data name="RecommendationsEmptyMessage">
+        <value>Browse Media or Search to explore other content</value>
+        <comment>label for when recommendations are empty</comment>
+    </data>
+    <data name="EmptyPodcastTitle">
+        <value>There are no Podcasts yet</value>
+        <comment>Title text to display when the podcasts page is empty</comment>
+    </data>
+    <data name="EmptyPodcastMessage">
+        <value>Browse the Dashboard or Search to explore other content.</value>
+        <comment>Body text to display when the podcasts page is empty</comment>
+    </data>
+    <data name="EpisodesEmptyMessage">
+        <value>No episodes available</value>
+        <comment>label for when a the collection of episodes is empty</comment>
+    </data>
+    <data name="DefaultLoadingMessage">
+        <value>Loading...</value>
+        <comment>Default message displayed while the app is loading content</comment>
+    </data>
+    <data name="DefaultSavingMessage">
+        <value>Saving...</value>
+        <comment>Default message displayed while the app is saving content</comment>
+    </data>
+    <data name="DefaultEmptyMessage">
+        <value>There's nothing here</value>
+        <comment>Default label for when a collection is empty</comment>
+    </data>
+    <data name="EmptyNotesTitle">
+        <value>You haven't made any notes yet</value>
+        <comment>Title text to display when the user has no notes</comment>
+    </data>
+    <data name="EmptyNotesMessage">
+        <value>Visit an article and use the pencil icon to create your first note.</value>
+        <comment>Body text to display when the user has no notes</comment>
+    </data>
+    <data name="BadgesEmptyMessage">
+        <value>Your badges will be shown here</value>
+        <comment>Default label for when the user doesn't have any badges</comment>
+    </data>
+    <data name="NoResultsMessage">
+        <value>No results found</value>
+        <comment>Default label for when the filter returns no results</comment>
+    </data>
+    <data name="EmptyCertificatesTitle">
+        <value>You don't have any certificates yet</value>
+        <comment>Title text to display when the user has no certificates</comment>
+    </data>
+    <data name="EmptyCertificatesMessage">
+        <value>Complete courses to earn certificates.</value>
+        <comment>Body text to display when the user has no certificates</comment>
+    </data>
+    <data name="EmptyTagMessage">
+        <value>There's nothing tagged with {0}</value>
+        <comment>Text to display when a followed tag is empty</comment>
+    </data>
+    <data name="EmptyUnspecifiedTagMessage">
+        <value>There is no content tagged with that term.</value>
+        <comment>Text to display in an alelrt when a followed tag is empty</comment>
+    </data>
+    <data name="EmptyFollowingTitle">
+        <value>There is no content from your Followed tags yet</value>
+        <comment>Title text to display when all followed content is empty</comment>
+    </data>
+    <data name="EmptyFollowingMessage">
+        <value>Find more content in the For You tab.</value>
+        <comment>Body text to display when all followed content is empty</comment>
+    </data>
+    <data name="EmptyGroupsMessage">
+        <value>Find more content in the For You tab.</value>
+        <comment>Body text to display when all groups are empty</comment>
+    </data>
+    <data name="SettingsLabel">
+        <value>My Profile</value>
+        <comment>Default label for application settings</comment>
+    </data>
+    <data name="DeviceSettingsLabel">
+        <value>Settings</value>
+        <comment>Default label for the device settings</comment>
+    </data>
+    <data name="LogOutLabel">
+        <value>LOG OUT</value>
+        <comment>Default label for log out button</comment>
+    </data>
+    <data name="FirebaseTokenMessage">
+        <value>"Firebase Token Message"</value>
+        <comment>The name of the messaging center message</comment>
+    </data>
+    <data name="CommentsTitleLabel">
+        <value>Comments</value>
+        <comment>The title of the comments section.</comment>
+    </data>
+    <data name="NotificationChannel">
+        <value>Notifications</value>
+        <comment>The name of the Android Firebase Messaging channel.</comment>
+    </data>
+    <!-- Onboarding Labels -->
+    <data name="FinishingOnboardingLabel">
+        <value>Preparing...</value>
+        <comment>Displayed to the user following successful authentication as the app is being prepared</comment>
+    </data>
+    <!-- Primary Navigation Labels -->
+    <data name="TabHomeLabel">
+        <value>Dashboard</value>
+        <comment>Label for the first tab of the app</comment>
+    </data>
+    <data name="TabMediaLabel">
+        <value>Media</value>
+        <comment>Label for the media tab containing podcast functionality</comment>
+    </data>
+    <data name="TabSearchLabel">
+        <value>Search</value>
+        <comment>Label for the navigation tab containing search functionality</comment>
+    </data>
+    <data name="TabAccountLabel">
+        <value>Me</value>
+        <comment>Label for the navigation tab containing content for the current user</comment>
+    </data>
+    <data name="TabRecommendationsLabel">
+        <value>For You</value>
+        <comment>Label for the navigation tab containing user recommendations</comment>
+    </data>
+    <data name="TabTrendingLabel">
+        <value>Trending</value>
+        <comment>Label for the navigation tab containing trending items</comment>
+    </data>
+    <data name="TabNewLabel">
+        <value>New</value>
+        <comment>Label for the navigation tab containing new items</comment>
+    </data>
+    <data name="TabCertificatesLabel">
+        <value>Certificates</value>
+        <comment>Label for the navigation tab containing current learner's certificates</comment>
+    </data>
+    <data name="TabMyContentLabel">
+        <value>My Content</value>
+        <comment>Label for the page title of the navigation tab containing current learner's bookmarks</comment>
+    </data>
+    <data name="TabHistoryLabel">
+        <value>History</value>
+        <comment>Label for the navigation tab containing current learner's history</comment>
+    </data>
+    <data name="TabStatsLabel">
+        <value>Stats</value>
+        <comment>Label for the navigation tab containing current learner's stats</comment>
+    </data>
+    <data name="TabGoalsLabel">
+        <value>Insights</value>
+        <comment>Label for the navigation tab containing current learner's goals</comment>
+    </data>
+    <data name="TabNotesLabel">
+        <value>Notes</value>
+        <comment>Label for the navigation tab containing current learner's notes</comment>
+    </data>
+    <data name="TabBadgesLabel">
+        <value>Badges</value>
+        <comment>Label for the navigation tab containing current learner's badges</comment>
+    </data>
+    <data name="TabFollowingLabel">
+        <value>Following</value>
+        <comment>Label for the navigation tab containing current learner's followed tags</comment>
+    </data>
+    <!-- Error Messages -->
+    <data name="DefaultErrorTitle">
+        <value>Sorry</value>
+        <comment>Default error title</comment>
+    </data>
+    <data name="InterestsTitle">
+        <value>Interests</value>
+        <comment>Title of page to change interests</comment>
+    </data>
+    <data name="DefaultErrorDismissButton">
+        <value>OK</value>
+        <comment>Default button label for dismissing an error</comment>
+    </data>
+    <data name="NoLearnerError">
+        <value>There is no learner logged into the app</value>
+        <comment>Error message for when there is no current learner</comment>
+    </data>
+    <data name="StatementSendError">
+        <value>Unable to contact the LRS. Please contact your system administrator.</value>
+        <comment>Error message for when sending an xAPI statement fails.</comment>
+    </data>
+    <data name="OfflineMessageTitle">
+        <value>You are offline.</value>
+        <comment>Title for the message notifying the user they are offline</comment>
+    </data>
+    <data name="JsonErrorMessage">
+        <value>The server may be undergoing maintenance. Please try again in a few moments.</value>
+        <comment>Error message displayed to the user when there is a JSON parsing/serialization exception.</comment>
+    </data>
+    <data name="AuthenticationErrorMessage">
+        <value>Your account doesn't have permission to do that.</value>
+        <comment>Error message displayed to the user when the server returns a 401 or 403 status code.</comment>
+    </data>
+    <data name="ServerErrorMessage">
+        <value>There was a problem communicating with the server. The app will try again in a few moments.</value>
+        <comment>Error message displayed to the user when the server returns a 5xx error.</comment>
+    </data>
+    <data name="UnknownErrorMessage">
+        <value>Something has gone wrong on our side. The error has been logged so it can be addressed.</value>
+        <comment>Generic error message displayed to the user.</comment>
+    </data>
+    <data name="ActivityLaunchError">
+        <value>Unable to launch activity at this time.</value>
+        <comment>A message to indicate that activity launch failed.</comment>
+    </data>
+    <data name="DownloadError">
+        <value>Unable to download content at this time.</value>
+        <comment>A message to indicate that content downloading failed.</comment>
+    </data>
+    <data name="ShareError">
+        <value>Unable to share content at this time.</value>
+        <comment>A message to indicate that content sharing has failed.</comment>
+    </data>
+    <!-- Types -->
+    <data name="TypeCourse">
+        <value>Course</value>
+        <comment>The display name for course content</comment>
+    </data>
+    <data name="TypeCoursePlural">
+        <value>Courses</value>
+        <comment>Plural display name for course content</comment>
+    </data>
+    <data name="TypeFlashCard">
+        <value>Flashcard</value>
+        <comment>The display name for flashcard content</comment>
+    </data>
+    <data name="TypeTip">
+        <value>Tip</value>
+        <comment>The display name for tip content</comment>
+    </data>
+    <data name="TypeQuiz">
+        <value>Quiz</value>
+        <comment>This display name for quiz content</comment>
+    </data>
+    <data name="TypeTest">
+        <value>Test</value>
+        <comment>This display name for test content</comment>
+    </data>
+    <data name="TypePodcast">
+        <value>Podcast</value>
+        <comment>This display name for podcast content</comment>
+    </data>
+    <data name="TypeEpisode">
+        <value>Episode</value>
+        <comment>This display name for episode content</comment>
+    </data>
+    <data name="TypeArticle">
+        <value>Article</value>
+        <comment>This display name for article content</comment>
+    </data>
+    <data name="TypeArticlePlural">
+        <value>Articles</value>
+        <comment>Plural display name for article content</comment>
+    </data>
+    <!-- Search -->
+    <data name="SearchPrompt">
+        <value>What are you looking for?</value>
+        <comment>Prompt to display when user hasn't yet entered a query</comment>
+    </data>
+    <data name="SearchNoResultsMessage">
+        <value>No results for "{0:query}"</value>
+        <comment>Message to display user when search query yields no results</comment>
+    </data>
+    <data name="SearchCantFindLabel">
+        <value>Can't find what you're looking for?</value>
+        <comment>Message to display user when search query yields no results</comment>
+    </data>
+    <data name="MakeASuggestionButtonLabel">
+        <value>Let us know</value>
+        <comment>Button title to display user when search query yields no results and they want to make a suggestion.</comment>
+    </data>
+    <data name="MakeASuggestionTitle">
+        <value>Make a Suggestion</value>
+        <comment>Page title to display on the make a suggestion page.</comment>
+    </data>
+    <!-- Filter -->
+    <data name="FilterPrompt">
+        <value>Filter list</value>
+        <comment>Prompt to display when user hasn't yet entered a filter</comment>
+    </data>
+    <!-- Feedback -->
+    <data name="SendFeedbackMailSubjectLine">
+        <value>Feedback for {0:app}</value>
+        <comment>Subject line used on feedback email</comment>
+    </data>
+    <!-- Learner stats -->
+    <data name="ItemSingular">
+        <value>Item</value>
+        <comment>A singular version of "item" to be used in stat readouts.</comment>
+    </data>
+    <data name="ItemPlural">
+        <value>Items</value>
+        <comment>A plural version of "item" to be used in stat readouts.</comment>
+    </data>
+    <data name="HrLabel">
+        <value>hr</value>
+        <comment>The label for displaying the "hours" abbreviation for a duration of time.</comment>
+    </data>
+    <data name="MinLabel">
+        <value>min</value>
+        <comment>The label for displaying the "minutes" abbreviation for a duration of time.</comment>
+    </data>
+    <data name="SecLabel">
+        <value>sec</value>
+        <comment>The label for displaying the "seconds" abbreviation for a duration of time.</comment>
+    </data>
+    <data name="CoursePlural">
+        <value>Courses</value>
+        <comment>A plural version of "course" to be used in stat readouts.</comment>
+    </data>
+    <data name="StatLabelSeen">
+        <value>Viewed</value>
+        <comment>A verb to be used alongside something being seen in a stat readout.</comment>
+    </data>
+    <data name="StatLabelCompleted">
+        <value>Completed</value>
+        <comment>A verb to be used alongside something being completed in a stat readout.</comment>
+    </data>
+    <data name="StatLabelAverageScore">
+        <value>Average Score</value>
+        <comment>The average score stat label.</comment>
+    </data>
+    <data name="SetAReminderButtonTitle">
+         <value>Set a Reminder</value>
+        <comment>Button title text for setting a reminder.</comment>
+    </data>
+    <data name="GoalDetailsButtonTitle">
+         <value>View Goal Details</value>
+        <comment>Button title text for viewing goal details.</comment>
+    </data>
+    <data name="CustomGoalsButtonTitle">
+         <value>Custom Goals</value>
+        <comment>Button title text for custom goal details.</comment>
+    </data>
+    <data name="GoalDetailsTitle">
+        <value>Goal Details</value>
+        <comment>Title text for viewing goal details.</comment>
+    </data>
+    <data name="GoalsHeadingLabel">
+        <value>My Goals</value>
+        <comment>Section header text for user's goals</comment>
+    </data>
+    <data name="CustomGoalsOverviewLabel">
+        <value>My Custom Goals</value>
+        <comment>Section header text for the user custom goals.</comment>
+    </data>
+    <data name="YourActivityOverviewLabel">
+        <value>Activity Overview</value>
+        <comment>Section header text for the user activity.</comment>
+    </data>
+    <data name="GoalTitleWeeklyArticles">
+        <value>Items Viewed This Week</value>
+        <comment>Goal title for learning objects viewed per week.</comment>
+    </data>
+    <data name="GoalTitleCompletedArticles">
+        <value>Items Completed This Week</value>
+        <comment>Goal title for learning objects completed per week.</comment>
+    </data>
+    <data name="GoalTitleTestScore">
+        <value>Average Test Score This Week</value>
+        <comment>Goal title for average test score per week.</comment>
+    </data>
+    <data name="GoalTitleMonthlyCourses">
+        <value>Courses Completed This Month</value>
+        <comment>Goal title for courses completed per month.</comment>
+    </data>
+    <data name="ModifyGoalButtonLabel">
+        <value>Update Goal</value>
+        <comment>Button label to modify user's goal.</comment>
+    </data>
+    <data name="GoalSatisfiedStatusLabel">
+        <value>Goal completed!</value>
+        <comment>Status label displayed when a user meets their goal.</comment>
+    </data>
+    <data name="GoalTotalLabel">
+        <value>Total</value>
+        <comment>Labels the user's current progress on their goal</comment>
+    </data>
+    <data name="HowManyArticlesViewPerWeekLabel">
+         <value>How many items do you want to view per week?</value>
+        <comment>When asking the user how many learning objects they want to view per week</comment>
+    </data>
+    <data name="HowManyArticlesCompletePerWeekLabel">
+         <value>How many items do you want to complete per week?</value>
+        <comment>When asking the user how many learning objects they want to complete per week</comment>
+    </data>
+    <data name="HowManyCoursesCompletedPerMonthLabel">
+         <value>How many courses do you want to complete per month?</value>
+        <comment>When asking the user how many courses they want to complete per month</comment>
+    </data>
+    <data name="TargetTestScoreQuestionLabel">
+         <value>What is your target test score?</value>
+        <comment>To be used in asking the user their test score goal.</comment>
+    </data>    
+    <data name="EarnedMessage">
+        <value>Earned</value>
+        <comment>Used for the label of an earned certificate.</comment>
+    </data>
+    <!-- Other -->
+    <data name="StartCourseLabel">
+        <value>Start</value>
+        <comment>The button text for starting a course.</comment>
+    </data>
+    <data name="CourseDescriptionLabel">
+        <value>Description</value>
+        <comment>The title text for the first card of a course.</comment>
+    </data>
+    <data name="HistoryEmptyMessage">
+        <value>Your activity history will be shown here</value>
+        <comment>Default label for when the user doesn't have any bookmarks</comment>
+    </data>
+    <data name="OfflineMessageBody">
+        <value>Not all {0} content is available at this time. Check your connection and then tap to try again.</value>
+        <comment>Body for the message describing that not all content is available</comment>
+    </data>
+    <data name="SetServerLabel">
+        <value>Team</value>
+        <comment>Title for page to set team name</comment>
+    </data>
+    <data name="ViewAccountLabel">
+        <value>ACCOUNT</value>
+        <comment>Settings menu item for viewing account info</comment>
+    </data>
+    <data name="SendFeedbackLabel">
+        <value>FEEDBACK</value>
+        <comment>Settings menu item for sending feedback</comment>
+    </data>
+    <data name="ViewSupportLabel">
+        <value>SUPPORT</value>
+        <comment>Settings menu item for receiving support</comment>
+    </data>
+    <data name="ViewAcknowledgementsLabel">
+        <value>ACKNOWLEDGEMENTS</value>
+        <comment>Settings menu item for viewing acknowledgements</comment>
+    </data>
+    <data name="SaveLabel">
+        <value>Save</value>
+        <comment>A save label.</comment>
+    </data>
+    <data name="CertificateLabel">
+        <value>Certificate</value>
+        <comment>The certificate title label</comment>
+    </data>
+    <data name="DateLabel">
+        <value>Date</value>
+        <comment>A label for the date.</comment>
+    </data>
+    <!-- Onboarding Strings -->
+    <data name="SignInLabel">
+        <value>Get Started</value>
+        <comment>Label for the sign in button</comment>
+    </data>
+    <data name="PageLoadingFailedMessage">
+        <value>The page has failed to load at this time</value>
+        <comment>Message in alert when user tries to open an item but it fails to load the webpage</comment>
+    </data>
+    <data name="CorrectLabel">
+        <value>CORRECT!</value>
+        <comment>Text on label to say user selected the correct answer</comment>
+    </data>
+    <data name="IncorrectLabel">
+        <value>INCORRECT</value>
+        <comment>Text on label to say user selected the wrong answer</comment>
+    </data>
+    <data name="TryAgainLabel">
+        <value>TRY AGAIN</value>
+        <comment>Text on button to retry a question</comment>
+    </data>
+    <data name="TryAgainTitleCaseLabel">
+        <value>Try Again</value>
+        <comment>Try Again but this time in Title Case.</comment>
+    </data>
+    <data name="QLabel">
+        <value>Q</value>
+        <comment>Used to signify the first letter of the word Quiz</comment>
+    </data>
+    <data name="SessionExpiredErrorMessage">
+        <value>Your session has expired. Please log in.</value>
+        <comment>Used to tell user they need to log in because their session expired</comment>
+    </data>
+    <data name="RecommendationPopupTitle">
+        <value>Why are you seeing this?</value>
+        <comment>Message at the top of pop up to show recommendaton reason</comment>
+    </data>
+    <data name="Cancel">
+        <value>Cancel</value>
+        <comment>Message on button to cancel an action</comment>
+    </data>
+    <data name="CancelDownload">
+        <value>Cancel Download</value>
+        <comment>Message on button to cancel a download</comment>
+    </data>
+    <data name="WelcomeLabel">
+        <value>Welcome</value>
+        <comment>Above entry to input team name</comment>
+    </data>
+    <data name="ContinueLabel">
+        <value>Continue</value>
+        <comment>Message next to button on Team input page to continue on</comment>
+    </data>
+    <data name="TeamPlaceholderText">
+        <value>Enter your team name</value>
+        <comment>placeholder text in entry for team name</comment>
+    </data>
+    <data name="ClearCacheLabel">
+        <value>Delete {0} MB of cache</value>
+        <comment>Button label to clear local cache.</comment>
+    </data>
+    <data name="Okay">
+        <value>Okay</value>
+        <comment>Indicates confirmation of common actions.</comment>
+    </data>
+    <data name="Enable">
+        <value>Enable</value>
+        <comment>Indicates enabling some feature.</comment>
+    </data>
+    <data name="Disable">
+        <value>Disable</value>
+        <comment>Indicates disabling some feature.</comment>
+    </data>
+    <data name="LocalLoginLabel">
+        <value>Local Login</value>
+        <comment>Title for local authentication alert.</comment>
+    </data>
+    <data name="EnableLocalLoginMessage">
+        <value>Are you sure you want to enable local authentication?</value>
+        <comment>Message for enabling local auth.</comment>
+    </data>
+    <data name="DisableLocalLoginMessage">
+        <value>Do you want to disable local authentication?</value>
+        <comment>Message for disabling local auth.</comment>
+    </data>
+    <data name="ConfirmClearCache">
+        <value>Are you sure you want to clear the local cache?</value>
+        <comment>Warning message for destructive cache clearing.</comment>
+    </data>
+    <data name="NextQuestionLabel">
+        <value>Next Question</value>
+        <comment>The title text for the button sending users to the next card.</comment>
+    </data>
+    <data name="PreviousQuestionLabel">
+        <value>Previous Question</value>
+        <comment>The title text for the button sending users to the previous card.</comment>
+    </data>
+    <data name="CorrectAnswersLabel">
+        <value>You answered &lt;strong&gt;{0}&lt;/strong&gt; out of &lt;strong&gt;{1}&lt;/strong&gt; correctly.</value>
+        <comment>A formatted string for the number of correct answers.</comment>
+    </data>
+    <data name="TestResultsMessage">
+        <value>Test Results</value>
+        <comment>The Test Results button text.</comment>
+    </data>
+    <data name="DownloadManagement">
+        <value>Download Management</value>
+        <comment>A label for download management.</comment>
+    </data>
+    <data name="DeleteDownloadsLabel">
+        <value>Delete {0} MB of downloads</value>
+        <comment>A label for deleting local downloads</comment>
+    </data>
+    <data name="DownloadSizeLabel">
+        <value>{0} MB</value>
+        <comment>A label for the size of a downloaded file.</comment>
+    </data>
+    <data name="YourDownloads">
+        <value>Your Downloads</value>
+        <comment>A label for the top of the download management list.</comment>
+    </data>
+    <data name="LessThanOne">
+        <value>&lt;1</value>
+        <comment>A label for file sizes less than one.</comment>
+    </data>
+    <data name="DeleteAnnotationTitle">
+        <value>Delete Annotation</value>
+        <comment>Title for the confirmation dialog to delete an annotation.</comment>
+    </data>
+    <data name="DeleteAnnotationMessage">
+        <value>Are you sure you want to delete this annotation?</value>
+        <comment>Message for the confirmation dialog to delete this annotation.</comment>
+    </data>
+    <data name="DeleteDownloadsTitle">
+        <value>Delete all downloads</value>
+        <comment>Title for the confirmation dialog to delete all local downloaded content.</comment>
+    </data>
+    <data name="DeleteDownloadsMessage">
+        <value>Are you sure you want to delete all downloaded files?</value>
+        <comment>Message for the confirmation dialog to delete all local downloaded content.</comment>
+    </data>
+    <data name="No">
+        <value>No</value>
+        <comment>No</comment>
+    </data>
+    <data name="Lessons">
+        <value>Lessons</value>
+        <comment>A plurality of lessons.</comment>
+    </data>
+    <data name="Lesson">
+        <value>Lesson</value>
+        <comment>A singular lesson.</comment>
+    </data>
+    <data name="Episodes">
+        <value>Episodes</value>
+        <comment>A plurality of episodes.</comment>
+    </data>
+    <data name="Episode">
+        <value>Episode</value>
+        <comment>A singular episode.</comment>
+    </data>
+    <data name="CompleteLabel">
+        <value>Complete</value>
+        <comment>To mark something complete, or a certain level thereof.</comment>
+    </data>
+    <data name="DefaultContentName">
+        <value>Downloaded content</value>
+        <comment>A label for content whose name is uncertain.</comment>
+    </data>
+    <data name="DownloadWithProgress">
+        <value>Downloading... {0}%</value>
+        <comment>A label downloading where percent progress is known.</comment>
+    </data>
+    <data name="DownloadNoProgress">
+        <value>Downloading...</value>
+        <comment>A label downloading where percent progress is unknown.</comment>
+    </data>
+    <data name="PromptResultsTitle">
+        <value>Thanks for the feedback!</value>
+        <comment>A title for the prompt results thanking the user for their feedback on the prompts.</comment>
+    </data>
+    <data name="PromptResultsMessage">
+        <value>We'll use this to improve your recommendations.</value>
+        <comment>A message for the prompt results thanking the user for their feedback on the prompts.</comment>
+    </data>
+    <data name="EmptyViewErrorTitle">
+        <value>Oops, something went wrong!</value>
+        <comment>Title for empty collection when error happens</comment>
+    </data>
+    <data name="UnsupportedContentTitle">
+        <value>This content is not supported</value>
+        <comment>Title when server-based content is presented using file-relative URLs.</comment>
+    </data>
+    <data name="UnsupportedContentMessage">
+        <value>Please contact your system administrator.</value>
+        <comment>Message when server-based content is presented using file-relative URLs.</comment>
+    </data>
+    <data name="ViewPodcastLabel">
+        <value>VIEW PODCAST</value>
+        <comment>The View Podcast label.</comment>
+    </data>
+    <data name="PodcastsLabel">
+        <value>Podcasts</value>
+        <comment>The Podcasts label.</comment>
+    </data>
+    <data name="EpisodeTrackInformation">
+        <value>{0} | {1}</value>
+        <comment>A formatted string for the episode track information.</comment>
+    </data>
+    <data name="SubscribeButtonTitle">
+        <value>SUBSCRIBE</value>
+        <comment>The title for the subscribe button in an unsubscribed state.</comment>
+    </data>
+    <data name="UnsubscribeButtonTitle">
+        <value>UNSUBSCRIBE</value>
+        <comment>The title for the subscribe button in the subscribed state.</comment>
+    </data>
+    <data name="PlayedLabel">
+        <value>PLAYED</value>
+        <comment>The label for a completed podcast episode.</comment>
+    </data>
+    <!-- Terms of Use Strings -->
+    <data name="TermsOfUseText">
+        <value>The PERLS software is the property of the U.S. Government and for Government use. This includes all data, materials; data/databases, files, graphics, broadcasts, photographs, software, codes, equipment, CD ROMs, and other deliverables provided by the Government or developed under this contract. Materials shall remain the property of the Government. PERLS software adheres to all export control regulations and ITAR compliance.</value>
+        <comment>The text corpus for the terms of use.</comment>
+    </data>
+    <!-- Goal Reminders Strings -->
+    <data name="RemindersDisabledTitle">
+        <value>Push notifications are disabled</value>
+        <comment>The title for when reminders are disabled.</comment>
+    </data>
+    <data name="RemindersDisabledMessage">
+        <value>Enable push notifications in your device settings to set a reminder</value>
+        <comment>The message for when reminders are disabled.</comment>
+    </data>
+    <data name="RemindersErrorTitle">
+        <value>Settings failed to save</value>
+        <comment>The title for when reminders fail to save.</comment>
+    </data>
+    <data name="RemindersErrorMessage">
+        <value>Failed to save reminder settings to the server</value>
+        <comment>The message for when reminders fail to save.</comment>
+    </data>
+    <data name="ReminderTitle">
+        <value>Add a Reminder</value>
+        <comment>Title label for the reminders.</comment>
+    </data>
+    <data name="ReminderChooseDays">
+        <value>Choose a day or days</value>
+        <comment>Label to instruct the user.</comment>
+    </data>
+    <data name="ReminderChooseTime">
+        <value>What time should we remind you?</value>
+        <comment>Label to instruct the user.</comment>
+    </data>
+    <data name="ReminderBody">
+        <value>Remind me of my goals on...</value>
+        <comment>Body text of reminders page.</comment>
+    </data>
+    <data name="EnterURLMessage">
+        <value>Please double-check your team name</value>
+        <comment>Prompt user to enter a url to set the server</comment>
+    </data>
+    <data name="FileNotFoundTitle">
+        <value>Missing file</value>
+        <comment>Title for a prompt about a missing file.</comment>
+    </data>
+    <data name="FileNotFoundMessage">
+        <value>The requested file is not available at this time.</value>
+        <comment>Message for a prompt about a missing file.</comment>
+    </data>
+    <data name="FollowButtonLabel">
+        <value>Follow</value>
+        <comment>A label for buttons to follow an item.</comment>
+    </data>
+    <data name="UnfollowButtonLabel">
+        <value>Unfollow</value>
+        <comment>A label for buttons to unfollow an item.</comment>
+    </data>
+    <data name="FollowErrorMessage">
+        <value>There was an error following this term.</value>
+        <comment>Text to let the user know the follow change has failed.</comment>
+    </data>
+    <data name="ViewTermErrorMessage">
+        <value>There was an error viewing this term.</value>
+        <comment>Text to let the user know that viewing a term has failed.</comment>
+    </data>
+    <data name="ItemNotFoundMessage">
+        <value>Content Not Available</value>
+        <comment>Text to let the user know that an item is no longer available.</comment>
+    </data>
+    <data name="GroupTopicsEmptyTitle">
+        <value>No topics</value>
+        <comment>Title displayed when a group is missing topics.</comment>
+    </data>
+    <data name="ViewMoreButtonLabel">
+        <value>View More</value>
+        <comment>Displayed when a list has more content that can be shown to the user.</comment>
+    </data>
+    <data name="LeaveGroupButtonLabel">
+        <value>Leave</value>
+        <comment>The label on the button to leave a group.</comment>
+    </data>
+    <data name="EmptyCourseTitleLabel">
+        <value>This course is empty</value>
+        <comment>A title for an empty course view.</comment>
+    </data>
+    <data name="EmptyCourseMessageLabel">
+        <value>You do not have access to any of the content in this course.</value>
+        <comment>A message for an empty course view.</comment>
+    </data>
+    <data name="EmptyGroupTopicTitle">
+        <value>This topic has no contents</value>
+        <comment>A title for an empty group topic.</comment>
+    </data>
+    <data name="EmptyGroupTopicMessage">
+        <value>This group doesn't have any content for this topic.</value>
+        <comment>A message for an empty group topic.</comment>
+    </data>
+    <data name="EmptyEnhancedDashboardTitle">
+        <value>Uh oh, we're experiencing an error</value>
+        <comment>A title for the empty state on the enhanced dashboard.</comment>
+    </data>
+</root>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePopupPage
+    x:Class="PERLS.Pages.WebViewPopupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:behaviors="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
+    xmlns:effect="clr-namespace:PERLS.Effects"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    xmlns:popupAnimation="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup">
+    <popup:PopupPage.Animation>
+        <popupAnimation:MoveAnimation
+            DurationIn="300"
+            DurationOut="300"
+            EasingIn="SinIn"
+            EasingOut="SinOut"
+            PositionIn="Bottom"
+            PositionOut="Bottom" />
+    </popup:PopupPage.Animation>
+    <Frame BackgroundColor="{DynamicResource BackgroundColor}" CornerRadius="15" Padding="0">
+        <StackLayout Spacing="0">
+            <Grid
+                Margin="8"
+                MinimumHeightRequest="40"
+                VerticalOptions="Start">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Grid.Column="0"
+                    Command="{Binding CloseCommand}"
+                    Text="{l10n:Translate CloseLabel}"
+                    VerticalOptions="Center" />
+                <Label
+                    Grid.Column="1"
+                    HorizontalOptions="CenterAndExpand"
+                    Style="{DynamicResource HeadingStyle}"
+                    Text="{Binding Title}"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center" />
+            </Grid>
+            <AbsoluteLayout
+                VerticalOptions="FillAndExpand">
+                <WebView
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All"
+                    BackgroundColor="{DynamicResource BackgroundColor}"
+                    Source="{Binding InitialUrl}">
+                    <behaviors:Interaction.Behaviors>
+                        <behaviors:BehaviorCollection>
+                            <behaviors:EventToCommand
+                                Command="{Binding LoadingEvent}"
+                                EventName="Navigating"
+                                PassEventArgument="True" />
+                            <behaviors:EventToCommand
+                                Command="{Binding LoadingEvent}"
+                                EventName="Navigated"
+                                PassEventArgument="True" />
+                        </behaviors:BehaviorCollection>
+                    </behaviors:Interaction.Behaviors>
+                    <WebView.Effects>
+                        <effect:JavaScriptHandlerEffect x:Name="JavaScriptEffect" />
+                    </WebView.Effects>
+                </WebView>
+                <component:ActivityIndicator
+                    AbsoluteLayout.LayoutBounds="0.5,0.5"
+                    AbsoluteLayout.LayoutFlags="PositionProportional"
+                    IsVisible="{Binding IsLoading}" />
+            </AbsoluteLayout>
+        </StackLayout>
+    </Frame>
+</page:BasePopupPage>

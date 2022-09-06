@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="PERLS.Components.Cards.BaseCard"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <!--  Overrides the default text styles to make the text white (since cards have background colors).  -->
+            <!--  This is only needed by the ParagraphLayout component (used by flashcards and tips) and will eventually need revisited.  -->
+            <!--  Typically, overriding colors should be done with dynamic resources (which ParagraphLayout does not support).  -->
+            <Style
+                x:Key="TextStyle"
+                BasedOn="{StaticResource TextStyle}"
+                TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+            <Style
+                x:Key="HeadingStyle"
+                BasedOn="{StaticResource HeadingStyle}"
+                TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+</ContentView>

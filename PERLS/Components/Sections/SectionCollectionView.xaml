@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="PERLS.Components.SectionCollectionView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:sect="clr-namespace:PERLS.Components.Sections"
+    xmlns:template="clr-namespace:PERLS.Templates"
+    xmlns:vm="clr-namespace:PERLS.Data.ViewModels.Sections;assembly=PERLS.Data"
+    Margin="0"
+    Padding="0"
+    x:DataType="vm:SectionCollectionViewModel">
+    <ContentView.Content>
+        <component:PERLSCollectionView ItemsSource="{Binding .}">
+            <CollectionView.Resources>
+                <ResourceDictionary>
+                    <DataTemplate x:Key="TabbedSectionTemplate">
+                        <ContentView>
+                            <sect:TabbedSectionView Margin="{StaticResource SpaceLeftAndRight}" />
+                        </ContentView>
+                    </DataTemplate>
+                    <DataTemplate x:Key="OneColumnSectionTemplate">
+                        <ContentView>
+                            <sect:OneColumnSectionView Margin="{StaticResource SpaceLeftAndRight}" />
+                        </ContentView>
+                    </DataTemplate>
+                </ResourceDictionary>
+            </CollectionView.Resources>
+            <CollectionView.ItemTemplate>
+                <template:SectionDataTemplateSelector OneColumnSectionTemplate="{StaticResource OneColumnSectionTemplate}" TabbedSectionTemplate="{StaticResource TabbedSectionTemplate}" />
+            </CollectionView.ItemTemplate>
+            <component:PERLSCollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="20" Orientation="Vertical" />
+            </component:PERLSCollectionView.ItemsLayout>
+            <CollectionView.EmptyView>
+                <component:CenteredImageTitleDetailView
+                    Title="{Binding EmptyMessageTitle}"
+                    Detail="{Binding EmptyLabel}"
+                    Image="{Binding EmptyImageName}"
+                    IsVisible="{Binding IsError}" />
+            </CollectionView.EmptyView>
+        </component:PERLSCollectionView>
+    </ContentView.Content>
+</ContentView>

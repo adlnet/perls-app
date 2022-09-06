@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<popup:PopupPage
+    x:Class="PERLS.Pages.GoalReminderPopupPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:popup="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    CloseWhenBackgroundIsClicked="True">
+    <popup:PopupPage.Animation>
+        <animations:ScaleAnimation
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"
+            PositionIn="Bottom"
+            PositionOut="Bottom"
+            ScaleIn="1"
+            ScaleOut="1" />
+    </popup:PopupPage.Animation>
+    <Grid>
+        <StackLayout
+            Grid.Row="0"
+            BackgroundColor="{DynamicResource BackgroundColor}"
+            HeightRequest="500"
+            HorizontalOptions="Fill"
+            VerticalOptions="End">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Button
+                    Padding="6,15,0,15"
+                    Command="{Binding ClosePageCommand}"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Start"
+                    Text="{l10n:Translate CloseLabel}"
+                    TextColor="{DynamicResource SecondaryColor}" />
+                <Label
+                    Grid.Column="1"
+                    Padding="0,15,0,15"
+                    FontSize="Medium"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource HeadingStyle}"
+                    Text="{l10n:Translate ReminderTitle}" />
+                <Button
+                    Grid.Column="2"
+                    Padding="0,15,6,15"
+                    Command="{Binding SetReminderCommand}"
+                    FontAttributes="Bold"
+                    HorizontalOptions="End"
+                    Text="{l10n:Translate SaveLabel}"
+                    TextColor="{DynamicResource SecondaryColor}" />
+            </Grid>
+            <StackLayout Padding="15" VerticalOptions="StartAndExpand">
+                <Label
+                    LineBreakMode="WordWrap"
+                    MaxLines="3"
+                    Style="{DynamicResource SubtitleStyle}"
+                    Text="{l10n:Translate ReminderBody}"
+                    VerticalOptions="StartAndExpand" />
+                <BoxView HeightRequest="20" />
+                <Label Style="{DynamicResource BodyStyle}" Text="{l10n:Translate ReminderChooseDays}" />
+                <CollectionView
+                    x:Name="Collection"
+                    HeightRequest="52"
+                    HorizontalScrollBarVisibility="Never"
+                    ItemsSource="{Binding DaysOfWeek}"
+                    SelectionChangedCommand="{Binding SelectionChangedCommand}"
+                    SelectionChangedCommandParameter="{Binding Source={RelativeSource Self}}"
+                    SelectionMode="Single">
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <RelativeLayout Margin="3,0">
+                                <Frame
+                                    Margin="0"
+                                    Padding="0"
+                                    BackgroundColor="{Binding CellBackgroundColor}"
+                                    BorderColor="{DynamicResource SecondaryColor}"
+                                    CornerRadius="10"
+                                    HasShadow="False">
+                                    <Label
+                                        FontSize="Small"
+                                        HeightRequest="50"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding ShortStringDay}"
+                                        TextColor="Black"
+                                        VerticalTextAlignment="Center"
+                                        WidthRequest="50" />
+                                </Frame>
+                            </RelativeLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <BoxView HeightRequest="20" />
+                <Label Style="{DynamicResource BodyStyle}" Text="{l10n:Translate ReminderChooseTime}" />
+                <StackLayout Orientation="Horizontal">
+                    <Picker ItemsSource="{Binding Times}" SelectedItem="{Binding SelectedTime}" />
+                    <Picker ItemsSource="{Binding Periods}" SelectedItem="{Binding SelectedPeriod}" />
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+        <BoxView
+            Grid.Row="0"
+            BackgroundColor="#88222222"
+            HeightRequest="500"
+            IsVisible="{Binding IsLoading}"
+            VerticalOptions="End" />
+        <StackLayout
+            HeightRequest="250"
+            HorizontalOptions="FillAndExpand"
+            IsVisible="{Binding IsLoading}"
+            VerticalOptions="End">
+            <ffimageloading:CachedImage
+                HeightRequest="64"
+                IsVisible="True"
+                Source="{Binding ProgressIcon}"
+                WidthRequest="64" />
+            <Label
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Text="{l10n:Translate DefaultSavingMessage}"
+                TextColor="White" />
+        </StackLayout>
+    </Grid>
+</popup:PopupPage>

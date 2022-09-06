@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<card:BaseCard
+    x:Class="PERLS.Components.Cards.PromptResultsCard"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:card="clr-namespace:PERLS.Components.Cards"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="LightGray"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <StackLayout
+            Padding="20"
+            Spacing="20"
+            VerticalOptions="Center">
+            <Label
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource SubtitleStyle}"
+                Text="{l10n:Translate PromptResultsTitle}" />
+            <Label
+                Margin="0,0,0,80"
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource BodyStyle}"
+                Text="{l10n:Translate PromptResultsMessage}" />
+        </StackLayout>
+    </ContentView.Content>
+</card:BaseCard>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="PERLS.CorpusShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:featureFlag="clr-namespace:PERLS.Services"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    FlowDirection="{x:Static Device.FlowDirection}"
+    FlyoutBehavior="Disabled"
+    mc:Ignorable="d">
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Color x:Key="NavigationPrimary">#fe8917</Color>
+            <Style BasedOn="{StaticResource TabBarStyle}" TargetType="Tab" />
+        </ResourceDictionary>
+    </Shell.Resources>
+    <!--  Your Pages  -->
+    <TabBar>
+        <Tab
+            x:Name="EnhancedDashboardTab"
+            Title="{l10n:Translate TabHomeLabel}"
+            BindingContext="{Binding Dashboard}"
+            Icon="tab_home"
+            IsVisible="{featureFlag:FeatureFlagMarkup Flag=new_dashboard}"
+            Route="dashboard">
+            <ShellContent
+                Title="Enhanced"
+                BindingContext="{Binding .}"
+                ContentTemplate="{DataTemplate page:EnhancedDashboardPage}" />
+        </Tab>
+        <Tab
+            Title="{l10n:Translate TabHomeLabel}"
+            BindingContext="{Binding Dashboard}"
+            Icon="tab_home"
+            IsVisible="{featureFlag:FeatureFlagMarkup Flag=new_dashboard,
+                                                      Converter={StaticResource BooleanInverseConverter}}"
+            Route="dashboard">
+            <ShellContent
+                Title="{Binding Title}"
+                BindingContext="{Binding Recommendations}"
+                ContentTemplate="{DataTemplate page:DashboardCardDeckPage}"
+                Route="recommendations" />
+            <ShellContent
+                Title="{Binding Title}"
+                BindingContext="{Binding New}"
+                ContentTemplate="{DataTemplate page:DashboardCardDeckPage}"
+                Route="new" />
+            <ShellContent
+                Title="{Binding Title}"
+                BindingContext="{Binding Trending}"
+                ContentTemplate="{DataTemplate page:DashboardCardDeckPage}"
+                Route="popular" />
+            <ShellContent
+                Title="{Binding Title}"
+                BindingContext="{Binding Following}"
+                ContentTemplate="{DataTemplate page:FollowingPage}"
+                Route="following" />
+        </Tab>
+        <Tab
+            Title="{l10n:Translate TabMediaLabel}"
+            BindingContext="{Binding Podcasts}"
+            Icon="tab_media"
+            IsVisible="{featureFlag:FeatureFlagMarkup Flag=podcast_support}"
+            Route="podcasts">
+            <ShellContent ContentTemplate="{DataTemplate page:PodcastsOverviewPage}" />
+        </Tab>
+        <Tab
+            Title="{Binding Title}"
+            BindingContext="{Binding Search}"
+            Icon="tab_search"
+            Route="search">
+            <ShellContent ContentTemplate="{DataTemplate page:SearchPage}" />
+        </Tab>
+        <Tab
+            Title="{Binding Title}"
+            BindingContext="{Binding Groups}"
+            Icon="tab_groups"
+            Route="groups">
+            <ShellContent ContentTemplate="{DataTemplate page:GroupsPage}" />
+        </Tab>
+        <Tab
+            Title="{l10n:Translate TabAccountLabel}"
+            BindingContext="{Binding Account}"
+            Icon="tab_account"
+            Route="me">
+            <ShellContent
+                Title="{l10n:Translate TabGoalsLabel}"
+                BindingContext="{Binding Goals}"
+                ContentTemplate="{DataTemplate page:InsightsPage}"
+                IsVisible="{featureFlag:FeatureFlagMarkup Flag=stats}"
+                Route="stats" />
+            <ShellContent
+                Title="{l10n:Translate TabBookmarksLabel}"
+                BindingContext="{Binding Bookmarks}"
+                ContentTemplate="{DataTemplate page:SearchableListPage}"
+                Route="bookmarks" />
+            <ShellContent
+                Title="{l10n:Translate TabBadgesLabel}"
+                BindingContext="{Binding Badges}"
+                ContentTemplate="{DataTemplate page:BadgesPage}"
+                IsVisible="{featureFlag:FeatureFlagMarkup Flag=achievements}"
+                Route="badges" />
+            <ShellContent
+                Title="{l10n:Translate TabCertificatesLabel}"
+                BindingContext="{Binding Certificates}"
+                ContentTemplate="{DataTemplate page:CertificatesPage}"
+                IsVisible="{featureFlag:FeatureFlagMarkup Flag=achievements}"
+                Route="certificates" />
+            <ShellContent
+                Title="{l10n:Translate TabHistoryLabel}"
+                BindingContext="{Binding History}"
+                ContentTemplate="{DataTemplate page:SearchableListPage}"
+                Route="history" />
+            <ShellContent
+                Title="{l10n:Translate TabNotesLabel}"
+                BindingContext="{Binding Notes}"
+                ContentTemplate="{DataTemplate page:LearnerNotesPage}"
+                IsVisible="{featureFlag:FeatureFlagMarkup Flag=notes}"
+                Route="notes" />
+        </Tab>
+    </TabBar>
+</Shell>

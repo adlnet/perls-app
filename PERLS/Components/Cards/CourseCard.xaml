@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<card:BaseCard
+    x:Class="PERLS.Components.Cards.CourseCard"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:card="clr-namespace:PERLS.Components.Cards"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:skiaforms="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    x:Name="card"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <AbsoluteLayout x:Name="Main" BackgroundColor="{DynamicResource CourseCardColor}">
+            <ffimageloading:CachedImage
+                AbsoluteLayout.LayoutBounds="0, 0, 1, .5"
+                AbsoluteLayout.LayoutFlags="All"
+                Aspect="AspectFill"
+                Source="{Binding Image}" />
+            <skiaforms:SKCanvasView
+                x:Name="backgroundView"
+                AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                AbsoluteLayout.LayoutFlags="All"
+                PaintSurface="OnCanvasViewPaintSurface" />
+            <component:CompletionIndicator
+                AbsoluteLayout.LayoutBounds="20, 20, 30, 30"
+                AbsoluteLayout.LayoutFlags="None"
+                BindingContext="{Binding CompletionState}" />
+            <Grid
+                Padding="20,20,20,90"
+                AbsoluteLayout.LayoutBounds="0, 1, 1, .75"
+                AbsoluteLayout.LayoutFlags="All"
+                RowSpacing="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label
+                    Grid.Row="0"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="4"
+                    Style="{DynamicResource TitleStyle}"
+                    Text="{Binding Name}" />
+                <Label
+                    Grid.Row="1"
+                    Style="{DynamicResource BodyStyle}"
+                    Text="{Binding LessonsLabel}" />
+                <Label
+                    Grid.Row="2"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="20"
+                    Style="{DynamicResource BodyStyle}"
+                    Text="{Binding Description}" />
+            </Grid>
+            <Button
+                Margin="0,0,0,20"
+                AbsoluteLayout.LayoutBounds=".5, 1, .70, 80"
+                AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                BackgroundColor="{Binding Path=BackgroundColor, Source={x:Reference Main}, Converter={StaticResource AltColorConverter}}"
+                Command="{Binding SelectItemCommand, Source={x:Reference card}}"
+                CommandParameter="{Binding .}"
+                CornerRadius="10"
+                FontAttributes="Bold"
+                FontSize="20"
+                Text="{Binding ButtonText}"
+                TextColor="{DynamicResource PrimaryTextColor}" />
+            <component:BookmarkToggle
+                AbsoluteLayout.LayoutBounds="1,0,60,40"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                BindingContext="{Binding BookmarkState}" />
+            <component:MoreInfoIndicator
+                Margin="0,0,16,0"
+                AbsoluteLayout.LayoutBounds="1, 55, 46, 30"
+                AbsoluteLayout.LayoutFlags="XProportional"
+                AlternateColor="True"
+                BindingContext="{Binding MoreInfoStateViewModel}" />
+        </AbsoluteLayout>
+    </ContentView.Content>
+</card:BaseCard>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="PERLS.Components.Sections.TabbedSectionView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:blockComponent="clr-namespace:PERLS.Components.Blocks"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:effects="clr-namespace:PERLS.Effects"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:template="clr-namespace:PERLS.Templates"
+    xmlns:vm="clr-namespace:PERLS.Data.ViewModels.Sections;assembly=PERLS.Data">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="CardBlockTemplate">
+                <blockComponent:CardBlockView IsVisible="{Binding IsVisible}" />
+            </DataTemplate>
+            <DataTemplate x:Key="ChipBlockTemplate">
+                <blockComponent:ChipBlockView IsVisible="{Binding IsVisible}" />
+            </DataTemplate>
+            <DataTemplate x:Key="TileBlockTemplate">
+                <blockComponent:TileBlockView IsVisible="{Binding IsVisible}" />
+            </DataTemplate>
+            <template:BlockDataTemplateSelector
+                x:Key="BlockDataTemplateSelector"
+                CardBlockTemplate="{StaticResource CardBlockTemplate}"
+                ChipBlockTemplate="{StaticResource ChipBlockTemplate}"
+                TileBlockTemplate="{StaticResource TileBlockTemplate}" />
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <StackLayout Spacing="10">
+            <!--  you might be tempted to replace this with a carousel; do not  -->
+            <component:PERLSCollectionView
+                x:Name="collectionView"
+                HeightRequest="40"
+                ItemsSource="{Binding BlockButtons}"
+                SelectedItem="{Binding SelectedBlock, Mode=TwoWay}"
+                SelectionChanged="SelectionChanged"
+                SelectionMode="Single">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout HorizontalItemSpacing="20" Orientation="Horizontal" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Label
+                                x:Name="blockLabel"
+                                Margin="0"
+                                Padding="0"
+                                FontFamily="{Binding FontFamily, Converter={StaticResource FontFamilyConverter}}"
+                                HorizontalOptions="FillAndExpand"
+                                HorizontalTextAlignment="Center"
+                                Text="{Binding Name}"
+                                TextColor="{StaticResource PrimaryTextColor}"
+                                VerticalTextAlignment="End" />
+                            <BoxView
+                                x:Name="selectedLine"
+                                BackgroundColor="{Binding SelectionBackgroundColor}"
+                                CornerRadius="2"
+                                HeightRequest="4" />
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+                <CollectionView.Footer>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="180" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Frame
+                            Grid.Row="0"
+                            Margin="0"
+                            Padding="{DynamicResource ItemPadding}"
+                            BackgroundColor="Transparent"
+                            CornerRadius="0"
+                            HasShadow="False"
+                            IsVisible="{Binding CurrentBlock.HasMore, FallbackValue=False}">
+                            <Frame.Triggers>
+                                <DataTrigger
+                                    Binding="{Binding CurrentBlock.HasMore}"
+                                    TargetType="Frame"
+                                    Value="False">
+                                    <Setter Property="WidthRequest" Value="0" />
+                                </DataTrigger>
+                            </Frame.Triggers>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding CurrentBlock.OnSelectionChanged}" CommandParameter="{Binding .}" />
+                            </Frame.GestureRecognizers>
+                            <Frame
+                                BackgroundColor="{DynamicResource SecondaryColor}"
+                                HasShadow="True"
+                                HeightRequest="180"
+                                Style="{StaticResource Tile}"
+                                WidthRequest="180">
+                                <Label
+                                    HorizontalTextAlignment="Center"
+                                    Style="{DynamicResource SubtitleStyle}"
+                                    Text="{l10n:Translate ViewMoreButtonLabel}"
+                                    TextColor="White"
+                                    VerticalTextAlignment="Center" />
+                            </Frame>
+                        </Frame>
+                    </Grid>
+                </CollectionView.Footer>
+            </component:PERLSCollectionView>
+            <StackLayout
+                Margin="0"
+                Padding="0"
+                BindableLayout.ItemTemplateSelector="{StaticResource BlockDataTemplateSelector}"
+                BindableLayout.ItemsSource="{Binding Blocks}" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

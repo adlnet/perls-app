@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="PERLS.Components.Message"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:touch="clr-namespace:XFormsTouch;assembly=XFormsTouch"
+    x:Name="this"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <StackLayout
+            Margin="-1"
+            Padding="10"
+            BackgroundColor="{StaticResource MessageBackgroundColor}"
+            BindingContext="{x:Reference this}">
+            <StackLayout.Effects>
+                <touch:TouchEffect TouchAction="HandleTouch" />
+            </StackLayout.Effects>
+            <Label
+                d:Text="Message Heading"
+                FontSize="Body"
+                LineBreakMode="TailTruncation"
+                MaxLines="1"
+                Style="{DynamicResource TitleStyle}"
+                Text="{Binding Title}"
+                TextColor="{StaticResource MessageForegroundColor}" />
+            <Label
+                d:Text="The body of the message which could span multiple lines if it were a really long message."
+                Style="{DynamicResource BodyStyle}"
+                Text="{Binding Body}"
+                TextColor="{StaticResource MessageForegroundColor}" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

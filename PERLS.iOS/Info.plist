@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>UIDeviceFamily</key>
+    <array>
+      <integer>1</integer>
+      <integer>2</integer>
+    </array>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+      <string>UIInterfaceOrientationPortrait</string>
+      <string>UIInterfaceOrientationPortraitUpsideDown</string>
+      <string>UIInterfaceOrientationLandscapeLeft</string>
+      <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>MinimumOSVersion</key>
+    <string>12.0</string>
+    <key>CFBundleDisplayName</key>
+    <string>PERLS</string>
+    <key>CFBundleIdentifier</key>
+    <string>net.usalearning.perls</string>
+    <key>UILaunchStoryboardName</key>
+    <string>LaunchScreen</string>
+    <key>XSAppIconAssets</key>
+    <string>Assets.xcassets/AppIcon.appiconset</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>CFBundleShortVersionString</key>
+    <string>3.0.0</string>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+      <key>NSExceptionDomains</key>
+      <dict>
+        <key>localhost</key>
+        <dict>
+          <key>NSIncludesSubdomains</key>
+          <true />
+          <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+          <true />
+        </dict>
+      </dict>
+    </dict>
+    <key>UIUserInterfaceStyle</key>
+    <string>Light</string>
+    <key>UIRequiresFullScreen</key>
+    <true />
+    <key>NSCameraUsageDescription</key>
+    <string>We need to access the camera to update your profile picture.</string>
+    <key>CFBundleName</key>
+    <string>PERLS</string>
+    <key>LSSupportsOpeningDocumentsInPlace</key>
+    <true />
+    <key>UIBackgroundModes</key>
+    <array>
+      <string>audio</string>
+      <string>fetch</string>
+      <string>remote-notification</string>
+    </array>
+    <key>NSPhotoLibraryAddUsageDescription</key>
+    <string>We need to access photos to save this image</string>
+    <key>ITSAppUsesNonExemptEncryption</key>
+    <false />
+    <key>NSMicrophoneUsageDescription</key>
+    <string>This app requires microphone access to join events.</string>
+    <key>NSCalendarsUsageDescription</key>
+    <string>This app uses calendar access to schedule events.</string>
+    <key>NSLocationUsageDescription</key>
+    <string>This app uses location access for scheduling event locations.</string>
+    <key>NSMotionUsageDescription</key>
+    <string>This app uses motion access for AR and VR content.</string>
+  </dict>
+</plist>

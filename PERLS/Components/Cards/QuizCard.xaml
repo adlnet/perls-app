@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<card:BaseCard
+    x:Class="PERLS.Components.Cards.QuizCard"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:card="clr-namespace:PERLS.Components.Cards"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    mc:Ignorable="d">
+    <ContentView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <AbsoluteLayout x:Name="Main" BackgroundColor="{DynamicResource QuizColor}">
+            <ScrollView
+                Margin="0,0,0,50"
+                Padding="0,0,0,30"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Padding="32" Spacing="16">
+
+                    <Grid IsVisible="{Binding ShowStatusHeader}" VerticalOptions="Start">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            FontAttributes="Bold"
+                            Text="{Binding TitleString}" />
+                        <Label
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            HorizontalTextAlignment="End"
+                            Text="{Binding StatusString}" />
+                        <Label
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            FontAttributes="Bold"
+                            Text="{Binding SubtitleString}" />
+                    </Grid>
+                    <StackLayout
+                        IsVisible="{Binding IsAnswered, Converter={StaticResource BooleanInverseConverter}}"
+                        Orientation="Horizontal"
+                        Spacing="5">
+                        <Label
+                            x:Name="TitleLabel"
+                            d:Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel tellus condimentum, vulputate lectus sit amet, ultrices elit?"
+                            Style="{DynamicResource QuizTitleStyle}"
+                            Text="{Binding Name}" />
+                        <component:MoreInfoIndicator
+                            Margin="0,5,0,0"
+                            AlternateColor="True"
+                            BindingContext="{Binding MoreInfoStateViewModel}"
+                            HeightRequest="30"
+                            HorizontalOptions="End"
+                            MinimumHeightRequest="30"
+                            MinimumWidthRequest="30"
+                            VerticalOptions="Start"
+                            WidthRequest="30" />
+                    </StackLayout>
+                    <StackLayout
+                        BindableLayout.ItemsSource="{Binding Options}"
+                        IsVisible="{Binding IsAnswered, Converter={StaticResource BooleanInverseConverter}}"
+                        Spacing="16">
+                        <d:BindableLayout.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Answer 1</x:String>
+                                <x:String>Answer 2</x:String>
+                                <x:String>Answer 3</x:String>
+                                <x:String>Answer 4 Really long answer that could span lines or maybe even more than 2 lines who can say</x:String>
+                            </x:Array>
+                        </d:BindableLayout.ItemsSource>
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Frame
+                                    Padding="8"
+                                    BackgroundColor="Transparent"
+                                    BorderColor="White"
+                                    CornerRadius="15"
+                                    HasShadow="false">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Quiz.SelectAnswer}" CommandParameter="{Binding}" />
+                                    </Frame.GestureRecognizers>
+                                    <StackLayout Padding="0" Orientation="Horizontal">
+                                        <skia:SKCanvasView
+                                            HeightRequest="25"
+                                            PaintSurface="OnCanvasViewPaintSurface"
+                                            VerticalOptions="CenterAndExpand"
+                                            WidthRequest="25" />
+                                        <Label
+                                            d:Text="{Binding}"
+                                            Style="{DynamicResource QuizAnswerStyle}"
+                                            Text="{Binding Text}"
+                                            VerticalOptions="CenterAndExpand"
+                                            VerticalTextAlignment="Center" />
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                    <StackLayout
+                        IsVisible="{Binding IsAnswered}"
+                        Spacing="20"
+                        VerticalOptions="CenterAndExpand">
+                        <Grid
+                            HeightRequest="150"
+                            HorizontalOptions="Center"
+                            RowSpacing="0"
+                            VerticalOptions="CenterAndExpand"
+                            WidthRequest="150">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="150" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="150" />
+                            </Grid.RowDefinitions>
+                            <skia:SKCanvasView
+                                HeightRequest="170"
+                                PaintSurface="DrawBigCircle"
+                                VerticalOptions="CenterAndExpand"
+                                WidthRequest="170" />
+                            <AbsoluteLayout
+                                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                AbsoluteLayout.LayoutFlags="All"
+                                Rotation="-45"
+                                TranslationX="-3"
+                                TranslationY="-5">
+                                <BoxView
+                                    AbsoluteLayout.LayoutBounds=".5,.5,.3,.1"
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    BackgroundColor="White"
+                                    IsVisible="{Binding SelectedItem.IsCorrect}"
+                                    Rotation="90"
+                                    TranslationX="-36"
+                                    TranslationY="-1" />
+                                <BoxView
+                                    AbsoluteLayout.LayoutBounds=".5,.5,.6,.1"
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    BackgroundColor="White"
+                                    IsVisible="{Binding SelectedItem.IsCorrect}"
+                                    TranslationX="1"
+                                    TranslationY="23" />
+                            </AbsoluteLayout>
+                            <AbsoluteLayout
+                                AbsoluteLayout.LayoutBounds=".5,.5,1,1"
+                                AbsoluteLayout.LayoutFlags="All"
+                                Rotation="45">
+                                <BoxView
+                                    AbsoluteLayout.LayoutBounds=".5,.5,.6,.1"
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    BackgroundColor="White"
+                                    IsVisible="{Binding SelectedItem.IsCorrect, Converter={StaticResource BooleanInverseConverter}}" />
+                                <BoxView
+                                    AbsoluteLayout.LayoutBounds=".5,.5,.6,.1"
+                                    AbsoluteLayout.LayoutFlags="All"
+                                    BackgroundColor="White"
+                                    IsVisible="{Binding SelectedItem.IsCorrect, Converter={StaticResource BooleanInverseConverter}}"
+                                    Rotation="-90" />
+                            </AbsoluteLayout>
+                        </Grid>
+                        <StackLayout
+                            Margin="0,0,0,-2"
+                            HorizontalOptions="Center"
+                            Spacing="0"
+                            VerticalOptions="Center">
+                            <Label
+                                Margin="0"
+                                Padding="0"
+                                FontAttributes="Bold"
+                                FontSize="Title"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                IsVisible="{Binding SelectedItem.IsCorrect}"
+                                Text="{l10n:Translate CorrectLabel}" />
+                            <Label
+                                FontAttributes="Bold"
+                                FontSize="Title"
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                IsVisible="{Binding SelectedItem.IsCorrect, Converter={StaticResource BooleanInverseConverter}}"
+                                Text="{l10n:Translate IncorrectLabel}" />
+                        </StackLayout>
+                        <Label
+                            x:Name="FeedbackLabel"
+                            IsVisible="{Binding IsAnswered}"
+                            Style="{DynamicResource BodyStyle}"
+                            Text="{Binding Feedback}"
+                            VerticalOptions="CenterAndExpand" />
+                        <Button
+                            Margin="0,3,0,0"
+                            BackgroundColor="White"
+                            Command="{Binding ResetAnswer}"
+                            CornerRadius="15"
+                            HorizontalOptions="Center"
+                            IsVisible="{Binding ShouldShowRetryButton}"
+                            Text="{l10n:Translate TryAgainLabel}"
+                            TextColor="{DynamicResource QuizColor}"
+                            WidthRequest="150" />
+                        <Button
+                            Margin="0,3,0,0"
+                            BackgroundColor="White"
+                            Command="{Binding AdvanceStackCommand}"
+                            CornerRadius="15"
+                            HorizontalOptions="Center"
+                            IsVisible="{Binding IsStacked}"
+                            Text="{Binding NextButtonString}"
+                            TextColor="{DynamicResource QuizColor}"
+                            WidthRequest="150" />
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+            <ContentView
+                Padding="10,5,10,5"
+                AbsoluteLayout.LayoutBounds="0,1,1,70"
+                AbsoluteLayout.LayoutFlags="PositionProportional,WidthProportional"
+                BackgroundColor="{Binding Path=BackgroundColor, Source={x:Reference Main}, Converter={StaticResource AltColorConverter}}">
+                <component:TagsView
+                    AlternateColor="True"
+                    MaxLines="2"
+                    TagSource="{Binding ItemTags}" />
+            </ContentView>
+        </AbsoluteLayout>
+    </ContentView.Content>
+</card:BaseCard>

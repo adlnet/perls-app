@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    x:Class="PERLS.Resources.Converters"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:converter="clr-namespace:PERLS.Data.Converters;assembly=PERLS.Data"
+    xmlns:perlConverter="clr-namespace:PERLS.Converters">
+    <converter:BooleanInverseConverter x:Key="BooleanInverseConverter" />
+    <converter:StringPresenceConverter x:Key="StringPresenceConverter" />
+    <converter:HasTagsConverter x:Key="HasTagsConverter" />
+    <converter:ExistenceConverter x:Key="ExistenceConverter" />
+    <converter:ExistenceParameterConverter x:Key="ExistenceParameterConverter" />
+    <converter:UppercaseConverter x:Key="UppercaseConverter" />
+    <converter:OctothorpeConverter x:Key="OctothorpeConverter" />
+    <perlConverter:ViewModelToBackgroundColorConverter x:Key="ViewModelToBackgroundColorConverter" />
+    <converter:AltColorConverter x:Key="AltColorConverter" />
+    <converter:BooleanColorConverter x:Key="BooleanColorConverter" />
+    <converter:FontFamilyConverter x:Key="FontFamilyConverter" />
+    <converter:AnyTrueConverter x:Key="AnyTrueConverter" />
+    <converter:DecreaseNumberConverter x:Key="DecreaseNumberConverter" />
+</ResourceDictionary>

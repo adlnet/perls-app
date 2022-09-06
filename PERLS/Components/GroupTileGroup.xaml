@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<CollectionView
+    x:Class="PERLS.Components.GroupTileGroup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:effect="clr-namespace:PERLS.Effects"
+    HorizontalScrollBarVisibility="Never">
+    <CollectionView.ItemsLayout>
+        <GridItemsLayout HorizontalItemSpacing="{StaticResource Space}" Orientation="Horizontal" />
+    </CollectionView.ItemsLayout>
+    <CollectionView.ItemTemplate>
+        <DataTemplate>
+            <Frame
+                Margin="0"
+                Padding="0"
+                BackgroundColor="Transparent"
+                CornerRadius="0"
+                HasShadow="False"
+                HeightRequest="180"
+                WidthRequest="180">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="180" />
+                        <RowDefinition Height="100" />
+                    </Grid.RowDefinitions>
+                    <component:GroupTile
+                        x:Name="Tile"
+                        Title="{Binding Name}"
+                        Grid.Row="0"
+                        HeightRequest="180"
+                        Image="{Binding Image}"
+                        IsJoinable="{Binding IsJoinable}"
+                        WidthRequest="180" />
+                    <StackLayout Grid.Row="1">
+                        <Label
+                            Margin="0,10,0,0"
+                            d:Text="Title"
+                            BindingContext="{x:Reference Tile}"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="3"
+                            Style="{StaticResource TileTitleStyle}"
+                            Text="{Binding Title}"
+                            VerticalOptions="Start">
+                            <Label.Effects>
+                                <effect:ShadowEffect Radius="3" Color="#66000000" />
+                            </Label.Effects>
+                        </Label>
+                        <Label
+                            IsVisible="{Binding IsJoinable}"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="5"
+                            Style="{StaticResource BodyStyle}"
+                            Text="{Binding Description}" />
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </DataTemplate>
+    </CollectionView.ItemTemplate>
+    <CollectionView.Header>
+        <BoxView WidthRequest="0" />
+    </CollectionView.Header>
+    <CollectionView.Footer>
+        <BoxView WidthRequest="0" />
+    </CollectionView.Footer>
+</CollectionView>

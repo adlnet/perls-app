@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.AuthenticatePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
+    xmlns:page="clr-namespace:PERLS.Pages">
+    <ContentPage.Content>
+        <WebView x:Name="webView" Source="{Binding LoginUri}">
+            <behaviors:Interaction.Behaviors>
+                <behaviors:BehaviorCollection>
+                    <behaviors:EventToCommand
+                        Command="{Binding LoadingEvent}"
+                        EventName="Navigating"
+                        PassEventArgument="True" />
+                    <behaviors:EventToCommand
+                        Command="{Binding LoadingEvent}"
+                        EventName="Navigated"
+                        PassEventArgument="True" />
+                </behaviors:BehaviorCollection>
+            </behaviors:Interaction.Behaviors>
+        </WebView>
+    </ContentPage.Content>
+</page:BasePage>

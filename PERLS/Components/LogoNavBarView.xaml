@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="PERLS.Components.LogoNavBarView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:fftransformations="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations">
+    <ContentView.Content>
+        <AbsoluteLayout Style="{StaticResource NavBarLogoLayoutStyle}">
+            <Label
+                x:Name="titleView"
+                AbsoluteLayout.LayoutBounds="0.5,0.5"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                IsVisible="{Binding ShouldShowTitle}"
+                Style="{StaticResource TitleStyle}"
+                Text="{Binding Title}" />
+            <ffimageloading:CachedImage
+                x:Name="imageView"
+                IsVisible="{Binding ShouldShowLogo}"
+                Source="{Binding LogoUri}"
+                Style="{StaticResource NavBarLogoStyle}" />
+            <ffimageloadingsvg:SvgCachedImage
+                x:Name="svgImageView"
+                IsVisible="{Binding ShouldShowSvgLogo}"
+                Source="{Binding LogoUri}"
+                Style="{StaticResource NavBarLogoStyle}" />
+            <ffimageloading:CachedImage
+                x:Name="avatarImage"
+                AbsoluteLayout.LayoutBounds=".95,0.5"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                DownsampleHeight="100"
+                Source="{Binding SettingsIcon}">
+                <ffimageloading:CachedImage.Transformations>
+                    <fftransformations:CircleTransformation />
+                </ffimageloading:CachedImage.Transformations>
+                <ffimageloading:CachedImage.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateSettingsCommand}" />
+                </ffimageloading:CachedImage.GestureRecognizers>
+            </ffimageloading:CachedImage>
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>

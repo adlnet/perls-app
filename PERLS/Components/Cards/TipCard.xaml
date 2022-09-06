@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<card:BaseCard
+    x:Class="PERLS.Components.Cards.TipCard"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:card="clr-namespace:PERLS.Components.Cards"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:dynamic="clr-namespace:PERLS.Data.ParagraphLayout.Components;assembly=PERLS.Data"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentView.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <AbsoluteLayout
+            x:Name="Main"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            AbsoluteLayout.LayoutFlags="All"
+            BackgroundColor="{DynamicResource TipColor}"
+            InputTransparent="False">
+            <Grid
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                InputTransparent="False"
+                RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="70" />
+                </Grid.RowDefinitions>
+                <ScrollView
+                    x:Name="MainScroll"
+                    Grid.Row="0"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"
+                    AbsoluteLayout.LayoutFlags="All"
+                    Scrolled="MainScroll_Scrolled">
+                    <StackLayout
+                        x:Name="InnerLabelStack"
+                        Padding="20,50,20,20"
+                        Spacing="20">
+                        <StackLayout Orientation="Horizontal">
+                            <Label
+                                x:Name="TitleLabel"
+                                d:Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel tellus condimentum, vulputate lectus sit amet, ultrices elit?"
+                                HorizontalOptions="StartAndExpand"
+                                Style="{DynamicResource TitleStyle}"
+                                Text="{Binding Name}" />
+                            <component:MoreInfoIndicator
+                                x:Name="Recommendation"
+                                Margin="0,3,-5,0"
+                                AlternateColor="True"
+                                BindingContext="{Binding MoreInfoStateViewModel}"
+                                HeightRequest="30"
+                                HorizontalOptions="End"
+                                MinimumHeightRequest="30"
+                                MinimumWidthRequest="30"
+                                VerticalOptions="Start"
+                                WidthRequest="30" />
+                        </StackLayout>
+                        <dynamic:VerticalParagraphLayout x:Name="TipParagraph" Paragraphs="{Binding Body}" />
+                    </StackLayout>
+                </ScrollView>
+                <ContentView
+                    Grid.Row="1"
+                    Padding="10"
+                    BackgroundColor="{Binding Path=BackgroundColor, Source={x:Reference Main}, Converter={StaticResource AltColorConverter}}">
+                    <component:TagsView
+                        AlternateColor="True"
+                        MaxLines="2"
+                        TagSource="{Binding ItemTags}" />
+                </ContentView>
+            </Grid>
+            <component:BookmarkToggle
+                AbsoluteLayout.LayoutBounds="1,0,60,40"
+                AbsoluteLayout.LayoutFlags="PositionProportional"
+                BindingContext="{Binding BookmarkState}" />
+            <component:CompletionIndicator AbsoluteLayout.LayoutBounds="20,20,35,35" BindingContext="{Binding CompletionState}" />
+        </AbsoluteLayout>
+    </ContentView.Content>
+</card:BaseCard>

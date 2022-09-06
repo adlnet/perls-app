@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<card:BaseCard
+    x:Class="PERLS.Components.Cards.PromptCard"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:card="clr-namespace:PERLS.Components.Cards"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <AbsoluteLayout BackgroundColor="{DynamicResource PromptColor}">
+            <ScrollView
+                Margin="0,0,0,50"
+                Padding="0,0,0,30"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Padding="20" Spacing="20">
+                    <Label
+                        x:Name="TitleLabel"
+                        d:Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel tellus condimentum, vulputate lectus sit amet, ultrices elit?"
+                        LineBreakMode="WordWrap"
+                        MaxLines="{OnPlatform iOS=0,
+                                              Android=4}"
+                        Style="{DynamicResource SubtitleStyle}"
+                        Text="{Binding Question}"
+                        TextColor="White"
+                        VerticalOptions="Start" />
+                    <StackLayout
+                        Padding="0,0,0,20"
+                        BindableLayout.ItemsSource="{Binding Options}"
+                        Spacing="10">
+                        <d:BindableLayout.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Answer 1</x:String>
+                                <x:String>Answer 2</x:String>
+                                <x:String>Answer 3</x:String>
+                                <x:String>Answer 4 Really long answer that could span lines or maybe even more than 2 lines who can say</x:String>
+                            </x:Array>
+                        </d:BindableLayout.ItemsSource>
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <Frame
+                                    BackgroundColor="Transparent"
+                                    BorderColor="White"
+                                    CornerRadius="15"
+                                    HasShadow="false">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Prompt.SelectPrompt}" CommandParameter="{Binding}" />
+                                    </Frame.GestureRecognizers>
+                                    <Label
+                                        d:Text="{Binding}"
+                                        FontSize="Medium"
+                                        HorizontalTextAlignment="Center"
+                                        Text="{Binding Name}"
+                                        TextColor="White"
+                                        VerticalOptions="CenterAndExpand"
+                                        VerticalTextAlignment="Center" />
+                                </Frame>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                </StackLayout>
+            </ScrollView>
+        </AbsoluteLayout>
+    </ContentView.Content>
+</card:BaseCard>

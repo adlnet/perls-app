@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DoneLabel" xml:space="preserve">
+    <value>Fait</value>
+  </data>
+  <data name="CloseLabel" xml:space="preserve">
+    <value>FERMER</value>
+  </data>
+  <data name="NewEmptyMessage" xml:space="preserve">
+    <value>Il n'y a rien de nouveau en ce moment</value>
+  </data>
+  <data name="TrendingEmptyMessage" xml:space="preserve">
+    <value>Il n'y a rien de tendance en ce moment</value>
+  </data>
+  <data name="RecommendationsEmptyTitle" xml:space="preserve">
+    <value>Il n'y a pas encore de recommandations</value>
+  </data>
+  <data name="RecommendationsEmptyMessage" xml:space="preserve">
+    <value>Parcourir les médias ou rechercher pour explorer d'autres contenus</value>
+  </data>
+  <data name="EmptyPodcastTitle" xml:space="preserve">
+    <value>Il n'y a pas encore de podcast</value>
+  </data>
+  <data name="EmptyPodcastMessage" xml:space="preserve">
+    <value>Parcourez le tableau de bord ou la recherche pour explorer d'autres contenus.</value>
+  </data>
+  <data name="EpisodesEmptyMessage" xml:space="preserve">
+    <value>Aucun épisode disponible</value>
+  </data>
+  <data name="DefaultLoadingMessage" xml:space="preserve">
+    <value>Chargement...</value>
+  </data>
+  <data name="DefaultSavingMessage" xml:space="preserve">
+    <value>Économie...</value>
+  </data>
+  <data name="DefaultEmptyMessage" xml:space="preserve">
+    <value>Il n'y a rien ici</value>
+  </data>
+  <data name="EmptyNotesTitle" xml:space="preserve">
+    <value>Vous n'avez pas encore pris de notes</value>
+  </data>
+  <data name="EmptyNotesMessage" xml:space="preserve">
+    <value>Consultez un article et utilisez l'icône en forme de crayon pour créer votre première note.</value>
+  </data>
+  <data name="BadgesEmptyMessage" xml:space="preserve">
+    <value>Vos badges seront affichés ici</value>
+  </data>
+  <data name="NoResultsMessage" xml:space="preserve">
+    <value>Aucun résultat trouvé</value>
+  </data>
+  <data name="EmptyCertificatesTitle" xml:space="preserve">
+    <value>Vous n'avez pas encore de certificats</value>
+  </data>
+  <data name="EmptyCertificatesMessage" xml:space="preserve">
+    <value>Suivez des cours pour obtenir des certificats.</value>
+  </data>
+  <data name="EmptyTagMessage" xml:space="preserve">
+    <value>Il n'y a rien d'étiqueté avec {0}</value>
+  </data>
+  <data name="EmptyUnspecifiedTagMessage" xml:space="preserve">
+    <value>Il n'y a pas de contenu étiqueté avec ce terme.</value>
+  </data>
+  <data name="EmptyFollowingTitle" xml:space="preserve">
+    <value>Il n'y a pas encore de contenu de vos balises suivies</value>
+  </data>
+  <data name="EmptyFollowingMessage" xml:space="preserve">
+    <value>Trouvez plus de contenu dans l'onglet Pour vous.</value>
+  </data>
+  <data name="EmptyGroupsMessage" xml:space="preserve">
+    <value>Trouvez plus de contenu dans l'onglet Pour vous.</value>
+  </data>
+  <data name="SettingsLabel" xml:space="preserve">
+    <value>Mon profil</value>
+  </data>
+  <data name="DeviceSettingsLabel" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="LogOutLabel" xml:space="preserve">
+    <value>SE DÉCONNECTER</value>
+  </data>
+  <data name="FirebaseTokenMessage" xml:space="preserve">
+    <value>"Message de jeton Firebase"</value>
+  </data>
+  <data name="CommentsTitleLabel" xml:space="preserve">
+    <value>commentaires</value>
+  </data>
+  <data name="NotificationChannel" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="FinishingOnboardingLabel" xml:space="preserve">
+    <value>En train de préparer...</value>
+  </data>
+  <data name="TabHomeLabel" xml:space="preserve">
+    <value>Tableau de bord</value>
+  </data>
+  <data name="TabMediaLabel" xml:space="preserve">
+    <value>Médias</value>
+  </data>
+  <data name="TabSearchLabel" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="TabAccountLabel" xml:space="preserve">
+    <value>Moi</value>
+  </data>
+  <data name="TabRecommendationsLabel" xml:space="preserve">
+    <value>Pour toi</value>
+  </data>
+  <data name="TabTrendingLabel" xml:space="preserve">
+    <value>Tendance</value>
+  </data>
+  <data name="TabNewLabel" xml:space="preserve">
+    <value>Nouveau</value>
+  </data>
+  <data name="TabCertificatesLabel" xml:space="preserve">
+    <value>Certificats</value>
+  </data>
+  <data name="TabMyContentLabel" xml:space="preserve">
+    <value>Mon contenu</value>
+  </data>
+  <data name="TabHistoryLabel" xml:space="preserve">
+    <value>Histoire</value>
+  </data>
+  <data name="TabStatsLabel" xml:space="preserve">
+    <value>Statistiques</value>
+  </data>
+  <data name="TabGoalsLabel" xml:space="preserve">
+    <value>Informations</value>
+  </data>
+  <data name="TabNotesLabel" xml:space="preserve">
+    <value>Remarques</value>
+  </data>
+  <data name="TabBadgesLabel" xml:space="preserve">
+    <value>Insignes</value>
+  </data>
+  <data name="TabFollowingLabel" xml:space="preserve">
+    <value>Suivant</value>
+  </data>
+  <data name="DefaultErrorTitle" xml:space="preserve">
+    <value>Pardon</value>
+  </data>
+  <data name="InterestsTitle" xml:space="preserve">
+    <value>Intérêts</value>
+  </data>
+  <data name="DefaultErrorDismissButton" xml:space="preserve">
+    <value>d'accord</value>
+  </data>
+  <data name="NoLearnerError" xml:space="preserve">
+    <value>Aucun apprenant n'est connecté à l'application</value>
+  </data>
+  <data name="StatementSendError" xml:space="preserve">
+    <value>Impossible de contacter le LRS. Veuillez contacter votre administrateur système.</value>
+  </data>
+  <data name="OfflineMessageTitle" xml:space="preserve">
+    <value>Tu es hors ligne.</value>
+  </data>
+  <data name="JsonErrorMessage" xml:space="preserve">
+    <value>Le serveur est peut-être en cours de maintenance. Veuillez réessayer dans quelques instants.</value>
+  </data>
+  <data name="AuthenticationErrorMessage" xml:space="preserve">
+    <value>Votre compte n'est pas autorisé à le faire.</value>
+  </data>
+  <data name="ServerErrorMessage" xml:space="preserve">
+    <value>Il y a eu un problème de communication avec le serveur. L'application réessayera dans quelques instants.</value>
+  </data>
+  <data name="UnknownErrorMessage" xml:space="preserve">
+    <value>Quelque chose a mal tourné de notre côté. L'erreur a été enregistrée afin qu'elle puisse être corrigée.</value>
+  </data>
+  <data name="ActivityLaunchError" xml:space="preserve">
+    <value>Impossible de lancer l'activité pour le moment.</value>
+  </data>
+  <data name="DownloadError" xml:space="preserve">
+    <value>Impossible de télécharger le contenu pour le moment.</value>
+  </data>
+  <data name="ShareError" xml:space="preserve">
+    <value>Impossible de partager du contenu pour le moment.</value>
+  </data>
+  <data name="TypeCourse" xml:space="preserve">
+    <value>Cours</value>
+  </data>
+  <data name="TypeCoursePlural" xml:space="preserve">
+    <value>Cours</value>
+  </data>
+  <data name="TypeFlashCard" xml:space="preserve">
+    <value>Flashcard</value>
+  </data>
+  <data name="TypeTip" xml:space="preserve">
+    <value>Conseil</value>
+  </data>
+  <data name="TypeQuiz" xml:space="preserve">
+    <value>Quiz</value>
+  </data>
+  <data name="TypeTest" xml:space="preserve">
+    <value>Test</value>
+  </data>
+  <data name="TypePodcast" xml:space="preserve">
+    <value>Podcast</value>
+  </data>
+  <data name="TypeEpisode" xml:space="preserve">
+    <value>Épisode</value>
+  </data>
+  <data name="TypeArticle" xml:space="preserve">
+    <value>Article</value>
+  </data>
+  <data name="TypeArticlePlural" xml:space="preserve">
+    <value>Des articles</value>
+  </data>
+  <data name="SearchPrompt" xml:space="preserve">
+    <value>Qu'est-ce que tu cherches?</value>
+  </data>
+  <data name="SearchNoResultsMessage" xml:space="preserve">
+    <value>Aucun résultat pour "{0:query}"</value>
+  </data>
+  <data name="SearchCantFindLabel" xml:space="preserve">
+    <value>Vous ne trouvez pas ce que vous cherchez ?</value>
+  </data>
+  <data name="MakeASuggestionButtonLabel" xml:space="preserve">
+    <value>Faites le nous savoir</value>
+  </data>
+  <data name="MakeASuggestionTitle" xml:space="preserve">
+    <value>Faire une suggestion</value>
+  </data>
+  <data name="FilterPrompt" xml:space="preserve">
+    <value>Liste de filtres</value>
+  </data>
+  <data name="SendFeedbackMailSubjectLine" xml:space="preserve">
+    <value>Commentaires pour {0:app}</value>
+  </data>
+  <data name="ItemSingular" xml:space="preserve">
+    <value>Article</value>
+  </data>
+  <data name="ItemPlural" xml:space="preserve">
+    <value>Articles</value>
+  </data>
+  <data name="HrLabel" xml:space="preserve">
+    <value>heure</value>
+  </data>
+  <data name="MinLabel" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="SecLabel" xml:space="preserve">
+    <value>seconde</value>
+  </data>
+  <data name="CoursePlural" xml:space="preserve">
+    <value>Cours</value>
+  </data>
+  <data name="StatLabelSeen" xml:space="preserve">
+    <value>Vu</value>
+  </data>
+  <data name="StatLabelCompleted" xml:space="preserve">
+    <value>Complété</value>
+  </data>
+  <data name="StatLabelAverageScore" xml:space="preserve">
+    <value>Score moyen</value>
+  </data>
+  <data name="SetAReminderButtonTitle" xml:space="preserve">
+    <value>Fixer un rappel</value>
+  </data>
+  <data name="GoalDetailsButtonTitle" xml:space="preserve">
+    <value>Afficher les détails de l'objectif</value>
+  </data>
+  <data name="GoalDetailsTitle" xml:space="preserve">
+    <value>Détails de l'objectif</value>
+  </data>
+  <data name="GoalsHeadingLabel" xml:space="preserve">
+    <value>Mes objectifs</value>
+  </data>
+  <data name="YourActivityOverviewLabel" xml:space="preserve">
+    <value>Aperçu de l'activité</value>
+  </data>
+  <data name="GoalTitleWeeklyArticles" xml:space="preserve">
+    <value>Articles consultés cette semaine</value>
+  </data>
+  <data name="GoalTitleCompletedArticles" xml:space="preserve">
+    <value>Articles terminés cette semaine</value>
+  </data>
+  <data name="GoalTitleTestScore" xml:space="preserve">
+    <value>Note moyenne au test cette semaine</value>
+  </data>
+  <data name="GoalTitleMonthlyCourses" xml:space="preserve">
+    <value>Cours terminés ce mois-ci</value>
+  </data>
+  <data name="ModifyGoalButtonLabel" xml:space="preserve">
+    <value>Mettre à jour l'objectif</value>
+  </data>
+  <data name="GoalSatisfiedStatusLabel" xml:space="preserve">
+    <value>Objectif atteint !</value>
+  </data>
+  <data name="GoalTotalLabel" xml:space="preserve">
+    <value>Le total</value>
+  </data>
+  <data name="HowManyArticlesViewPerWeekLabel" xml:space="preserve">
+    <value>Combien d'articles voulez-vous voir par semaine ?</value>
+  </data>
+  <data name="HowManyArticlesCompletePerWeekLabel" xml:space="preserve">
+    <value>Combien d'éléments voulez-vous terminer par semaine ?</value>
+  </data>
+  <data name="HowManyCoursesCompletedPerMonthLabel" xml:space="preserve">
+    <value>Combien de cours souhaitez-vous suivre par mois ?</value>
+  </data>
+  <data name="TargetTestScoreQuestionLabel" xml:space="preserve">
+    <value>Quel est votre score cible au test ?</value>
+  </data>
+  <data name="EarnedMessage" xml:space="preserve">
+    <value>Gagné</value>
+  </data>
+  <data name="StartCourseLabel" xml:space="preserve">
+    <value>Démarrer</value>
+  </data>
+  <data name="CourseDescriptionLabel" xml:space="preserve">
+    <value>La description</value>
+  </data>
+  <data name="HistoryEmptyMessage" xml:space="preserve">
+    <value>L'historique de vos activités sera affiché ici</value>
+  </data>
+  <data name="OfflineMessageBody" xml:space="preserve">
+    <value>Tout le contenu {0} n'est pas disponible pour le moment. Vérifiez votre connexion, puis appuyez sur pour réessayer.</value>
+  </data>
+  <data name="SetServerLabel" xml:space="preserve">
+    <value>Équipe</value>
+  </data>
+  <data name="ViewAccountLabel" xml:space="preserve">
+    <value>COMPTE</value>
+  </data>
+  <data name="SendFeedbackLabel" xml:space="preserve">
+    <value>RÉTROACTION</value>
+  </data>
+  <data name="ViewSupportLabel" xml:space="preserve">
+    <value>SUPPORT</value>
+  </data>
+  <data name="ViewAcknowledgementsLabel" xml:space="preserve">
+    <value>REMERCIEMENTS</value>
+  </data>
+  <data name="SaveLabel" xml:space="preserve">
+    <value>Sauvegarder</value>
+  </data>
+  <data name="CertificateLabel" xml:space="preserve">
+    <value>Certificat</value>
+  </data>
+  <data name="DateLabel" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="SignInLabel" xml:space="preserve">
+    <value>Commencer</value>
+  </data>
+  <data name="PageLoadingFailedMessage" xml:space="preserve">
+    <value>La page n'a pas pu se charger pour le moment</value>
+  </data>
+  <data name="CorrectLabel" xml:space="preserve">
+    <value>CORRIGER!</value>
+  </data>
+  <data name="IncorrectLabel" xml:space="preserve">
+    <value>INCORRECT</value>
+  </data>
+  <data name="TryAgainLabel" xml:space="preserve">
+    <value>RÉESSAYER</value>
+  </data>
+  <data name="TryAgainTitleCaseLabel" xml:space="preserve">
+    <value>Réessayer</value>
+  </data>
+  <data name="QLabel" xml:space="preserve">
+    <value>Q</value>
+  </data>
+  <data name="SessionExpiredErrorMessage" xml:space="preserve">
+    <value>Votre session a expiré. Veuillez vous connecter.</value>
+  </data>
+  <data name="RecommendationPopupTitle" xml:space="preserve">
+    <value>Pourquoi voyez-vous cela?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="CancelDownload" xml:space="preserve">
+    <value>Annuler le téléchargement</value>
+  </data>
+  <data name="WelcomeLabel" xml:space="preserve">
+    <value>Bienvenue</value>
+  </data>
+  <data name="ContinueLabel" xml:space="preserve">
+    <value>Continuer</value>
+  </data>
+  <data name="TeamPlaceholderText" xml:space="preserve">
+    <value>Entrez le nom de votre équipe</value>
+  </data>
+  <data name="ClearCacheLabel" xml:space="preserve">
+    <value>Supprimer {0} Mo de cache</value>
+  </data>
+  <data name="Okay" xml:space="preserve">
+    <value>D'accord</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>Permettre</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>Désactiver</value>
+  </data>
+  <data name="LocalLoginLabel" xml:space="preserve">
+    <value>Connexion locale</value>
+  </data>
+  <data name="EnableLocalLoginMessage" xml:space="preserve">
+    <value>Voulez-vous vraiment activer l'authentification locale ?</value>
+  </data>
+  <data name="DisableLocalLoginMessage" xml:space="preserve">
+    <value>Voulez-vous désactiver l'authentification locale ?</value>
+  </data>
+  <data name="ConfirmClearCache" xml:space="preserve">
+    <value>Voulez-vous vraiment vider le cache local ?</value>
+  </data>
+  <data name="NextQuestionLabel" xml:space="preserve">
+    <value>Question suivante</value>
+  </data>
+  <data name="PreviousQuestionLabel" xml:space="preserve">
+    <value>Question précédente</value>
+  </data>
+  <data name="CorrectAnswersLabel" xml:space="preserve">
+    <value>Vous avez répondu correctement à &lt;strong&gt;{0}&lt;/strong&gt; sur &lt;strong&gt;{1}.&lt;/strong&gt;</value>
+  </data>
+  <data name="TestResultsMessage" xml:space="preserve">
+    <value>Résultats de test</value>
+  </data>
+  <data name="DownloadManagement" xml:space="preserve">
+    <value>Gestion des téléchargements</value>
+  </data>
+  <data name="DeleteDownloadsLabel" xml:space="preserve">
+    <value>Supprimer {0} Mo de téléchargements</value>
+  </data>
+  <data name="DownloadSizeLabel" xml:space="preserve">
+    <value>{0} Mo</value>
+  </data>
+  <data name="YourDownloads" xml:space="preserve">
+    <value>Vos téléchargements</value>
+  </data>
+  <data name="LessThanOne" xml:space="preserve">
+    <value>&lt;1</value>
+  </data>
+  <data name="DeleteAnnotationTitle" xml:space="preserve">
+    <value>Supprimer l'annotation</value>
+  </data>
+  <data name="DeleteAnnotationMessage" xml:space="preserve">
+    <value>Voulez-vous vraiment supprimer cette annotation ?</value>
+  </data>
+  <data name="DeleteDownloadsTitle" xml:space="preserve">
+    <value>Supprimer tous les téléchargements</value>
+  </data>
+  <data name="DeleteDownloadsMessage" xml:space="preserve">
+    <value>Êtes-vous sûr de vouloir supprimer tous les fichiers téléchargés ?</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="Lessons" xml:space="preserve">
+    <value>Cours</value>
+  </data>
+  <data name="Lesson" xml:space="preserve">
+    <value>Leçon</value>
+  </data>
+  <data name="Episodes" xml:space="preserve">
+    <value>Épisodes</value>
+  </data>
+  <data name="Episode" xml:space="preserve">
+    <value>Épisode</value>
+  </data>
+  <data name="CompleteLabel" xml:space="preserve">
+    <value>Compléter</value>
+  </data>
+  <data name="DefaultContentName" xml:space="preserve">
+    <value>Contenu téléchargé</value>
+  </data>
+  <data name="DownloadWithProgress" xml:space="preserve">
+    <value>Téléchargement... {0}%</value>
+  </data>
+  <data name="DownloadNoProgress" xml:space="preserve">
+    <value>Téléchargement...</value>
+  </data>
+  <data name="PromptResultsTitle" xml:space="preserve">
+    <value>Merci pour les commentaires!</value>
+  </data>
+  <data name="PromptResultsMessage" xml:space="preserve">
+    <value>Nous l'utiliserons pour améliorer vos recommandations.</value>
+  </data>
+  <data name="EmptyViewErrorTitle" xml:space="preserve">
+    <value>Oups, quelque chose s'est mal passé !</value>
+  </data>
+  <data name="UnsupportedContentTitle" xml:space="preserve">
+    <value>Ce contenu n'est pas pris en charge</value>
+  </data>
+  <data name="UnsupportedContentMessage" xml:space="preserve">
+    <value>Veuillez contacter votre administrateur système.</value>
+  </data>
+  <data name="ViewPodcastLabel" xml:space="preserve">
+    <value>VOIR LE PODCAST</value>
+  </data>
+  <data name="PodcastsLabel" xml:space="preserve">
+    <value>Podcasts</value>
+  </data>
+  <data name="EpisodeTrackInformation" xml:space="preserve">
+    <value>{0} | {1}</value>
+  </data>
+  <data name="SubscribeButtonTitle" xml:space="preserve">
+    <value>S'ABONNER</value>
+  </data>
+  <data name="UnsubscribeButtonTitle" xml:space="preserve">
+    <value>SE DÉSABONNER</value>
+  </data>
+  <data name="PlayedLabel" xml:space="preserve">
+    <value>JOUÉ</value>
+  </data>
+  <data name="TermsOfUseText" xml:space="preserve">
+    <value>Le logiciel PERLS est la propriété du gouvernement américain et est destiné à l'usage du gouvernement. Cela inclut toutes les données, les matériaux ; données/bases de données, fichiers, graphiques, diffusions, photographies, logiciels, codes, équipements, CD-ROM et autres livrables fournis par le gouvernement ou développés dans le cadre du présent contrat. Les matériaux restent la propriété du Gouvernement. Le logiciel PERLS adhère à toutes les réglementations de contrôle des exportations et à la conformité ITAR.</value>
+  </data>
+  <data name="RemindersDisabledTitle" xml:space="preserve">
+    <value>Les notifications push sont désactivées</value>
+  </data>
+  <data name="RemindersDisabledMessage" xml:space="preserve">
+    <value>Activez les notifications push dans les paramètres de votre appareil pour définir un rappel</value>
+  </data>
+  <data name="RemindersErrorTitle" xml:space="preserve">
+    <value>Échec de l'enregistrement des paramètres</value>
+  </data>
+  <data name="RemindersErrorMessage" xml:space="preserve">
+    <value>Échec de l'enregistrement des paramètres de rappel sur le serveur</value>
+  </data>
+  <data name="ReminderTitle" xml:space="preserve">
+    <value>Ajouter un rappel</value>
+  </data>
+  <data name="ReminderChooseDays" xml:space="preserve">
+    <value>Choisissez un jour ou des jours</value>
+  </data>
+  <data name="ReminderChooseTime" xml:space="preserve">
+    <value>A quelle heure devons-nous vous rappeler ?</value>
+  </data>
+  <data name="ReminderBody" xml:space="preserve">
+    <value>Rappelez-moi mes objectifs sur...</value>
+  </data>
+  <data name="EnterURLMessage" xml:space="preserve">
+    <value>Veuillez vérifier le nom de votre équipe</value>
+  </data>
+  <data name="FileNotFoundTitle" xml:space="preserve">
+    <value>Fichier manquant</value>
+  </data>
+  <data name="FileNotFoundMessage" xml:space="preserve">
+    <value>Le fichier demandé n'est pas disponible pour le moment.</value>
+  </data>
+  <data name="FollowButtonLabel" xml:space="preserve">
+    <value>Poursuivre</value>
+  </data>
+  <data name="UnfollowButtonLabel" xml:space="preserve">
+    <value>Ne plus suivre</value>
+  </data>
+  <data name="FollowErrorMessage" xml:space="preserve">
+    <value>Il y a eu une erreur après ce terme.</value>
+  </data>
+  <data name="ViewTermErrorMessage" xml:space="preserve">
+    <value>Une erreur s'est produite lors de l'affichage de ce terme.</value>
+  </data>
+  <data name="ItemNotFoundMessage" xml:space="preserve">
+    <value>Contenu non disponible</value>
+  </data>
+  <data name="GroupTopicsEmptyTitle" xml:space="preserve">
+    <value>Aucun sujet</value>
+  </data>
+  <data name="ViewMoreButtonLabel" xml:space="preserve">
+    <value>Voir plus</value>
+  </data>
+  <data name="LeaveGroupButtonLabel" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
+  <data name="EmptyCourseTitleLabel" xml:space="preserve">
+    <value>Ce cours est vide</value>
+  </data>
+  <data name="EmptyCourseMessageLabel" xml:space="preserve">
+    <value>Vous n'avez accès à aucun des contenus de ce cours.</value>
+  </data>
+  <data name="EmptyGroupTopicTitle" xml:space="preserve">
+    <value>Ce sujet n'a pas de contenu</value>
+  </data>
+  <data name="EmptyGroupTopicMessage" xml:space="preserve">
+    <value>Ce groupe n'a pas de contenu pour ce sujet.</value>
+  </data>
+  <data name="EmptyEnhancedDashboardTitle" xml:space="preserve">
+    <value>Euh oh, nous rencontrons une erreur</value>
+  </data>
+</root>

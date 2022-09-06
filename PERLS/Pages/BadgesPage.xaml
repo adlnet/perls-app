@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.BadgesPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:page="clr-namespace:PERLS.Pages">
+    <ContentPage.Content>
+        <component:PERLSCollectionView
+            x:Name="Collection"
+            ItemsSource="{Binding Badges}"
+            SelectionChangedCommand="{Binding SelectBadgeCommand}"
+            SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference Collection}}"
+            SelectionMode="Single">
+            <component:PERLSCollectionView.Header>
+                <component:Message
+                    Title="{l10n:Translate OfflineMessageTitle}"
+                    Body="{Binding OfflineMessageBody}"
+                    IsVisible="{Binding ContainsCachedData, FallbackValue=False}"
+                    TappedCommand="{Binding RefreshCommand}" />
+            </component:PERLSCollectionView.Header>
+            <CollectionView.EmptyView>
+                <component:CenteredImageTitleDetailView
+                    Title="{Binding EmptyMessageTitle}"
+                    Detail="{Binding EmptyLabel}"
+                    Image="{Binding EmptyImageName}" />
+            </CollectionView.EmptyView>
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="3" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout Padding="5" Spacing="0">
+                        <ffimageloading:CachedImage
+                            Aspect="AspectFit"
+                            ErrorPlaceholder="{Binding Placeholder}"
+                            HeightRequest="100"
+                            LoadingPlaceholder="{Binding Placeholder}"
+                            Source="{Binding ImageUri}"
+                            VerticalOptions="Start"
+                            WidthRequest="100" />
+                        <Label
+                            HeightRequest="50"
+                            HorizontalTextAlignment="Center"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="2"
+                            Style="{DynamicResource BodyStyle}"
+                            Text="{Binding Label}"
+                            VerticalOptions="EndAndExpand" />
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </component:PERLSCollectionView>
+    </ContentPage.Content>
+</page:BasePage>

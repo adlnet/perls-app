@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component:ItemView
+    x:Class="PERLS.Components.ListItem"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:effect="clr-namespace:PERLS.Effects"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    x:Name="this">
+    <ContentView.Content>
+        <StackLayout Padding="10" BindingContext="{x:Reference this}">
+            <Grid
+                Margin="0"
+                Padding="0"
+                ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="45" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <Frame
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Grid.Column="0"
+                    Margin="0,8,0,0"
+                    Padding="0"
+                    BackgroundColor="Transparent"
+                    CornerRadius="{Binding Source={x:Reference this}, Path=BindingContext.SearchImageCornerRadius}"
+                    HasShadow="False"
+                    HeightRequest="45"
+                    IsClippedToBounds="True"
+                    VerticalOptions="Start"
+                    WidthRequest="45">
+                    <ffimageloading:CachedImage
+                        Aspect="AspectFill"
+                        HeightRequest="45"
+                        HorizontalOptions="Fill"
+                        Source="{Binding Image}"
+                        VerticalOptions="Fill"
+                        WidthRequest="45" />
+                </Frame>
+                <Label
+                    x:Name="TitleLabel"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Style="{DynamicResource HeadingStyle}"
+                    Text="{Binding Title}"
+                    VerticalOptions="End">
+                    <Label.Effects>
+                        <effect:ShadowEffect
+                            IsVisible="False"
+                            Radius="3"
+                            Color="#66000000" />
+                    </Label.Effects>
+                    <Label.Triggers>
+                        <DataTrigger
+                            Binding="{Binding IsSelected}"
+                            TargetType="Label"
+                            Value="True">
+                            <Setter Property="TextColor" Value="Black" />
+                        </DataTrigger>
+                    </Label.Triggers>
+                </Label>
+                <Label
+                    x:Name="CaptionLabel"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Style="{DynamicResource CaptionTwoStyle}"
+                    Text="{Binding Caption}"
+                    VerticalOptions="Start" />
+            </Grid>
+            <BoxView
+                Margin="0,10,0,0"
+                BackgroundColor="{DynamicResource SeperatorColor}"
+                HeightRequest="1"
+                HorizontalOptions="Start"
+                Opacity=".45"
+                WidthRequest="230" />
+        </StackLayout>
+    </ContentView.Content>
+</component:ItemView>

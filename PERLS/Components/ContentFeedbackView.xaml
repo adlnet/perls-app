@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="PERLS.Components.ContentFeedbackView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core">
+    <ContentView.Content>
+        <StackLayout Padding="10" Spacing="10">
+            <Label
+                HorizontalTextAlignment="Center"
+                IsVisible="{Binding IsEmpty}"
+                LineBreakMode="WordWrap"
+                Style="{DynamicResource BodyStyle}" />
+            <Label
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Center"
+                IsVisible="{Binding ShowsFeedbackButton}"
+                Style="{DynamicResource CaptionStyle}"
+                Text="{l10n:Translate SearchCantFindLabel}" />
+            <Button
+                Padding="12"
+                BackgroundColor="Transparent"
+                BorderColor="{DynamicResource PrimaryTextColor}"
+                BorderWidth="1"
+                Command="{Binding HandleMakeSuggestion}"
+                CornerRadius="15"
+                HorizontalOptions="Center"
+                IsVisible="{Binding ShowsFeedbackButton}"
+                Text="{l10n:Translate MakeASuggestionButtonLabel}"
+                TextColor="{DynamicResource PrimaryTextColor}" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

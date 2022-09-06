@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="PERLS.Components.DownloadIndicator"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    IsVisible="{Binding IsDownloadableContent}">
+    <ContentView.Content>
+        <StackLayout>
+            <ffimageloadingsvg:SvgCachedImage
+                x:Name="DownloadIcon"
+                IsVisible="{Binding IsDownloading, Converter={StaticResource BooleanInverseConverter}}"
+                Opacity="1"
+                Source="{Binding DownloadIcon}">
+                <ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding DownloadCommand}" />
+                </ffimageloadingsvg:SvgCachedImage.GestureRecognizers>
+            </ffimageloadingsvg:SvgCachedImage>
+            <ffimageloading:CachedImage IsVisible="{Binding IsDownloading}" Source="{Binding ProgressIcon}" />
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.Settings.AcknowledgementsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    FlowDirection="{x:Static Device.FlowDirection}"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ListView
+            x:Name="listView"
+            BackgroundColor="{DynamicResource BackgroundColor}"
+            CachingStrategy="RecycleElement"
+            HasUnevenRows="true"
+            ItemSelected="AcknowledgementSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="12">
+                            <Label
+                                FontAttributes="Bold"
+                                Style="{StaticResource TextStyle}"
+                                Text="{Binding Product}" />
+                            <Label Style="{StaticResource TextStyle}" Text="{Binding Copyright}" />
+                            <Label Style="{StaticResource TextStyle}" Text="{Binding LicenseText}" />
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</page:BasePage>

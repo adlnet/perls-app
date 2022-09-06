@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<component:ItemView
+    x:Class="PERLS.Components.GroupTile"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:effect="clr-namespace:PERLS.Effects"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:skia="clr-namespace:SkiaSharp;assembly=SkiaSharp"
+    xmlns:skiaforms="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    x:Name="this"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <Frame
+            x:Name="Frame"
+            HasShadow="true"
+            HeightRequest="180"
+            IsClippedToBounds="false"
+            Style="{StaticResource Tile}"
+            WidthRequest="180">
+            <Frame
+                BackgroundColor="{Binding ., Converter={StaticResource ViewModelToBackgroundColorConverter}}"
+                IsClippedToBounds="True"
+                Style="{StaticResource Tile}">
+                <AbsoluteLayout>
+                    <ffimageloading:CachedImage
+                        x:Name="ImageView"
+                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                        AbsoluteLayout.LayoutFlags="All"
+                        Aspect="AspectFill"
+                        BindingContext="{x:Reference this}"
+                        DownsampleHeight="180"
+                        ErrorPlaceholder="placeholder"
+                        HorizontalOptions="Fill"
+                        IsVisible="{Binding Image, Converter={StaticResource ExistenceConverter}}"
+                        LoadingPlaceholder="loading"
+                        Source="{Binding Image}"
+                        VerticalOptions="Fill" />
+                    <skiaforms:SKCanvasView
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                        AbsoluteLayout.LayoutFlags="All"
+                        PaintSurface="OnCanvasViewPaintSurface" />
+                    <ffimageloading:CachedImage
+                        Margin="10"
+                        AbsoluteLayout.LayoutBounds="1, 1, .25, .25"
+                        AbsoluteLayout.LayoutFlags="All"
+                        Aspect="AspectFill"
+                        BindingContext="{x:Reference this}"
+                        IsVisible="{Binding IsJoinable}"
+                        Source="{Binding BindingContext.JoinImage}" />
+                </AbsoluteLayout>
+            </Frame>
+        </Frame>
+    </ContentView.Content>
+</component:ItemView>

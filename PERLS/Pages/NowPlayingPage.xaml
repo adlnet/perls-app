@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.NowPlayingPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    x:Name="This"
+    Title="{Binding Title}">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            BindingContext="{Binding BookmarkState}"
+            Command="{Binding ToggleBookmarkCommand}"
+            IconImageSource="{Binding ToolbarBookmarkIcon}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="20" BackgroundColor="{StaticResource PodcastCardColor}">
+            <Label
+                LineBreakMode="TailTruncation"
+                MaxLines="3"
+                Style="{StaticResource NowPlayingTitleStyle}"
+                Text="{Binding Title, Converter={StaticResource UppercaseConverter}}" />
+            <Label Style="{StaticResource NowPlayingInformationStyle}" Text="{Binding TrackInformation}" />
+            <Label
+                LineBreakMode="TailTruncation"
+                MaxLines="3"
+                Style="{StaticResource NowPlayingInformationStyle}"
+                Text="{Binding Podcast}" />
+            <FlexLayout
+                Margin="0,25,0,0"
+                AlignItems="Center"
+                Direction="Row"
+                JustifyContent="SpaceEvenly">
+                <ImageButton
+                    BackgroundColor="Transparent"
+                    Command="{Binding StepBackCommand}"
+                    Source="skip_back" />
+                <ImageButton
+                    BackgroundColor="Transparent"
+                    Command="{Binding PlayPauseCommand}"
+                    Source="{Binding PlayPauseImage}" />
+                <ImageButton
+                    BackgroundColor="Transparent"
+                    Command="{Binding StepForwardCommand}"
+                    Source="skip_forward" />
+            </FlexLayout>
+            <FlexLayout
+                Margin="0,25,0,0"
+                AlignItems="Center"
+                Direction="Row"
+                JustifyContent="SpaceEvenly">
+                <Label Style="{StaticResource NowPlayingInformationStyle}" Text="{Binding TimeElapsedLabel}" />
+                <Slider
+                    DragCompletedCommand="{Binding ScrubberDragCompletedCommand}"
+                    DragStartedCommand="{Binding ScrubberDragStartedCommand}"
+                    MinimumTrackColor="White"
+                    ThumbImageSource="scrubber_thumb"
+                    WidthRequest="200"
+                    Value="{Binding ScrubberPosition, Mode=OneWay}">
+                    <behaviors:Interaction.Behaviors>
+                        <behaviors:BehaviorCollection>
+                            <behaviors:EventToCommand
+                                Command="{Binding ScrubberValueChangedCommand}"
+                                EventName="ValueChanged"
+                                PassEventArgument="True" />
+                        </behaviors:BehaviorCollection>
+                    </behaviors:Interaction.Behaviors>
+                </Slider>
+                <Label Style="{StaticResource NowPlayingInformationStyle}" Text="{Binding TimeRemainingLabel}" />
+            </FlexLayout>
+            <ScrollView Margin="0,25,0,0" HeightRequest="300">
+                <Label Text="{Binding Description}" />
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</page:BasePage>

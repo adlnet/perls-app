@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>2.0</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="TermsOfUseText">
+        <value>The {0} software is the property of the U.S. Government and for Government use. This includes all data, materials; data/databases, files, graphics, broadcasts, photographs, software, codes, equipment, CD ROMs, and other deliverables provided by the Government or developed under this contract. Materials shall remain the property of the Government. {0} software adheres to all export control regulations and ITAR compliance.</value>
+        <comment>The text corpus for the terms of use.</comment>
+    </data>
+    <data name="ViewTermsLabel">
+        <value>TERMS OF USE</value>
+        <comment>Settings menu item for viewing terms of service</comment>
+    </data>
+    <!-- Groups Region -->
+    <data name="TabGroupsLabel">
+        <value>Groups</value>
+        <comment>Label for the navigation tab containing current learner's followed tags</comment>
+    </data>
+    <data name="GroupsTitle">
+        <value>Groups</value>
+        <comment>Title of page to change groups</comment>
+    </data>
+    <data name="EmptyGroupsTitle">
+        <value>There is no content from your groups yet</value>
+        <comment>Title text to display when all groups are empty</comment>
+    </data>
+    <data name="EmptyGroupMessage">
+        <value>You are not currently part of any groups.</value>
+        <comment>Body text to display when all groups are empty</comment>
+    </data>
+    <data name="MoreGroupsSubtitle">
+        <value>You might be interested in joining these groups</value>
+        <comment>Subtitle for the "More Groups" section</comment>
+    </data><data name="JoinedGroupsTitle">
+        <value>My Groups</value>
+        <comment>Title for the user's groups</comment>
+    </data><data name="JoinableGroupsTitle">
+        <value>More Groups</value>
+        <comment>Title for groups the user can join</comment>
+    </data>
+    <data name="GroupTopicsEmptyMessage">
+        <value>This group currently has no topics.</value>
+        <comment>Text to let the user know that the current group has no related topics.</comment>
+    </data>
+     <data name="GroupsErrorMessage">
+        <value>There was an error joining this group.</value>
+        <comment>Text to let the user know the group change has failed.</comment>
+    </data>
+    <!-- Bookmarks Region -->
+    <data name="BookmarksEmptyMessage">
+        <value>You haven't bookmarked anything yet</value>
+        <comment>Default label for when the user doesn't have any bookmarks</comment>
+    </data>
+    <data name="TabBookmarksLabel">
+        <value>Bookmarks</value>
+        <comment>Label for the navigation tab containing current learner's bookmarks</comment>
+    </data>
+    <data name="BookmarkErrorMessage">
+        <value>There was an error saving the change to this bookmark</value>
+        <comment>Text to let the user know the bookmark change has failed.</comment>
+    </data>
+    <data name="StatLabelBookmarked">
+        <value>Bookmarked</value>
+        <comment>A verb to be used alongside something being bookmarked in a stat readout.</comment>
+    </data>
+    <!-- Onboarding Region -->
+    <data name="OnboardingPageOneTitleLabel">
+        <value>Welcome!</value>
+        <comment>Heading label for the landing page</comment>
+    </data>
+    <data name="OnboardingPageTwoTitleLabel">
+        <value>Explore, Study, Sharpen</value>
+        <comment>Heading label for the landing page</comment>
+    </data>
+    <data name="OnboardingPageThreeTitleLabel">
+        <value>Let's Get Started</value>
+        <comment>Heading label for the landing page</comment>
+    </data>
+    <data name="OnboardingPageOneDescriptionLabel">
+        <value>We created {0} to help you find the information you need to get better at what you do!</value>
+        <comment>Description label for the landing page</comment>
+    </data>
+    <data name="OnboardingPageTwoDescriptionLabel">
+        <value>{0} helps you explore new topics, study the information that matters to you, and sharpen the knowledge you need each day.</value>
+        <comment>Description label for the landing page</comment>
+    </data>
+    <data name="OnboardingPageThreeDescriptionLabel" xml:space="preserve">
+        <value>First, we need to create an account for you. With your account, we'll be able to find important and interesting content to help you learn quickly.</value>
+        <comment>Description label for the landing page</comment>
+    </data>
+</root>

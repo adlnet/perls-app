@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="PERLS.Components.Blocks.BannerBlockView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    x:Name="This">
+    <ContentView.Content>
+        <Frame
+            Margin="0"
+            Padding="{StaticResource Space}"
+            BackgroundColor="{StaticResource SecondaryColor}"
+            CornerRadius="6">
+            <Grid Margin="0" Padding="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer
+                        Command="{Binding BannerSelectedCommand}"
+                        CommandParameter="{Binding BindingContext, Source={x:Reference This}}"
+                        NumberOfTapsRequired="1" />
+                </Grid.GestureRecognizers>
+                <ffimageloadingsvg:SvgCachedImage
+                    Grid.Column="0"
+                    HeightRequest="50"
+                    Source="{Binding Image}" />
+                <Label
+                    Grid.Column="1"
+                    FontSize="Medium"
+                    LineBreakMode="WordWrap"
+                    Style="{StaticResource CaptionStyle}"
+                    Text="{Binding Message}"
+                    TextColor="White"
+                    VerticalOptions="Center"
+                    VerticalTextAlignment="Center" />
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</ContentView>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="PERLS.Components.Blocks.CardBlockView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:component="clr-namespace:PERLS.Components">
+    <ContentView.Content>
+        <component:CardDeck
+            x:Name="Cards"
+            HeightRequest="380"
+            ItemsSource="{Binding Contents}"
+            SelectedItem="{Binding SelectedItem}"
+            SelectionChangedCommand="{Binding OnSelectionChanged}"
+            SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference Cards}}" />
+    </ContentView.Content>
+</ContentView>

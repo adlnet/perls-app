@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="PERLS.Components.TagsView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Name="this"
+    IsClippedToBounds="True">
+    <ContentView.Content>
+        <FlexLayout
+            x:Name="Tags"
+            AlignContent="Center"
+            Wrap="Wrap">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Button
+                        x:Name="Tag"
+                        Padding="0,0,10,0"
+                        BackgroundColor="Transparent"
+                        FlexLayout.AlignSelf="Start"
+                        FlexLayout.Grow="0"
+                        FlexLayout.Shrink="0"
+                        HeightRequest="30"
+                        HorizontalOptions="StartAndExpand"
+                        Pressed="HandleTagPressed"
+                        Style="{StaticResource TagsStyle}"
+                        Text="{Binding TagDisplay}"
+                        TextColor="{Binding TextColor, Source={x:Reference this}}" />
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+        </FlexLayout>
+    </ContentView.Content>
+</ContentView>

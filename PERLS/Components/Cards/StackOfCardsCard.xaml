@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<card:BaseCard
+    x:Class="PERLS.Components.Cards.StackOfCardsCard"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:card="clr-namespace:PERLS.Components.Cards"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:local="clr-namespace:PERLS"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Name="card"
+    mc:Ignorable="d">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="DefaultTemplate">
+                <ContentView>
+                    <Frame Style="{StaticResource Card}">
+                        <card:ObjectCard WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+            <DataTemplate x:Key="QuizTemplate">
+                <ContentView>
+                    <Frame Style="{StaticResource Card}">
+                        <card:QuizCard WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+            <DataTemplate x:Key="TipTemplate">
+                <ContentView>
+                    <Frame Style="{StaticResource Card}">
+                        <card:TipCard IsClippedToBounds="True" WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+            <DataTemplate x:Key="CourseTemplate">
+                <ContentView>
+                    <Frame Style="{StaticResource Card}">
+                        <card:CourseCard SelectItemCommand="{Binding SelectionChangedCommand, Source={x:Reference Collection}}" WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+            <DataTemplate x:Key="FlashcardTemplate">
+                <ContentView>
+                    <Frame Style="{StaticResource Card}">
+                        <card:FlashCardCard WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+            <DataTemplate x:Key="TestResultsTemplate">
+                <ContentView>
+                    <Frame Style="{StaticResource Card}">
+                        <card:TestResultsCard WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+            <DataTemplate x:Key="PromptTemplate">
+                <ContentView>
+                    <Frame Style="{StaticResource Card}">
+                        <card:PromptCard WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+            <DataTemplate x:Key="PromptResultTemplate">
+                <ContentView>
+                    <Frame Style="{StaticResource Card}">
+                        <card:PromptResultsCard WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <component:DeckLayout
+            x:Name="deck"
+            BindableLayout.ItemsSource="{Binding Elements}"
+            SelectedIndex="{Binding SelectedIndex}">
+            <BindableLayout.ItemTemplateSelector>
+                <card:CardDataTemplateSelector
+                    CourseTemplate="{StaticResource CourseTemplate}"
+                    DefaultTemplate="{StaticResource DefaultTemplate}"
+                    FlashcardTemplate="{StaticResource FlashcardTemplate}"
+                    PromptResultTemplate="{StaticResource PromptResultTemplate}"
+                    PromptTemplate="{StaticResource PromptTemplate}"
+                    QuizTemplate="{StaticResource QuizTemplate}"
+                    TestResultsTemplate="{StaticResource TestResultsTemplate}"
+                    TipTemplate="{StaticResource TipTemplate}" />
+            </BindableLayout.ItemTemplateSelector>
+        </component:DeckLayout>
+    </ContentView.Content>
+</card:BaseCard>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TermsOfUseText" xml:space="preserve">
+    <value>Consulte las {0} condiciones de uso en línea.</value>
+  </data>
+  <data name="ViewTermsLabel" xml:space="preserve">
+    <value>POLÍTICA DE PRIVACIDAD</value>
+  </data>
+  <data name="TabGroupsLabel" xml:space="preserve">
+    <value>Grupos</value>
+  </data>
+  <data name="GroupsTitle" xml:space="preserve">
+    <value>Grupos</value>
+  </data>
+  <data name="EmptyGroupsTitle" xml:space="preserve">
+    <value>Aún no hay contenido de tus grupos</value>
+  </data>
+  <data name="EmptyGroupMessage" xml:space="preserve">
+    <value>Actualmente no formas parte de ningún grupo.</value>
+  </data>
+  <data name="MoreGroupsSubtitle" xml:space="preserve">
+    <value>Quizás te interese unirte a estos grupos</value>
+  </data>
+  <data name="JoinedGroupsTitle" xml:space="preserve">
+    <value>Mis grupos</value>
+  </data>
+  <data name="JoinableGroupsTitle" xml:space="preserve">
+    <value>Más grupos</value>
+  </data>
+  <data name="GroupTopicsEmptyMessage" xml:space="preserve">
+    <value>Este grupo actualmente no tiene temas.</value>
+  </data>
+  <data name="GroupsErrorMessage" xml:space="preserve">
+    <value>Se produjo un error al unirse a este grupo.</value>
+  </data>
+  <data name="BookmarksEmptyMessage" xml:space="preserve">
+    <value>Aún no has marcado nada</value>
+  </data>
+  <data name="TabBookmarksLabel" xml:space="preserve">
+    <value>Marcadores</value>
+  </data>
+  <data name="BookmarkErrorMessage" xml:space="preserve">
+    <value>Se produjo un error al guardar el cambio en este marcador.</value>
+  </data>
+  <data name="StatLabelBookmarked" xml:space="preserve">
+    <value>Marcado como favorito</value>
+  </data>
+  <data name="OnboardingPageOneTitleLabel" xml:space="preserve">
+    <value>¡Bienvenido!</value>
+  </data>
+  <data name="OnboardingPageTwoTitleLabel" xml:space="preserve">
+    <value>Explorar, estudiar, afilar</value>
+  </data>
+  <data name="OnboardingPageThreeTitleLabel" xml:space="preserve">
+    <value>Empecemos</value>
+  </data>
+  <data name="OnboardingPageOneDescriptionLabel" xml:space="preserve">
+    <value>Creamos {0} para ayudarlo a encontrar la información que necesita para mejorar en lo que hace.</value>
+  </data>
+  <data name="OnboardingPageTwoDescriptionLabel" xml:space="preserve">
+    <value>{0} te ayuda a explorar nuevos temas, estudiar la información que te importa y mejorar el conocimiento que necesitas cada día.</value>
+  </data>
+  <data name="OnboardingPageThreeDescriptionLabel" xml:space="preserve">
+    <value>Primero, necesitamos crear una cuenta para usted. Con su cuenta, podremos encontrar contenido importante e interesante para ayudarlo a aprender rápidamente.</value>
+  </data>
+</root>

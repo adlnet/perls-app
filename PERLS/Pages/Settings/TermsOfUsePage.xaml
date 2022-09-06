@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.Settings.TermsOfUsePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    BackgroundColor="{DynamicResource BackgroundColor}"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="15">
+                <Label Style="{StaticResource TitleStyle}" Text="{Binding Title}" />
+                <Label Style="{StaticResource TextStyle}" Text="{Binding TermsOfUseText}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</page:BasePage>

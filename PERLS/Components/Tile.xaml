@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<component:ItemView
+    x:Class="PERLS.Components.Tile"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:skiaforms="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+    x:Name="this"
+    CompressedLayout.IsHeadless="True"
+    mc:Ignorable="d">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <sys:Double x:Key="IndicatorSize">30</sys:Double>
+            <Color x:Key="TagBackground">#66000000</Color>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    <ContentView.Content>
+        <Frame
+            x:Name="Frame"
+            Grid.Row="0"
+            Margin="0"
+            Padding="0"
+            HasShadow="True"
+            HeightRequest="300"
+            IsClippedToBounds="false"
+            Style="{StaticResource Tile}"
+            WidthRequest="180">
+            <Frame
+                Margin="0"
+                Padding="0"
+                BackgroundColor="{Binding ., Converter={StaticResource ViewModelToBackgroundColorConverter}}"
+                CornerRadius="10"
+                HasShadow="False"
+                IsClippedToBounds="True"
+                Style="{StaticResource Tile}">
+                <AbsoluteLayout IsClippedToBounds="True">
+                    <ffimageloading:CachedImage
+                        x:Name="ImageView"
+                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                        AbsoluteLayout.LayoutFlags="All"
+                        Aspect="AspectFill"
+                        BindingContext="{x:Reference this}"
+                        DownsampleHeight="180"
+                        ErrorPlaceholder="placeholder"
+                        HorizontalOptions="Fill"
+                        IsVisible="{Binding Image, Converter={StaticResource ExistenceConverter}}"
+                        LoadingPlaceholder="loading"
+                        Source="{Binding Image}"
+                        VerticalOptions="Fill" />
+                    <skiaforms:SKCanvasView
+                        x:Name="CanvasView"
+                        AbsoluteLayout.LayoutBounds="0, 0, 1, 1"
+                        AbsoluteLayout.LayoutFlags="All"
+                        IsVisible="{Binding ShouldShowGradient}"
+                        PaintSurface="OnCanvasViewPaintSurface" />
+                    <BoxView
+                        x:Name="SelectedView"
+                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                        AbsoluteLayout.LayoutFlags="All"
+                        BackgroundColor="White"
+                        IsVisible="{Binding IsSelected}"
+                        Opacity="0.2" />
+                    <StackLayout
+                        AbsoluteLayout.LayoutBounds="0,0,1,1"
+                        AbsoluteLayout.LayoutFlags="All"
+                        BindingContext="{x:Reference this}"
+                        VerticalOptions="End" />
+                    <ffimageloadingsvg:SvgCachedImage
+                        AbsoluteLayout.LayoutBounds="0.5,0.5,70,70"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        Source="{Binding CenterIcon}" />
+                    <Label
+                        AbsoluteLayout.LayoutBounds="0.5,0.9,150,20"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        FontSize="Micro"
+                        HorizontalOptions="Center"
+                        Text="{Binding CenterText}"
+                        TextColor="White" />
+                    <component:BookmarkToggle
+                        AbsoluteLayout.LayoutBounds="1,0,60,40"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        BindingContext="{Binding BookmarkState}" />
+                    <StackLayout
+                        Margin="8"
+                        AbsoluteLayout.LayoutBounds="0,0"
+                        AbsoluteLayout.LayoutFlags="PositionProportional"
+                        Orientation="Vertical"
+                        Spacing="2">
+                        <component:MoreInfoIndicator
+                            BindingContext="{Binding MoreInfoStateViewModel}"
+                            HeightRequest="{StaticResource IndicatorSize}"
+                            WidthRequest="{StaticResource IndicatorSize}" />
+                        <component:DownloadIndicator
+                            BindingContext="{Binding DownloadState}"
+                            HeightRequest="{StaticResource IndicatorSize}"
+                            WidthRequest="{StaticResource IndicatorSize}" />
+                        <component:CompletionIndicator
+                            BindingContext="{Binding CompletionState}"
+                            HeightRequest="{StaticResource IndicatorSize}"
+                            WidthRequest="{StaticResource IndicatorSize}" />
+                    </StackLayout>
+                </AbsoluteLayout>
+            </Frame>
+        </Frame>
+    </ContentView.Content>
+</component:ItemView>

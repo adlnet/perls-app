@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="PERLS.Components.Chips.ChipView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vm="clr-namespace:PERLS.Data.ViewModels;assembly=PERLS.Data"
+    x:DataType="vm:ChipViewModel">
+    <ContentView.Content>
+        <Frame
+            Padding="24,12"
+            BackgroundColor="{DynamicResource ChipBackgroundColor}"
+            CornerRadius="6"
+            HasShadow="False"
+            MinimumWidthRequest="128">
+            <Label
+                HorizontalTextAlignment="Center"
+                Text="{Binding Name}"
+                TextColor="White"
+                VerticalTextAlignment="Center" />
+        </Frame>
+    </ContentView.Content>
+</ContentView>

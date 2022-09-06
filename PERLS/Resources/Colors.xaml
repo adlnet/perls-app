@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ResourceDictionary
+    x:Class="PERLS.Resources.Colors"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Color x:Key="BackgroundColor">White</Color>
+    <Color x:Key="PrimaryTextColor">Black</Color>
+    <Color x:Key="PrimaryColor">#26A1C6</Color>
+    <Color x:Key="SecondaryColor">#006686</Color>
+    <Color x:Key="TertiaryColor">#C4C4C4</Color>
+    <Color x:Key="SeperatorColor">#999999</Color>
+    <Color x:Key="GrayColor">#707070</Color>
+    <Color x:Key="MessageBackgroundColor">#FFDB64</Color>
+    <Color x:Key="MessageForegroundColor">#333333</Color>
+    <Color x:Key="DisabledButtonColor">#B7B7B7</Color>
+    <Color x:Key="QuizColor">#63378F</Color>
+    <Color x:Key="PromptColor">#26A1C6</Color>
+    <Color x:Key="TipColor">#DD031D</Color>
+    <Color x:Key="FlashCardColor">#FC990B</Color>
+    <Color x:Key="CourseCardColor">#2588D0</Color>
+    <Color x:Key="PodcastCardColor">#26A1C6</Color>
+    <Color x:Key="SearchBarBackgroundColor">#ebebeb</Color>
+    <Color x:Key="TransparentBlackColor">#66000000</Color>
+    <Color x:Key="DownloadedColor">#66FFFFFF</Color>
+    <Color x:Key="DownloadManagementIconsColor">#707070</Color>
+    <Color x:Key="StartCourseColor">#015795</Color>
+    <Color x:Key="TabBarBackgroundColor">#161826</Color>
+    <Color x:Key="TabBarUnselectedColor">#C4C4C4</Color>
+    <Color x:Key="TabBarTitleColor">#4AACDE</Color>
+    <Color x:Key="ShellDisabledColor">#AAAAAA</Color>
+    <Color x:Key="ShellUnselectedColor">#939393</Color>
+    <Color x:Key="ShellSelectedColor">#E8F8FE</Color>
+    <Color x:Key="ElementTintColor">#FFFFFF</Color>
+    <Color x:Key="ChipBackgroundColor">#797979</Color>
+    <Color x:Key="SuccessColor">#2CAD90</Color>
+</ResourceDictionary>

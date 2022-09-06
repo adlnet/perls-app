@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.Settings.DownloadManagementPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    xmlns:vm="clr-namespace:PERLS.Data.ViewModels;assembly=PERLS.Data"
+    x:DataType="vm:DownloadManagementViewModel"
+    FlowDirection="{x:Static Device.FlowDirection}">
+    <ContentPage.Content>
+        <StackLayout Spacing="8">
+            <Button
+                x:Name="clearCacheButton"
+                Command="{Binding ClearCacheCommand}"
+                IsEnabled="{Binding HasCache}"
+                Style="{StaticResource PillButtonStyle}"
+                Text="{Binding ClearCacheLabel}" />
+            <Button
+                x:Name="deleteDownloadsButton"
+                Command="{Binding DeleteAllDownloadsCommand}"
+                IsEnabled="{Binding HasDownloads}"
+                Style="{StaticResource PillButtonStyle}"
+                Text="{Binding DeleteDownloadsLabel}" />
+            <Label
+                Margin="16"
+                Padding="8"
+                FontAttributes="Bold"
+                FontSize="18"
+                Text="{Binding YourDownloadsLabel}"
+                TextColor="{DynamicResource PrimaryTextColor}" />
+            <ListView
+                BackgroundColor="{DynamicResource BackgroundColor}"
+                CachingStrategy="RecycleElement"
+                HasUnevenRows="True"
+                ItemsSource="{Binding DownloadedActivities}"
+                SelectedItem="{Binding SelectedActivity, Mode=TwoWay}">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:DownloadedItemViewModel">
+                        <ViewCell>
+                            <StackLayout
+                                Margin="4"
+                                Padding="16,4"
+                                Orientation="Horizontal"
+                                Spacing="12">
+                                <ffimageloading:CachedImage
+                                    Aspect="AspectFill"
+                                    HeightRequest="38"
+                                    HorizontalOptions="Start"
+                                    Source="{Binding Thumbnail}"
+                                    Style="{DynamicResource RemoteCachedImage}"
+                                    VerticalOptions="Center"
+                                    WidthRequest="38" />
+                                <StackLayout
+                                    HorizontalOptions="StartAndExpand"
+                                    Orientation="Vertical"
+                                    Spacing="4"
+                                    VerticalOptions="Center">
+                                    <Label
+                                        LineBreakMode="TailTruncation"
+                                        Text="{Binding Title}"
+                                        TextColor="{DynamicResource PrimaryTextColor}" />
+                                    <StackLayout Orientation="Horizontal" Spacing="4">
+                                        <ffimageloading:CachedImage
+                                            HeightRequest="18"
+                                            IsVisible="{Binding IsDownloading}"
+                                            Source="{Binding ProgressIcon}"
+                                            WidthRequest="18" />
+                                        <ffimageloading:CachedImage
+                                            HeightRequest="18"
+                                            IsVisible="{Binding IsDownloading, Converter={StaticResource BooleanInverseConverter}}"
+                                            Source="{Binding DownloadIcon}"
+                                            WidthRequest="18" />
+                                        <Label
+                                            FontAttributes="Italic"
+                                            FontSize="14"
+                                            IsVisible="{Binding IsDownloading, Converter={StaticResource BooleanInverseConverter}}"
+                                            Text="{Binding DownloadSizeLabel}"
+                                            TextColor="{DynamicResource PrimaryTextColor}" />
+                                        <Label
+                                            FontAttributes="Italic"
+                                            FontSize="14"
+                                            IsVisible="{Binding IsDownloading}"
+                                            Text="{Binding DownloadProgressText}"
+                                            TextColor="{DynamicResource PrimaryTextColor}" />
+                                    </StackLayout>
+                                </StackLayout>
+                                <AbsoluteLayout
+                                    HeightRequest="48"
+                                    HorizontalOptions="End"
+                                    MinimumWidthRequest="48"
+                                    VerticalOptions="Center"
+                                    WidthRequest="48">
+                                    <ffimageloadingsvg:SvgCachedImage
+                                        AbsoluteLayout.LayoutBounds="0.5, 0.5, 0.5, 0.5"
+                                        AbsoluteLayout.LayoutFlags="All"
+                                        IsVisible="{Binding IsDownloading, Converter={StaticResource BooleanInverseConverter}}"
+                                        Source="{Binding MoreIcon}" />
+                                    <AbsoluteLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding DeleteCommand}" />
+                                    </AbsoluteLayout.GestureRecognizers>
+                                </AbsoluteLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</page:BasePage>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.FinishingOnboardingPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    BackgroundColor="{DynamicResource PrimaryColor}"
+    NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <component:ActivityIndicator />
+            <Label
+                HorizontalTextAlignment="Center"
+                Style="{DynamicResource SubtitleStyle}"
+                Text="{l10n:Translate FinishingOnboardingLabel}" />
+        </StackLayout>
+    </ContentPage.Content>
+</page:BasePage>

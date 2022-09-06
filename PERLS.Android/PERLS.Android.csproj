@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <ProjectGuid>{4DF22FC3-8319-4A00-B0F8-1D65F1F8B650}</ProjectGuid>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TemplateGuid>{6968b3a4-1835-46a3-ac5c-1ae33b475983}</TemplateGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PERLS.Droid</RootNamespace>
+    <AssemblyName>PERLS.Android</AssemblyName>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
+    <AndroidEnableSGenConcurrent>true</AndroidEnableSGenConcurrent>
+    <AndroidUseAapt2>true</AndroidUseAapt2>
+    <AndroidHttpClientHandlerType>Xamarin.Android.Net.AndroidClientHandler</AndroidHttpClientHandlerType>
+    <CodeAnalysisRuleSet>$(SolutionDir)\stylecop.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\$(Platform)\$(Configuration)\PERLS.Android.xml</DocumentationFile>
+    <Deterministic>true</Deterministic>
+    <PackageIdentifier>net.usalearning.perls</PackageIdentifier>
+    <AppName>PERLS</AppName>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\$(Configuration)</OutputPath>
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <AndroidSupportedAbis>arm64-v8a;armeabi-v7a;x86;x86_64</AndroidSupportedAbis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>RELEASE;</DefineConstants>
+    <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <AndroidManagedSymbols>true</AndroidManagedSymbols>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Mono.Android" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Mono.Android.Export" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2291" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.9" />
+    <PackageReference Include="Xamarin.FFImageLoading" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg.Forms" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.FFImageLoading.Svg" Version="2.4.11.982" />
+    <PackageReference Include="Xamarin.Forms.PageControl" Version="1.2.0" />
+    <PackageReference Include="SkiaSharp.Views.Forms" Version="2.80.2" />
+    <PackageReference Include="Microsoft.AppCenter.Crashes" Version="4.0.0" />
+    <PackageReference Include="Microsoft.AppCenter.Analytics" Version="4.0.0" />
+    <PackageReference Include="Acr.UserDialogs" Version="7.1.0.470" />
+    <PackageReference Include="Float.TinCan.QueuedLRS" Version="1.0.0.1" />
+    <PackageReference Include="Float.TinCan" Version="1.0.3.29" />
+    <PackageReference Include="Float.FileDownloader" Version="1.0.0.5" />
+    <PackageReference Include="Float.Corcav.Behaviors" Version="3.0.0.3" />
+    <PackageReference Include="Float.Core" Version="1.0.0.10" />
+    <PackageReference Include="Float.XFormsTouch" Version="2.0.0.10" />
+    <PackageReference Include="StyleCop.Analyzers">
+      <Version>1.1.118</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers">
+      <Version>3.3.1</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Plugin.MediaManager" Version="1.0.7" />
+    <PackageReference Include="Xamarin.AndroidX.MediaRouter" Version="1.2.5.2" />
+    <PackageReference Include="Xamarin.Firebase.Common" Version="120.0.0.1" />
+    <PackageReference Include="Xamarin.Firebase.Messaging" Version="122.0.0.1" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Base" Version="117.6.0.1" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Tasks" Version="117.2.1.1" />
+    <PackageReference Include="Xamarin.GooglePlayServices.Basement" Version="117.6.0.2" />
+    <PackageReference Include="Xamarin.AndroidX.Palette" Version="1.0.0.10" />
+    <PackageReference Include="Xamarin.Google.Android.DataTransport.TransportRuntime" Version="3.0.1" />
+    <PackageReference Include="Xamarin.Google.Dagger" Version="2.37.0" />
+    <PackageReference Include="Xamarin.AndroidX.Core" Version="1.6.0.3" />
+    <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.3.1.3" />
+    <PackageReference Include="Xamarin.AndroidX.CardView" Version="1.0.0.11" />
+    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.3.0.8" />
+    <PackageReference Include="Xamarin.AndroidX.ViewPager" Version="1.0.0.10" />
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.Core.Utils" Version="1.0.0.10" />
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.10" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="$(SolutionDir)\stylecop.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainActivity.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renderers\StyledShellToolbarTracker.cs" />
+    <Compile Include="Renderers\StyledShellRenderer.cs" />
+    <Compile Include="Renderers\WebViewRenderer.cs" />
+    <Compile Include="ClearCookies.cs" />
+    <Compile Include="Renderers\PerlsSearchBarRenderer.cs" />
+    <Compile Include="Effects\LabelShadowEffect.cs" />
+    <Compile Include="Renderers\DefaultButtonRenderer.cs" />
+    <Compile Include="Renderers\DefaultFrameRenderer.cs" />
+    <Compile Include="DocumentOpener.cs" />
+    <Compile Include="Analytics\AppCenterAnalytics.cs" />
+    <Compile Include="Renderers\BasePageRenderer.cs" />
+    <Compile Include="Effects\DarkenEffect.cs" />
+    <Compile Include="AndroidFileProcessor.cs" />
+    <Compile Include="Effects\JavaScriptHandlerEffect.cs" />
+    <Compile Include="Effects\JavaScriptHandlerEffectDelegate.cs" />
+    <Compile Include="Effects\JSFormsWebViewClient.cs" />
+    <Compile Include="FirebaseMessagingService.cs" />
+    <Compile Include="FloatFirebaseMessagingService.cs" />
+    <Compile Include="NativeHttpClientHandler.cs" />
+    <Compile Include="NotificationAccessService.cs" />
+    <Compile Include="Renderers\DefaultWebViewClient.cs" />
+    <Compile Include="Renderers\StyledShellToolbarAppearanceTracker.cs" />
+    <Compile Include="BrowserService.cs" />
+    <Compile Include="Effects\AndroidEntryNoLineEffect.cs" />
+    <Compile Include="SettingsService.cs" />
+    <Compile Include="Renderers\EnterFullScreenRequestedEventArgs.cs" />
+    <Compile Include="Renderers\DefaultWebChromeClient.cs" />
+    <Compile Include="Renderers\DefaultCollectionViewRenderer.cs" />
+    <Compile Include="CalendarService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AndroidManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable-hdpi\avatar_settings.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\back_white.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\bookmark_filled.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\bookmark_toolbar_filled.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\bookmark_toolbar_unfilled.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\bookmark_unfilled.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\close_button.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\eye.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\gray_arrow.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\loading.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\placeholder.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\sign_up_button.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\splashBackground.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_account.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_home.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_search.webp" />
+    <AndroidResource Include="Resources\drawable-land-hdpi\splashBackground.webp" />
+    <AndroidResource Include="Resources\drawable-land-xhdpi\splashBackground.webp" />
+    <AndroidResource Include="Resources\drawable-land-xxhdpi\splashBackground.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\avatar_settings.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\back_white.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\bookmark_filled.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\bookmark_toolbar_filled.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\bookmark_toolbar_unfilled.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\bookmark_unfilled.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\close_button.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\eye.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\gray_arrow.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\loading.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\placeholder.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\sign_up_button.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\splashBackground.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_account.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_home.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_search.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\avatar_settings.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\back_white.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\bookmark_filled.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\bookmark_toolbar_filled.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\bookmark_toolbar_unfilled.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\bookmark_unfilled.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\close_button.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\eye.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\gray_arrow.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\loading.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\placeholder.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\sign_up_button.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\splashBackground.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_account.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_home.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_search.webp" />
+    <AndroidResource Include="Resources\drawable\ic_launcher_foreground.xml" />
+    <AndroidResource Include="Resources\drawable\ic_launcher_background.xml" />
+    <AndroidResource Include="Resources\drawable\icon_no_shadow.xml" />
+    <AndroidResource Include="Resources\drawable\icon_no_shadow_inverted.xml" />
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+    <AndroidResource Include="Resources\drawable\custom_search_view.xml" />
+    <AndroidResource Include="Resources\layout\Tabbar.xml" />
+    <AndroidResource Include="Resources\layout\Toolbar.xml" />
+    <AndroidResource Include="Resources\layout\design_layout_tab_icon.xml" />
+    <AndroidResource Include="Resources\values\styles.xml" />
+    <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\values\ic_launcher_background.xml" />
+    <AndroidResource Include="Resources\xml\network_security_config.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\emptyBookmark.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\emptyHistory.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\error.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\emptyBookmark.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\emptyHistory.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\error.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\emptyBookmark.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\emptyHistory.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\error.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\icon_no_shadow.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\icon_no_shadow.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\icon_no_shadow.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\icon_no_shadow_inverted.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\icon_no_shadow_inverted.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\icon_no_shadow_inverted.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\test_complete_mark.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\test_complete_mark.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\test_complete_mark.webp" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher.png" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher.xml" />
+    <AndroidResource Include="Resources\mipmap-mdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-hdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\mipmap-anydpi-v26\ic_launcher_round.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_media.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_media.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_media.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\media_play.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\media_play.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\media_play.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\skip_back.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\skip_forward.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\media_pause.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\nowplaying_play.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\nowplaying_pause.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\scrubber_thumb.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\skip_back.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\skip_forward.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\media_pause.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\nowplaying_play.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\nowplaying_pause.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\scrubber_thumb.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\skip_back.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\skip_forward.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\media_pause.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\nowplaying_play.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\nowplaying_pause.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\scrubber_thumb.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\alarm.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\annotation_delete.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\annotation_icon.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\carrot.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\alarm.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\annotation_delete.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\annotation_icon.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\carrot.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\alarm.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\annotation_delete.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\annotation_icon.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\carrot.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\share_button.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\share_button.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\share_button.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\no_search_result.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\no_search_result.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\no_search_result.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\notification_icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\notification_icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\notification_icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\icon_awesome_hashtag.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\icon_awesome_hashtag.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\icon_awesome_hashtag.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\shareResourceIcon.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\shareResourceIcon.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\shareResourceIcon.webp" />
+    <AndroidResource Include="Resources\drawable-hdpi\tab_groups.webp" />
+    <AndroidResource Include="Resources\drawable-xhdpi\tab_groups.webp" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\tab_groups.webp" />
+    <AndroidResource Include="Resources\drawable\main_screen.xml">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\icon_add_group.webp">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\icon_add_group.webp">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\icon_add_group.webp">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\insights.webp">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\insights.webp">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\insights.webp">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-hdpi\custom_goals.webp">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xhdpi\custom_goals.webp">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable-xxhdpi\custom_goals.webp">
+      <SubType>
+      </SubType>
+      <Generator>
+      </Generator>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(SolutionDir)\PERLS.Data\PERLS.Data.csproj" />
+    <ProjectReference Include="$(SolutionDir)\PERLS.DataImplementation\PERLS.DataImplementation.csproj" />
+    <ProjectReference Include="$(SolutionDir)\PERLS\PERLS.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <GoogleServicesJson Include="google-services.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Analytics\" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+</Project>

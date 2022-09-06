@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<component:PERLSCollectionView
+    x:Class="PERLS.Components.CardDeck"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:card="clr-namespace:PERLS.Components.Cards"
+    xmlns:component="clr-namespace:PERLS.Components"
+    x:Name="This"
+    HorizontalScrollBarVisibility="Never"
+    ItemsUpdatingScrollMode="KeepScrollOffset"
+    SelectionMode="Single">
+    <CollectionView.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="DefaultTemplate">
+                <ContentView>
+                    <Frame HasShadow="False" Style="{StaticResource Card}">
+                        <card:ObjectCard Tapped="HandleCardTapped" WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+            <DataTemplate x:Key="QuizTemplate">
+                <ContentView>
+                    <Frame Style="{StaticResource Card}">
+                        <card:QuizCard WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+            <DataTemplate x:Key="TipTemplate">
+                <ContentView>
+                    <Frame Style="{StaticResource Card}">
+                        <card:TipCard IsClippedToBounds="True" WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+            <DataTemplate x:Key="CourseTemplate">
+                <ContentView>
+                    <Frame Style="{StaticResource Card}">
+                        <card:CourseCard SelectItemCommand="{Binding SelectionChangedCommand, Source={x:Reference This}}" WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+            <DataTemplate x:Key="FlashcardTemplate">
+                <ContentView>
+                    <Frame Style="{StaticResource Card}">
+                        <card:FlashCardCard WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+            <DataTemplate x:Key="PodcastTemplate">
+                <ContentView>
+                    <Frame Style="{StaticResource Card}">
+                        <card:PodcastCard WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+            <DataTemplate x:Key="TestTemplate">
+                <ContentView>
+                    <card:StackOfCardsCard WidthRequest="{DynamicResource ItemWidth}" />
+                </ContentView>
+            </DataTemplate>
+            <DataTemplate x:Key="TestResultsTemplate">
+                <ContentView>
+                    <Frame Style="{StaticResource Card}">
+                        <card:TestResultsCard WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+            <DataTemplate x:Key="PromptTemplate">
+                <ContentView>
+                    <Frame Style="{StaticResource Card}">
+                        <card:PromptCard WidthRequest="{DynamicResource ItemWidth}" />
+                    </Frame>
+                </ContentView>
+            </DataTemplate>
+        </ResourceDictionary>
+    </CollectionView.Resources>
+    <CollectionView.ItemsLayout>
+        <LinearItemsLayout
+            Orientation="Horizontal"
+            SnapPointsAlignment="Start"
+            SnapPointsType="MandatorySingle" />
+    </CollectionView.ItemsLayout>
+    <CollectionView.ItemTemplate>
+        <card:CardDataTemplateSelector
+            CourseTemplate="{StaticResource CourseTemplate}"
+            DefaultTemplate="{StaticResource DefaultTemplate}"
+            FlashcardTemplate="{StaticResource FlashcardTemplate}"
+            PodcastTemplate="{StaticResource PodcastTemplate}"
+            PromptTemplate="{StaticResource PromptTemplate}"
+            QuizTemplate="{StaticResource QuizTemplate}"
+            TestResultsTemplate="{StaticResource TestResultsTemplate}"
+            TestTemplate="{StaticResource TestTemplate}"
+            TipTemplate="{StaticResource TipTemplate}" />
+    </CollectionView.ItemTemplate>
+    <CollectionView.EmptyView>
+        <component:CenteredImageTitleDetailView
+            Title="{Binding EmptyMessageTitle}"
+            Detail="{Binding EmptyLabel}"
+            Image="{Binding EmptyImageName}" />
+    </CollectionView.EmptyView>
+</component:PERLSCollectionView>

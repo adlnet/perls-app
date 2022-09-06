@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.InsightsPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    xmlns:vm="clr-namespace:PERLS.Data.ViewModels;assembly=PERLS.Data"
+    ios:Page.UseSafeArea="True"
+    x:DataType="vm:LearnerStatsViewModel">
+    <ContentPage.Content>
+        <ScrollView Padding="{OnPlatform Android={StaticResource SpaceTop}}">
+            <StackLayout Spacing="{StaticResource Spacing}">
+
+                <!--
+                    My Goals
+                -->
+                <Label
+                    Margin="{StaticResource SpaceLeftAndRight}"
+                    Style="{StaticResource TitleStyle}"
+                    Text="{l10n:Translate GoalsHeadingLabel}" />
+                <Button
+                    Margin="{StaticResource Space}"
+                    Command="{Binding SetGoalReminderCommand}"
+                    ImageSource="alarm"
+                    Style="{StaticResource PillButtonStyle}"
+                    Text="{l10n:Translate SetAReminderButtonTitle}" />
+                <FlexLayout BindableLayout.ItemsSource="{Binding Goals}" Wrap="Wrap">
+                    <BindableLayout.EmptyView>
+                        <Grid FlexLayout.Basis="100%">
+                            <component:CenteredImageTitleDetailView
+                                Title="{Binding EmptyMessageTitle}"
+                                ButtonTitle="{l10n:Translate TryAgainTitleCaseLabel}"
+                                Command="{Binding RefreshCommand}"
+                                Detail="{Binding EmptyLabel}"
+                                Image="{Binding EmptyImageName}"
+                                ShowButton="True" />
+                            <!--  Acts as a "minimum height" for the empty view  -->
+                            <BoxView BackgroundColor="Transparent" HeightRequest="250" />
+                        </Grid>
+                    </BindableLayout.EmptyView>
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <!--  The extra grid layout is to achieve consistent spacing between items  -->
+                            <Grid
+                                Margin="0"
+                                Padding="{StaticResource Space}"
+                                x:DataType="vm:LearnerGoalViewModel">
+                                <!--
+                                    The frame primarily exists for presentation purposes (rounded corners and a shadow);
+                                    the layout/spacing is handled by the containing Grid.
+                                    These may be able to be combined to one if we we could add rounded corners
+                                    and shadows to grid items.
+                                -->
+                                <Frame
+                                    Padding="0"
+                                    android:VisualElement.Elevation="5"
+                                    ios:VisualElement.IsShadowEnabled="True"
+                                    ios:VisualElement.ShadowColor="#CC000000"
+                                    ios:VisualElement.ShadowOffset="0,2"
+                                    ios:VisualElement.ShadowRadius="3"
+                                    BackgroundColor="{DynamicResource BackgroundColor}"
+                                    CornerRadius="10"
+                                    HasShadow="False"
+                                    IsClippedToBounds="True">
+                                    <StackLayout Padding="{StaticResource SpaceTop}" Spacing="{StaticResource Space}">
+                                        <Label
+                                            Margin="{StaticResource SpaceLeftAndRight}"
+                                            FontAttributes="Bold"
+                                            Style="{StaticResource BodyStyle}"
+                                            Text="{Binding GoalTitle}" />
+                                        <FlexLayout
+                                            Margin="{StaticResource SpaceLeftAndRight}"
+                                            AlignItems="End"
+                                            Wrap="Wrap">
+                                            <StackLayout FlexLayout.Grow="1" Spacing="0">
+                                                <Label Style="{StaticResource CaptionStyle}" Text="{l10n:Translate GoalTotalLabel}" />
+                                                <StackLayout Orientation="Horizontal">
+                                                    <!--
+                                                        The negative margins below are to offset character padding added by
+                                                        the font at larger text sizes; it provides a consistent text baseline.
+                                                    -->
+                                                    <Label
+                                                        Margin="0,-7,0,-5"
+                                                        FontAttributes="Bold"
+                                                        FontSize="48"
+                                                        Style="{StaticResource TextStyle}"
+                                                        Text="{Binding CurrentCount}"
+                                                        VerticalTextAlignment="End" />
+                                                    <Label
+                                                        Margin="0,-7,0,-5"
+                                                        FontAttributes="Bold"
+                                                        FontSize="48"
+                                                        Style="{StaticResource TextStyle}"
+                                                        Text="/"
+                                                        VerticalTextAlignment="End" />
+                                                    <Label
+                                                        FontAttributes="Bold"
+                                                        FontSize="32"
+                                                        Style="{StaticResource TextStyle}"
+                                                        Text="{Binding GoalString}"
+                                                        VerticalTextAlignment="End" />
+                                                    <Label
+                                                        Margin="0,0,0,5"
+                                                        Style="{StaticResource CaptionStyle}"
+                                                        Text="{Binding GoalContentType}"
+                                                        VerticalTextAlignment="End" />
+                                                </StackLayout>
+                                            </StackLayout>
+                                            <!--
+                                                The button may wrap to the next line in space-constrained scenarios
+                                                (i.e. large goal value, large text size, and a small screen).
+                                                It's margin below is informed by the margins used above to achieve
+                                                a consistent baseline across all labels.
+                                            -->
+                                            <Button
+                                                Margin="0,0,0,5"
+                                                Command="{Binding AdjustGoalCommand}"
+                                                CommandParameter="{Binding .}"
+                                                FlexLayout.AlignSelf="End"
+                                                FlexLayout.Grow="0"
+                                                FlexLayout.Shrink="0"
+                                                Style="{StaticResource SmallButtonStyle}"
+                                                Text="{l10n:Translate ModifyGoalButtonLabel}" />
+                                        </FlexLayout>
+
+                                        <!--  Progress bar on the bottom of the goal  -->
+                                        <AbsoluteLayout
+                                            HeightRequest="25"
+                                            IsClippedToBounds="True"
+                                            VerticalOptions="End">
+                                            <ProgressBar
+                                                Margin="-2,0,0,0"
+                                                AbsoluteLayout.LayoutBounds="0,0,1.02,1"
+                                                AbsoluteLayout.LayoutFlags="All"
+                                                AnchorY="{OnPlatform iOS=0}"
+                                                HeightRequest="25"
+                                                Progress="{Binding Progress}"
+                                                ProgressColor="{DynamicResource SecondaryColor}"
+                                                ScaleY="25">
+                                                <ProgressBar.Triggers>
+                                                    <DataTrigger
+                                                        Binding="{Binding Progress}"
+                                                        TargetType="ProgressBar"
+                                                        Value="1">
+                                                        <Setter Property="ProgressColor" Value="{DynamicResource SuccessColor}" />
+                                                    </DataTrigger>
+                                                </ProgressBar.Triggers>
+                                            </ProgressBar>
+                                            <!--  Goal complete status indicator; only appears when goal is met  -->
+                                            <StackLayout
+                                                Margin="{StaticResource SpaceLeftAndRight}"
+                                                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                                                AbsoluteLayout.LayoutFlags="All"
+                                                IsVisible="False"
+                                                Orientation="Horizontal"
+                                                Spacing="5">
+                                                <StackLayout.Triggers>
+                                                    <DataTrigger
+                                                        Binding="{Binding Progress}"
+                                                        TargetType="StackLayout"
+                                                        Value="1">
+                                                        <Setter Property="IsVisible" Value="True" />
+                                                    </DataTrigger>
+                                                </StackLayout.Triggers>
+                                                <!--  A custom font size and color are used here to match with the completion icon.  -->
+                                                <Label
+                                                    FontAttributes="Bold"
+                                                    FontSize="14"
+                                                    HorizontalOptions="FillAndExpand"
+                                                    HorizontalTextAlignment="End"
+                                                    Text="{l10n:Translate GoalSatisfiedStatusLabel}"
+                                                    TextColor="White"
+                                                    VerticalTextAlignment="Center" />
+                                                <ffimageloadingsvg:SvgCachedImage
+                                                    HeightRequest="20"
+                                                    Source="resource://PERLS.Data.Resources.lo_complete.svg?Assembly=PERLS.Data"
+                                                    WidthRequest="20" />
+                                            </StackLayout>
+                                        </AbsoluteLayout>
+                                    </StackLayout>
+                                </Frame>
+
+                                <!--
+                                    The individual goals will flow to two columns on wide screens (tablets)
+                                    and display as a single column on normal sized screens (phones).
+                                -->
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup>
+                                        <VisualState Name="Wide">
+                                            <VisualState.StateTriggers>
+                                                <AdaptiveTrigger MinWindowWidth="1000" />
+                                            </VisualState.StateTriggers>
+                                            <VisualState.Setters>
+                                                <Setter Property="FlexLayout.Basis" Value="50%" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState Name="Normal">
+                                            <VisualState.StateTriggers>
+                                                <AdaptiveTrigger MinWindowWidth="0" />
+                                            </VisualState.StateTriggers>
+                                            <VisualState.Setters>
+                                                <Setter Property="FlexLayout.Basis" Value="100%" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </Grid>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+                <Button
+                    Margin="{StaticResource Space}"
+                    Command="{Binding ViewGoalDetailsCommand}"
+                    ImageSource="insights"
+                    Style="{StaticResource PillButtonStyle}"
+                    Text="{l10n:Translate GoalDetailsButtonTitle}" />
+
+                <Label
+                    Margin="{StaticResource SpaceLeftAndRight}"
+                    Style="{StaticResource TitleStyle}"
+                    Text="{l10n:Translate CustomGoalsOverviewLabel}" />
+
+                <Button
+                    Margin="{StaticResource Space}"
+                    Command="{Binding ViewCustomGoalsCommand}"
+                    ImageSource="custom_goals"
+                    Style="{StaticResource PillButtonStyle}"
+                    Text="{l10n:Translate CustomGoalsButtonTitle}" />
+
+                <!--
+                    Activity Overview
+                -->
+                <Label
+                    Margin="{StaticResource SpaceLeftAndRight}"
+                    Style="{StaticResource TitleStyle}"
+                    Text="{l10n:Translate YourActivityOverviewLabel}" />
+                <FlexLayout
+                    AlignContent="Stretch"
+                    BindableLayout.ItemsSource="{Binding Stats}"
+                    Wrap="Wrap">
+                    <BindableLayout.EmptyView>
+                        <!--  The error message/details should be displayed above. No need to repeat here.  -->
+                        <component:CenteredImageTitleDetailView FlexLayout.Basis="100%" Image="{Binding EmptyImageName}" />
+                    </BindableLayout.EmptyView>
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout
+                                Margin="{StaticResource Space}"
+                                x:DataType="vm:LearnerStatViewModel"
+                                Spacing="0">
+                                <Label
+                                    FontAttributes="Bold"
+                                    Style="{StaticResource BodyStyle}"
+                                    Text="{Binding Description}" />
+                                <StackLayout Orientation="Horizontal">
+                                    <!--
+                                        The negative margins below are to offset character padding added by
+                                        the font at larger text sizes; it provides a consistent text baseline.
+                                    -->
+                                    <Label
+                                        Margin="0,0,0,-5"
+                                        FontAttributes="Bold"
+                                        FontSize="48"
+                                        Style="{StaticResource TextStyle}"
+                                        Text="{Binding Value}"
+                                        VerticalTextAlignment="End" />
+                                    <Label
+                                        Margin="0,0,0,5"
+                                        Style="{StaticResource CaptionStyle}"
+                                        Text="{Binding TypeString}"
+                                        VerticalTextAlignment="End" />
+                                </StackLayout>
+
+                                <!--
+                                    Learner stats can be shown in a single line on larger screens.
+                                -->
+                                <VisualStateManager.VisualStateGroups>
+                                    <VisualStateGroup>
+                                        <VisualState Name="Wide">
+                                            <VisualState.StateTriggers>
+                                                <AdaptiveTrigger MinWindowWidth="840" />
+                                            </VisualState.StateTriggers>
+                                            <VisualState.Setters>
+                                                <Setter Property="FlexLayout.Basis" Value="190" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                        <VisualState Name="Normal">
+                                            <VisualState.StateTriggers>
+                                                <AdaptiveTrigger MinWindowWidth="0" />
+                                            </VisualState.StateTriggers>
+                                            <VisualState.Setters>
+                                                <Setter Property="FlexLayout.Basis" Value="50%" />
+                                            </VisualState.Setters>
+                                        </VisualState>
+                                    </VisualStateGroup>
+                                </VisualStateManager.VisualStateGroups>
+                            </StackLayout>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </FlexLayout>
+                <!--  Provides extra space at the bottom of the scroll view so learner stats are not right next to the tab bar.  -->
+                <BoxView HeightRequest="{StaticResource Spacing}" />
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</page:BasePage>

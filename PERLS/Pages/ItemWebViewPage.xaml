@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.ItemWebViewPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:Corcav.Behaviors;assembly=Corcav.Behaviors"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:effect="clr-namespace:PERLS.Effects"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    ios:Page.UseSafeArea="False">
+    <Shell.SearchHandler>
+        <SearchHandler x:Name="searchHandler" SearchBoxVisibility="Hidden" />
+    </Shell.SearchHandler>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Command="{Binding ShareRemoteResourceCommand}"
+            CommandParameter="{Binding Teaser.ModelItem}"
+            IconImageSource="{Binding ShareIcon}" />
+        <ToolbarItem
+            BindingContext="{Binding BookmarkState}"
+            Command="{Binding ToggleBookmarkCommand}"
+            IconImageSource="{Binding ToolbarBookmarkIcon}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <component:FullScreenEnabledWebView
+                x:Name="webView"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                Source="{Binding InitialUrl}">
+                <behaviors:Interaction.Behaviors>
+                    <behaviors:BehaviorCollection>
+                        <behaviors:EventToCommand
+                            Command="{Binding LoadingEvent}"
+                            EventName="Navigating"
+                            PassEventArgument="True" />
+                        <behaviors:EventToCommand
+                            Command="{Binding LoadingEvent}"
+                            EventName="Navigated"
+                            PassEventArgument="True" />
+                    </behaviors:BehaviorCollection>
+                </behaviors:Interaction.Behaviors>
+                <WebView.Effects>
+                    <effect:JavaScriptHandlerEffect x:Name="JavaScriptEffect" />
+                </WebView.Effects>
+            </component:FullScreenEnabledWebView>
+            <component:CenteredImageTitleDetailView
+                Title="{l10n:Translate OfflineMessageTitle}"
+                Padding="20"
+                AbsoluteLayout.LayoutBounds="0,0,1,1"
+                AbsoluteLayout.LayoutFlags="All"
+                BackgroundColor="White"
+                ButtonTitle="{l10n:Translate TryAgainTitleCaseLabel}"
+                Command="{Binding RefreshCommand}"
+                Detail="{Binding OfflineMessageBody}"
+                Image="no_data"
+                IsVisible="{Binding DisplayErrorMessage}" />
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</page:BasePage>

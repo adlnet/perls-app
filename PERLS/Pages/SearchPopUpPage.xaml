@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<pages:PopupPage
+    x:Class="PERLS.Pages.SearchPopUpPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+    CloseWhenBackgroundIsClicked="True">
+    <pages:PopupPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="CloseButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{StaticResource PrimaryColor}" />
+                <Setter Property="CornerRadius" Value="8" />
+            </Style>
+        </ResourceDictionary>
+    </pages:PopupPage.Resources>
+    <ContentView
+        Margin="50"
+        HorizontalOptions="Center"
+        WidthRequest="500">
+        <Grid Padding="0,0,0,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button
+                Grid.Row="0"
+                Margin="0,0,0,5"
+                Clicked="CloseButtonTappedEventHandler"
+                HeightRequest="40"
+                HorizontalOptions="Center"
+                Style="{StaticResource CloseButtonStyle}"
+                Text="{l10n:Translate CloseLabel}"
+                VerticalOptions="Start"
+                WidthRequest="80" />
+            <ContentView
+                Grid.Row="1"
+                Margin="0"
+                Padding="0"
+                BackgroundColor="Transparent">
+                <Frame
+                    x:Name="popupContent"
+                    Margin="0"
+                    Style="{StaticResource Card}" />
+            </ContentView>
+        </Grid>
+    </ContentView>
+</pages:PopupPage>

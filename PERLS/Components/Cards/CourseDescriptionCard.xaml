@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<card:BaseCard
+    x:Class="PERLS.Components.Cards.CourseDescriptionCard"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:card="clr-namespace:PERLS.Components.Cards"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <ContentView.Content>
+        <Frame Style="{StaticResource Card}">
+            <Grid BackgroundColor="{DynamicResource CourseCardColor}" WidthRequest="{DynamicResource ItemWidth}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label
+                    Grid.Row="0"
+                    Margin="20,20,20,0"
+                    Style="{DynamicResource TitleStyle}"
+                    Text="{l10n:Translate CourseDescriptionLabel}" />
+                <Label
+                    x:Name="DescriptionLabel"
+                    Grid.Row="1"
+                    Margin="{DynamicResource Spacing}"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="{OnPlatform iOS=0,
+                                          Android=30}"
+                    Style="{DynamicResource BodyStyle}"
+                    Text="{Binding Description}"
+                    VerticalOptions="Fill" />
+            </Grid>
+        </Frame>
+    </ContentView.Content>
+</card:BaseCard>

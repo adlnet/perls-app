@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="PERLS.Components.CenteredImageTitleDetailView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:components="clr-namespace:PERLS.Components"
+    xmlns:ffimageloadingsvg="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+    <ContentView.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <components:ActivityIndicator
+                Grid.Row="1"
+                HeightRequest="40"
+                IsVisible="{Binding IsLoading, FallbackValue=False}" />
+            <StackLayout
+                Grid.Row="1"
+                Margin="{DynamicResource Spacing}"
+                IsVisible="{Binding IsLoading, Converter={StaticResource BooleanInverseConverter}}"
+                Orientation="Vertical"
+                Spacing="15">
+                <ffimageloadingsvg:SvgCachedImage
+                    x:Name="EmptyImage"
+                    Margin="0,0,0,10"
+                    Aspect="AspectFit"
+                    HeightRequest="80"
+                    HorizontalOptions="Center"
+                    IsVisible="False"
+                    WidthRequest="200" />
+                <Label
+                    x:Name="TitleLabel"
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource TitleStyle}"
+                    TextColor="{DynamicResource PrimaryTextColor}" />
+                <Label
+                    x:Name="DetailLabel"
+                    HorizontalTextAlignment="Center"
+                    Style="{DynamicResource CaptionStyle}"
+                    TextColor="{DynamicResource PrimaryTextColor}" />
+                <Button x:Name="ActionButton" HorizontalOptions="Center" />
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>

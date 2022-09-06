@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="DoneLabel" xml:space="preserve">
+    <value>منجز</value>
+  </data>
+  <data name="CloseLabel" xml:space="preserve">
+    <value>قريب</value>
+  </data>
+  <data name="NewEmptyMessage" xml:space="preserve">
+    <value>لا يوجد شيء جديد الآن</value>
+  </data>
+  <data name="TrendingEmptyMessage" xml:space="preserve">
+    <value>لا يوجد شيء شائع الآن</value>
+  </data>
+  <data name="RecommendationsEmptyTitle" xml:space="preserve">
+    <value>لا توجد توصيات بعد</value>
+  </data>
+  <data name="RecommendationsEmptyMessage" xml:space="preserve">
+    <value>تصفح الوسائط أو ابحث لاستكشاف محتوى آخر</value>
+  </data>
+  <data name="EmptyPodcastTitle" xml:space="preserve">
+    <value>لا توجد ملفات بودكاست حتى الآن</value>
+  </data>
+  <data name="EmptyPodcastMessage" xml:space="preserve">
+    <value>تصفح لوحة المعلومات أو بحث لاستكشاف محتوى آخر.</value>
+  </data>
+  <data name="EpisodesEmptyMessage" xml:space="preserve">
+    <value>لا توجد حلقات متاحة</value>
+  </data>
+  <data name="DefaultLoadingMessage" xml:space="preserve">
+    <value>جار التحميل...</value>
+  </data>
+  <data name="DefaultSavingMessage" xml:space="preserve">
+    <value>إنقاذ...</value>
+  </data>
+  <data name="DefaultEmptyMessage" xml:space="preserve">
+    <value>لا يوجد شيء هنا</value>
+  </data>
+  <data name="EmptyNotesTitle" xml:space="preserve">
+    <value>لم تقم بتدوين أي ملاحظات حتى الآن</value>
+  </data>
+  <data name="EmptyNotesMessage" xml:space="preserve">
+    <value>قم بزيارة مقال واستخدم رمز القلم الرصاص لإنشاء ملاحظتك الأولى.</value>
+  </data>
+  <data name="BadgesEmptyMessage" xml:space="preserve">
+    <value>ستظهر شاراتك هنا</value>
+  </data>
+  <data name="NoResultsMessage" xml:space="preserve">
+    <value>لم يتم العثور على نتائج</value>
+  </data>
+  <data name="EmptyCertificatesTitle" xml:space="preserve">
+    <value>ليس لديك أي شهادات حتى الآن</value>
+  </data>
+  <data name="EmptyCertificatesMessage" xml:space="preserve">
+    <value>أكمل الدورات للحصول على الشهادات.</value>
+  </data>
+  <data name="EmptyTagMessage" xml:space="preserve">
+    <value>لا يوجد شيء مميز بعلامة {0}</value>
+  </data>
+  <data name="EmptyUnspecifiedTagMessage" xml:space="preserve">
+    <value>لا يوجد محتوى تم تمييزه بهذا المصطلح.</value>
+  </data>
+  <data name="EmptyFollowingTitle" xml:space="preserve">
+    <value>لا يوجد محتوى من العلامات المتبعة الخاصة بك حتى الآن</value>
+  </data>
+  <data name="EmptyFollowingMessage" xml:space="preserve">
+    <value>ابحث عن المزيد من المحتوى في علامة التبويب For You.</value>
+  </data>
+  <data name="EmptyGroupsMessage" xml:space="preserve">
+    <value>ابحث عن المزيد من المحتوى في علامة التبويب For You.</value>
+  </data>
+  <data name="SettingsLabel" xml:space="preserve">
+    <value>ملفي</value>
+  </data>
+  <data name="DeviceSettingsLabel" xml:space="preserve">
+    <value>إعدادات</value>
+  </data>
+  <data name="LogOutLabel" xml:space="preserve">
+    <value>تسجيل خروج</value>
+  </data>
+  <data name="FirebaseTokenMessage" xml:space="preserve">
+    <value>"رسالة Firebase Token"</value>
+  </data>
+  <data name="CommentsTitleLabel" xml:space="preserve">
+    <value>تعليقات</value>
+  </data>
+  <data name="NotificationChannel" xml:space="preserve">
+    <value>إشعارات</value>
+  </data>
+  <data name="FinishingOnboardingLabel" xml:space="preserve">
+    <value>خطة...</value>
+  </data>
+  <data name="TabHomeLabel" xml:space="preserve">
+    <value>لوحة القيادة</value>
+  </data>
+  <data name="TabMediaLabel" xml:space="preserve">
+    <value>وسائط</value>
+  </data>
+  <data name="TabSearchLabel" xml:space="preserve">
+    <value>يبحث</value>
+  </data>
+  <data name="TabAccountLabel" xml:space="preserve">
+    <value>أنا</value>
+  </data>
+  <data name="TabRecommendationsLabel" xml:space="preserve">
+    <value>لك</value>
+  </data>
+  <data name="TabTrendingLabel" xml:space="preserve">
+    <value>الشائع</value>
+  </data>
+  <data name="TabNewLabel" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="TabCertificatesLabel" xml:space="preserve">
+    <value>الشهادات</value>
+  </data>
+  <data name="TabMyContentLabel" xml:space="preserve">
+    <value>المحتوى الخاص بي</value>
+  </data>
+  <data name="TabHistoryLabel" xml:space="preserve">
+    <value>تاريخ</value>
+  </data>
+  <data name="TabStatsLabel" xml:space="preserve">
+    <value>احصائيات</value>
+  </data>
+  <data name="TabGoalsLabel" xml:space="preserve">
+    <value>أفكار</value>
+  </data>
+  <data name="TabNotesLabel" xml:space="preserve">
+    <value>ملاحظات</value>
+  </data>
+  <data name="TabBadgesLabel" xml:space="preserve">
+    <value>شارات</value>
+  </data>
+  <data name="TabFollowingLabel" xml:space="preserve">
+    <value>التالية</value>
+  </data>
+  <data name="DefaultErrorTitle" xml:space="preserve">
+    <value>آسف</value>
+  </data>
+  <data name="InterestsTitle" xml:space="preserve">
+    <value>الإهتمامات</value>
+  </data>
+  <data name="DefaultErrorDismissButton" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="NoLearnerError" xml:space="preserve">
+    <value>لا يوجد متعلم مسجّل الدخول إلى التطبيق</value>
+  </data>
+  <data name="StatementSendError" xml:space="preserve">
+    <value>تعذر الاتصال بـ LRS. من فضلك تواصل مع مسؤول نظامك.</value>
+  </data>
+  <data name="OfflineMessageTitle" xml:space="preserve">
+    <value>انت غير متصل.</value>
+  </data>
+  <data name="JsonErrorMessage" xml:space="preserve">
+    <value>قد يخضع الخادم للصيانة. يرجى المحاولة مرة أخرى في بضع لحظات.</value>
+  </data>
+  <data name="AuthenticationErrorMessage" xml:space="preserve">
+    <value>حسابك ليس لديه إذن للقيام بذلك.</value>
+  </data>
+  <data name="ServerErrorMessage" xml:space="preserve">
+    <value>حدثت مشكلة في الاتصال بالخادم. سيحاول التطبيق مرة أخرى في غضون لحظات قليلة.</value>
+  </data>
+  <data name="UnknownErrorMessage" xml:space="preserve">
+    <value>لقد حدث خطأ ما من جانبنا. تم تسجيل الخطأ حتى يمكن معالجته.</value>
+  </data>
+  <data name="ActivityLaunchError" xml:space="preserve">
+    <value>غير قادر على بدء النشاط في هذا الوقت.</value>
+  </data>
+  <data name="DownloadError" xml:space="preserve">
+    <value>غير قادر على تنزيل المحتوى في هذا الوقت.</value>
+  </data>
+  <data name="ShareError" xml:space="preserve">
+    <value>غير قادر على مشاركة المحتوى في هذا الوقت.</value>
+  </data>
+  <data name="TypeCourse" xml:space="preserve">
+    <value>مسار</value>
+  </data>
+  <data name="TypeCoursePlural" xml:space="preserve">
+    <value>الدورات</value>
+  </data>
+  <data name="TypeFlashCard" xml:space="preserve">
+    <value>بطاقة الذاكرة المدمجة</value>
+  </data>
+  <data name="TypeTip" xml:space="preserve">
+    <value>نصيحة</value>
+  </data>
+  <data name="TypeQuiz" xml:space="preserve">
+    <value>اختبار</value>
+  </data>
+  <data name="TypeTest" xml:space="preserve">
+    <value>اختبار</value>
+  </data>
+  <data name="TypePodcast" xml:space="preserve">
+    <value>تدوين صوتي</value>
+  </data>
+  <data name="TypeEpisode" xml:space="preserve">
+    <value>حلقة</value>
+  </data>
+  <data name="TypeArticle" xml:space="preserve">
+    <value>مقالة - سلعة</value>
+  </data>
+  <data name="TypeArticlePlural" xml:space="preserve">
+    <value>مقالات</value>
+  </data>
+  <data name="SearchPrompt" xml:space="preserve">
+    <value>عما تبحث؟</value>
+  </data>
+  <data name="SearchNoResultsMessage" xml:space="preserve">
+    <value>لا توجد نتائج لـ "{0: query}"</value>
+  </data>
+  <data name="SearchCantFindLabel" xml:space="preserve">
+    <value>ألا تستطيع إيجاد ما تبحث عنه؟</value>
+  </data>
+  <data name="MakeASuggestionButtonLabel" xml:space="preserve">
+    <value>دعنا نعرف</value>
+  </data>
+  <data name="MakeASuggestionTitle" xml:space="preserve">
+    <value>قدم اقتراح</value>
+  </data>
+  <data name="FilterPrompt" xml:space="preserve">
+    <value>قائمة الفلاتر</value>
+  </data>
+  <data name="SendFeedbackMailSubjectLine" xml:space="preserve">
+    <value>ملاحظات لـ {0: app}</value>
+  </data>
+  <data name="ItemSingular" xml:space="preserve">
+    <value>العنصر</value>
+  </data>
+  <data name="ItemPlural" xml:space="preserve">
+    <value>العناصر</value>
+  </data>
+  <data name="HrLabel" xml:space="preserve">
+    <value>ساعة</value>
+  </data>
+  <data name="MinLabel" xml:space="preserve">
+    <value>دقيقة</value>
+  </data>
+  <data name="SecLabel" xml:space="preserve">
+    <value>ثانية</value>
+  </data>
+  <data name="CoursePlural" xml:space="preserve">
+    <value>الدورات</value>
+  </data>
+  <data name="StatLabelSeen" xml:space="preserve">
+    <value>ينظر</value>
+  </data>
+  <data name="StatLabelCompleted" xml:space="preserve">
+    <value>مكتمل</value>
+  </data>
+  <data name="StatLabelAverageScore" xml:space="preserve">
+    <value>متوسط درجة</value>
+  </data>
+  <data name="SetAReminderButtonTitle" xml:space="preserve">
+    <value>اضبط تذكيرًا</value>
+  </data>
+  <data name="GoalDetailsButtonTitle" xml:space="preserve">
+    <value>عرض تفاصيل الهدف</value>
+  </data>
+  <data name="GoalDetailsTitle" xml:space="preserve">
+    <value>تفاصيل الهدف</value>
+  </data>
+  <data name="GoalsHeadingLabel" xml:space="preserve">
+    <value>أهدافي</value>
+  </data>
+  <data name="YourActivityOverviewLabel" xml:space="preserve">
+    <value>نظرة عامة على النشاط</value>
+  </data>
+  <data name="GoalTitleWeeklyArticles" xml:space="preserve">
+    <value>العناصر التي تم عرضها هذا الأسبوع</value>
+  </data>
+  <data name="GoalTitleCompletedArticles" xml:space="preserve">
+    <value>العناصر المنجزة هذا الأسبوع</value>
+  </data>
+  <data name="GoalTitleTestScore" xml:space="preserve">
+    <value>متوسط نتيجة الاختبار هذا الأسبوع</value>
+  </data>
+  <data name="GoalTitleMonthlyCourses" xml:space="preserve">
+    <value>الدورات المنجزة هذا الشهر</value>
+  </data>
+  <data name="ModifyGoalButtonLabel" xml:space="preserve">
+    <value>تحديث الهدف</value>
+  </data>
+  <data name="GoalSatisfiedStatusLabel" xml:space="preserve">
+    <value>الهدف مكتمل!</value>
+  </data>
+  <data name="GoalTotalLabel" xml:space="preserve">
+    <value>المجموع</value>
+  </data>
+  <data name="HowManyArticlesViewPerWeekLabel" xml:space="preserve">
+    <value>كم عدد العناصر التي تريد عرضها في الأسبوع؟</value>
+  </data>
+  <data name="HowManyArticlesCompletePerWeekLabel" xml:space="preserve">
+    <value>كم عدد العناصر التي تريد إكمالها في الأسبوع؟</value>
+  </data>
+  <data name="HowManyCoursesCompletedPerMonthLabel" xml:space="preserve">
+    <value>كم عدد الدورات التي تريد إكمالها شهريًا؟</value>
+  </data>
+  <data name="TargetTestScoreQuestionLabel" xml:space="preserve">
+    <value>ما هي درجة الاختبار المستهدفة؟</value>
+  </data>
+  <data name="EarnedMessage" xml:space="preserve">
+    <value>حصل</value>
+  </data>
+  <data name="StartCourseLabel" xml:space="preserve">
+    <value>بداية</value>
+  </data>
+  <data name="CourseDescriptionLabel" xml:space="preserve">
+    <value>وصف</value>
+  </data>
+  <data name="HistoryEmptyMessage" xml:space="preserve">
+    <value>سيتم عرض سجل نشاطك هنا</value>
+  </data>
+  <data name="OfflineMessageBody" xml:space="preserve">
+    <value>ليس كل محتوى {0} متاحًا في الوقت الحالي. تحقق من الاتصال الخاص بك ثم انقر فوق للمحاولة مرة أخرى.</value>
+  </data>
+  <data name="SetServerLabel" xml:space="preserve">
+    <value>فريق</value>
+  </data>
+  <data name="ViewAccountLabel" xml:space="preserve">
+    <value>الحساب</value>
+  </data>
+  <data name="SendFeedbackLabel" xml:space="preserve">
+    <value>تعليق</value>
+  </data>
+  <data name="ViewSupportLabel" xml:space="preserve">
+    <value>الدعم</value>
+  </data>
+  <data name="ViewAcknowledgementsLabel" xml:space="preserve">
+    <value>شكر وتقدير</value>
+  </data>
+  <data name="SaveLabel" xml:space="preserve">
+    <value>يحفظ</value>
+  </data>
+  <data name="CertificateLabel" xml:space="preserve">
+    <value>شهادة</value>
+  </data>
+  <data name="DateLabel" xml:space="preserve">
+    <value>تاريخ</value>
+  </data>
+  <data name="SignInLabel" xml:space="preserve">
+    <value>البدء</value>
+  </data>
+  <data name="PageLoadingFailedMessage" xml:space="preserve">
+    <value>فشلت الصفحة في التحميل في هذا الوقت</value>
+  </data>
+  <data name="CorrectLabel" xml:space="preserve">
+    <value>صيح!</value>
+  </data>
+  <data name="IncorrectLabel" xml:space="preserve">
+    <value>غير صحيح</value>
+  </data>
+  <data name="TryAgainLabel" xml:space="preserve">
+    <value>حاول مرة أخري</value>
+  </data>
+  <data name="TryAgainTitleCaseLabel" xml:space="preserve">
+    <value>حاول مرة أخري</value>
+  </data>
+  <data name="QLabel" xml:space="preserve">
+    <value>س</value>
+  </data>
+  <data name="SessionExpiredErrorMessage" xml:space="preserve">
+    <value>انتهت صلاحية جلسة العمل الخاصة بك. الرجاء تسجيل الدخول.</value>
+  </data>
+  <data name="RecommendationPopupTitle" xml:space="preserve">
+    <value>لماذا ترى هذا؟</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>يلغي</value>
+  </data>
+  <data name="CancelDownload" xml:space="preserve">
+    <value>إلغاء التنزيل</value>
+  </data>
+  <data name="WelcomeLabel" xml:space="preserve">
+    <value>مرحبا</value>
+  </data>
+  <data name="ContinueLabel" xml:space="preserve">
+    <value>يكمل</value>
+  </data>
+  <data name="TeamPlaceholderText" xml:space="preserve">
+    <value>أدخل اسم فريقك</value>
+  </data>
+  <data name="ClearCacheLabel" xml:space="preserve">
+    <value>احذف {0} ميغابايت من ذاكرة التخزين المؤقت</value>
+  </data>
+  <data name="Okay" xml:space="preserve">
+    <value>تمام</value>
+  </data>
+  <data name="Enable" xml:space="preserve">
+    <value>ممكن</value>
+  </data>
+  <data name="Disable" xml:space="preserve">
+    <value>إبطال</value>
+  </data>
+  <data name="LocalLoginLabel" xml:space="preserve">
+    <value>تسجيل الدخول المحلي</value>
+  </data>
+  <data name="EnableLocalLoginMessage" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد تمكين المصادقة المحلية؟</value>
+  </data>
+  <data name="DisableLocalLoginMessage" xml:space="preserve">
+    <value>هل تريد تعطيل المصادقة المحلية؟</value>
+  </data>
+  <data name="ConfirmClearCache" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد مسح ذاكرة التخزين المؤقت المحلية؟</value>
+  </data>
+  <data name="NextQuestionLabel" xml:space="preserve">
+    <value>السؤال التالي</value>
+  </data>
+  <data name="PreviousQuestionLabel" xml:space="preserve">
+    <value>السؤال السابق</value>
+  </data>
+  <data name="CorrectAnswersLabel" xml:space="preserve">
+    <value>لقد أجبت على &lt;strong&gt;{0}&lt;/strong&gt; من &lt;strong&gt;{1}&lt;/strong&gt; بشكل صحيح.</value>
+  </data>
+  <data name="TestResultsMessage" xml:space="preserve">
+    <value>نتائج الإختبار</value>
+  </data>
+  <data name="DownloadManagement" xml:space="preserve">
+    <value>إدارة التنزيل</value>
+  </data>
+  <data name="DeleteDownloadsLabel" xml:space="preserve">
+    <value>احذف {0} ميغابايت من التنزيلات</value>
+  </data>
+  <data name="DownloadSizeLabel" xml:space="preserve">
+    <value>{0} ميغا بايت</value>
+  </data>
+  <data name="YourDownloads" xml:space="preserve">
+    <value>التنزيلات الخاصة بك</value>
+  </data>
+  <data name="LessThanOne" xml:space="preserve">
+    <value>&lt;1</value>
+  </data>
+  <data name="DeleteAnnotationTitle" xml:space="preserve">
+    <value>حذف التعليق التوضيحي</value>
+  </data>
+  <data name="DeleteAnnotationMessage" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد حذف هذا التعليق التوضيحي؟</value>
+  </data>
+  <data name="DeleteDownloadsTitle" xml:space="preserve">
+    <value>احذف جميع التنزيلات</value>
+  </data>
+  <data name="DeleteDownloadsMessage" xml:space="preserve">
+    <value>هل أنت متأكد أنك تريد حذف جميع الملفات التي تم تنزيلها؟</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="Lessons" xml:space="preserve">
+    <value>الدروس</value>
+  </data>
+  <data name="Lesson" xml:space="preserve">
+    <value>درس</value>
+  </data>
+  <data name="Episodes" xml:space="preserve">
+    <value>الحلقات</value>
+  </data>
+  <data name="Episode" xml:space="preserve">
+    <value>حلقة</value>
+  </data>
+  <data name="CompleteLabel" xml:space="preserve">
+    <value>اكتمال</value>
+  </data>
+  <data name="DefaultContentName" xml:space="preserve">
+    <value>المحتوى الذي تم تنزيله</value>
+  </data>
+  <data name="DownloadWithProgress" xml:space="preserve">
+    <value>جارٍ التنزيل ... {0}٪</value>
+  </data>
+  <data name="DownloadNoProgress" xml:space="preserve">
+    <value>جارى التحميل...</value>
+  </data>
+  <data name="PromptResultsTitle" xml:space="preserve">
+    <value>شكرا على ملاحظاتك!</value>
+  </data>
+  <data name="PromptResultsMessage" xml:space="preserve">
+    <value>سنستخدم هذا لتحسين توصياتك.</value>
+  </data>
+  <data name="EmptyViewErrorTitle" xml:space="preserve">
+    <value>تبا شيء ما حدث بشكل خاطئ!</value>
+  </data>
+  <data name="UnsupportedContentTitle" xml:space="preserve">
+    <value>هذا المحتوى غير مدعوم</value>
+  </data>
+  <data name="UnsupportedContentMessage" xml:space="preserve">
+    <value>من فضلك تواصل مع مسؤول نظامك.</value>
+  </data>
+  <data name="ViewPodcastLabel" xml:space="preserve">
+    <value>عرض البث</value>
+  </data>
+  <data name="PodcastsLabel" xml:space="preserve">
+    <value>المدونة الصوتية</value>
+  </data>
+  <data name="EpisodeTrackInformation" xml:space="preserve">
+    <value>{0} | {1}</value>
+  </data>
+  <data name="SubscribeButtonTitle" xml:space="preserve">
+    <value>الإشتراك</value>
+  </data>
+  <data name="UnsubscribeButtonTitle" xml:space="preserve">
+    <value>إلغاء الاشتراك</value>
+  </data>
+  <data name="PlayedLabel" xml:space="preserve">
+    <value>لعب</value>
+  </data>
+  <data name="TermsOfUseText" xml:space="preserve">
+    <value>برنامج PERLS هو ملك للحكومة الأمريكية وللاستخدام الحكومي. هذا يشمل جميع البيانات والمواد ؛ البيانات / قواعد البيانات ، والملفات ، والرسومات ، والبث ، والصور ، والبرمجيات ، والأكواد ، والمعدات ، والأقراص المدمجة ، وغيرها من النواتج التي تقدمها الحكومة أو تم تطويرها بموجب هذا العقد. يجب أن تظل المواد ملكًا للحكومة. يلتزم برنامج PERLS بجميع لوائح الرقابة على الصادرات وامتثال ITAR.</value>
+  </data>
+  <data name="RemindersDisabledTitle" xml:space="preserve">
+    <value>الإخطارات الفورية معطلة</value>
+  </data>
+  <data name="RemindersDisabledMessage" xml:space="preserve">
+    <value>قم بتمكين دفع الإخطارات في إعدادات جهازك لتعيين تذكير</value>
+  </data>
+  <data name="RemindersErrorTitle" xml:space="preserve">
+    <value>فشل حفظ الإعدادات</value>
+  </data>
+  <data name="RemindersErrorMessage" xml:space="preserve">
+    <value>فشل حفظ إعدادات التذكير على الخادم</value>
+  </data>
+  <data name="ReminderTitle" xml:space="preserve">
+    <value>أضف تذكيرًا</value>
+  </data>
+  <data name="ReminderChooseDays" xml:space="preserve">
+    <value>اختر يومًا أو يومًا</value>
+  </data>
+  <data name="ReminderChooseTime" xml:space="preserve">
+    <value>في أي وقت يجب أن نذكرك؟</value>
+  </data>
+  <data name="ReminderBody" xml:space="preserve">
+    <value>ذكرني بأهدافي في ...</value>
+  </data>
+  <data name="EnterURLMessage" xml:space="preserve">
+    <value>الرجاء إعادة التحقق من اسم فريقك</value>
+  </data>
+  <data name="FileNotFoundTitle" xml:space="preserve">
+    <value>ملف مفقود</value>
+  </data>
+  <data name="FileNotFoundMessage" xml:space="preserve">
+    <value>الملف المطلوب غير متوفر في الوقت الحالي.</value>
+  </data>
+  <data name="FollowButtonLabel" xml:space="preserve">
+    <value>يتبع</value>
+  </data>
+  <data name="UnfollowButtonLabel" xml:space="preserve">
+    <value>الغاء المتابعة</value>
+  </data>
+  <data name="FollowErrorMessage" xml:space="preserve">
+    <value>كان هناك خطأ بعد هذا المصطلح.</value>
+  </data>
+  <data name="ViewTermErrorMessage" xml:space="preserve">
+    <value>حدث خطأ في عرض هذا المصطلح.</value>
+  </data>
+  <data name="ItemNotFoundMessage" xml:space="preserve">
+    <value>المحتوى غير متوفر</value>
+  </data>
+  <data name="GroupTopicsEmptyTitle" xml:space="preserve">
+    <value>لا مواضيع</value>
+  </data>
+  <data name="ViewMoreButtonLabel" xml:space="preserve">
+    <value>عرض المزيد</value>
+  </data>
+  <data name="LeaveGroupButtonLabel" xml:space="preserve">
+    <value>غادر</value>
+  </data>
+  <data name="EmptyCourseTitleLabel" xml:space="preserve">
+    <value>هذه الدورة فارغة</value>
+  </data>
+  <data name="EmptyCourseMessageLabel" xml:space="preserve">
+    <value>ليس لديك حق الوصول إلى أي محتوى في هذه الدورة.</value>
+  </data>
+  <data name="EmptyGroupTopicTitle" xml:space="preserve">
+    <value>هذا الموضوع ليس له محتويات</value>
+  </data>
+  <data name="EmptyGroupTopicMessage" xml:space="preserve">
+    <value>هذه المجموعة ليس لديها أي محتوى لهذا الموضوع.</value>
+  </data>
+  <data name="EmptyEnhancedDashboardTitle" xml:space="preserve">
+    <value>عذرًا ، لقد واجهنا خطأ</value>
+  </data>
+</root>

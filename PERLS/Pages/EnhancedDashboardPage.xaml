@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.EnhancedDashboardPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    xmlns:vm="clr-namespace:PERLS.Data.ViewModels;assembly=PERLS.Data"
+    x:DataType="vm:EnhancedDashboardViewModel"
+    BackgroundColor="{DynamicResource BackgroundColor}">
+    <ContentPage.Content>
+        <component:SectionCollectionView BindingContext="{Binding Sections}" />
+    </ContentPage.Content>
+</page:BasePage>

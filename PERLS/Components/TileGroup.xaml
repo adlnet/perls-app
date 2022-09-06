@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<component:AutoDeselectingPERLSCollectionView
+    x:Class="PERLS.Components.TileGroup"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:effect="clr-namespace:PERLS.Effects"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    x:Name="Collection"
+    HorizontalScrollBarVisibility="Never"
+    ItemsSource="{Binding .}">
+    <CollectionView.ItemsLayout>
+        <GridItemsLayout HorizontalItemSpacing="{StaticResource Space}" Orientation="Horizontal" />
+    </CollectionView.ItemsLayout>
+    <CollectionView.ItemTemplate>
+        <DataTemplate>
+            <Frame
+                Margin="0"
+                Padding="0"
+                BackgroundColor="Transparent"
+                CornerRadius="0"
+                HasShadow="False"
+                WidthRequest="180">
+                <Grid
+                    Margin="0"
+                    Padding="0"
+                    RowDefinitions="180, 100">
+                    <component:Tile
+                        x:Name="Tile"
+                        Title="{Binding Name}"
+                        Grid.Row="0"
+                        Margin="0"
+                        Padding="0"
+                        AltColor="{Binding AltColor}"
+                        HeightRequest="180"
+                        Image="{Binding Image}"
+                        IsSelected="{Binding IsSelected}"
+                        ShouldShowGradient="{Binding ShouldShowGradient}"
+                        Tags="{Binding ItemTags}"
+                        WidthRequest="180" />
+                    <StackLayout Grid.Row="1">
+                        <Label
+                            x:Name="TitleLabel"
+                            Padding="0,5,0,0"
+                            d:Text="Title"
+                            BindingContext="{x:Reference Tile}"
+                            FontAttributes="Bold"
+                            LineBreakMode="TailTruncation"
+                            MaxLines="2"
+                            Style="{DynamicResource TileTitleStyle}"
+                            Text="{Binding Title}">
+                            <Label.Effects>
+                                <effect:ShadowEffect Radius="3" Color="{StaticResource TransparentBlackColor}" />
+                            </Label.Effects>
+                        </Label>
+                        <component:TagsView
+                            BindingContext="{x:Reference Tile}"
+                            IsVisible="{Binding Tags, Converter={StaticResource HasTagsConverter}}"
+                            MaxLines="1"
+                            TagSource="{Binding Tags}" />
+                    </StackLayout>
+                </Grid>
+            </Frame>
+        </DataTemplate>
+    </CollectionView.ItemTemplate>
+    <CollectionView.Header>
+        <!--
+            "Padding" before the first element so that it aligns with the items around it.
+            This is preferred over adding margin/padding to the parent so that the item
+            can scroll all the way to the edge of the screen.
+        -->
+        <BoxView WidthRequest="0" />
+    </CollectionView.Header>
+    <CollectionView.Footer>
+        <Grid Margin="0" Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Frame
+                Grid.Row="0"
+                Margin="0,0,10,0"
+                Padding="0"
+                BackgroundColor="Transparent"
+                CornerRadius="0"
+                HasShadow="False"
+                IsVisible="{Binding HasMore, FallbackValue=False}">
+                <Frame.Triggers>
+                    <DataTrigger
+                        Binding="{Binding HasMore}"
+                        TargetType="Frame"
+                        Value="False">
+                        <Setter Property="WidthRequest" Value="0" />
+                    </DataTrigger>
+                </Frame.Triggers>
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding ViewMoreCommand}" CommandParameter="{Binding .}" />
+                </Frame.GestureRecognizers>
+                <Frame
+                    Margin="0"
+                    BackgroundColor="{DynamicResource SecondaryColor}"
+                    HasShadow="True"
+                    HeightRequest="180"
+                    Style="{StaticResource Tile}"
+                    WidthRequest="180">
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Style="{DynamicResource TextStyle}"
+                        Text="{l10n:Translate ViewMoreButtonLabel}"
+                        TextColor="White"
+                        VerticalTextAlignment="Center" />
+                </Frame>
+            </Frame>
+            <component:CenteredImageTitleDetailView
+                Title="{Binding EmptyMessageTitle}"
+                Grid.Row="0"
+                Grid.RowSpan="2"
+                Detail="{Binding EmptyLabel}"
+                Image="{Binding EmptyImageName}"
+                IsVisible="False"
+                WidthRequest="1">
+                <component:CenteredImageTitleDetailView.Triggers>
+                    <!--
+                        You can probably think of a simpler way to express this logic, but they won't work.
+                        It is critical that the WidthRequest be changed before IsVisible in order for
+                        parent views to layout correctly. A default WidthRequest of 1 also prevents the
+                        layout engine from taking a shortcut when it thinks there's no layout changes.
+                    -->
+                    <DataTrigger TargetType="ContentView" Value="True">
+                        <DataTrigger.Binding>
+                            <MultiBinding Converter="{StaticResource AnyTrueConverter}">
+                                <Binding FallbackValue="False" Path="IsEmpty" />
+                                <Binding FallbackValue="False" Path="IsLoading" />
+                            </MultiBinding>
+                        </DataTrigger.Binding>
+                        <Setter Property="WidthRequest" Value="{Binding Width, Source={x:Reference Collection}, Converter={StaticResource DecreaseNumberConverter}, ConverterParameter=20}" />
+                        <Setter Property="IsVisible" Value="True" />
+                    </DataTrigger>
+                </component:CenteredImageTitleDetailView.Triggers>
+            </component:CenteredImageTitleDetailView>
+        </Grid>
+    </CollectionView.Footer>
+</component:AutoDeselectingPERLSCollectionView>

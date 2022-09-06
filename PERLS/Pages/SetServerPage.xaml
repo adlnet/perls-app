@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.SetServerPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:effects="clr-namespace:PERLS.Effects"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    Title="{l10n:Translate SetServerLabel}"
+    mc:Ignorable="d">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="FontSize" Value="Subtitle" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{DynamicResource PrimaryTextColor}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <RelativeLayout BackgroundColor="{DynamicResource BackgroundColor}" HorizontalOptions="FillAndExpand">
+        <ScrollView RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}">
+            <StackLayout VerticalOptions="FillAndExpand">
+                <StackLayout HorizontalOptions="Fill" VerticalOptions="Fill">
+                    <ffimageloading:CachedImage
+                        Margin="0,20,0,0"
+                        HeightRequest="200"
+                        HorizontalOptions="Center"
+                        Source="icon_no_shadow_inverted"
+                        VerticalOptions="Center" />
+                </StackLayout>
+                <StackLayout
+                    Margin="20,20,20,0"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="CenterAndExpand">
+                    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+                        <Label Style="{DynamicResource TitleStyle}" Text="{l10n:Translate WelcomeLabel}" />
+                        <Frame
+                            Margin="0"
+                            Padding="5"
+                            BorderColor="{StaticResource SeperatorColor}"
+                            CornerRadius="4"
+                            HasShadow="False">
+                            <Entry
+                                x:Name="setserver"
+                                AutomationId="setServer"
+                                HeightRequest="45"
+                                HorizontalOptions="FillAndExpand"
+                                Keyboard="Url"
+                                Placeholder="{l10n:Translate TeamPlaceholderText}"
+                                ReturnCommand="{Binding HandleSetPressed}"
+                                ReturnCommandParameter="{Binding Source={x:Reference setserver}, Path=BindingContext}"
+                                ReturnType="Go"
+                                Text="{Binding CurrentServer, Mode=TwoWay}">
+                                <Entry.Effects>
+                                    <effects:EntryNoLineEffect />
+                                </Entry.Effects>
+                            </Entry>
+                        </Frame>
+                    </StackLayout>
+                    <StackLayout
+                        HorizontalOptions="End"
+                        Orientation="Horizontal"
+                        VerticalOptions="End">
+                        <Label
+                            Style="{DynamicResource TitleStyle}"
+                            Text="{l10n:Translate ContinueLabel}"
+                            VerticalTextAlignment="Center" />
+                        <Button
+                            Margin="15,30,0,20"
+                            AutomationId="setServerButton"
+                            Command="{Binding HandleSetPressed}"
+                            CommandParameter="{Binding Source={x:Reference setserver}, Path=BindingContext}"
+                            ContentLayout="{OnPlatform Android='Right, 10',
+                                                       iOS='Right, -5'}"
+                            HeightRequest="80"
+                            HorizontalOptions="EndAndExpand"
+                            ImageSource="sign_up_button"
+                            Style="{DynamicResource ButtonStyle}"
+                            VerticalOptions="End" />
+                    </StackLayout>
+                </StackLayout>
+                <BoxView BackgroundColor="Transparent" VerticalOptions="EndAndExpand" />
+            </StackLayout>
+        </ScrollView>
+    </RelativeLayout>
+</page:BasePage>

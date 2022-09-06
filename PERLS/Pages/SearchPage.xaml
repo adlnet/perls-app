@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<page:BasePage
+    x:Class="PERLS.Pages.SearchPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:component="clr-namespace:PERLS.Components"
+    xmlns:l10n="clr-namespace:Float.Core.L10n;assembly=Float.Core"
+    xmlns:page="clr-namespace:PERLS.Pages"
+    xmlns:template="clr-namespace:PERLS.Templates"
+    x:Name="Page">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <DataTemplate x:Key="Tiles">
+                <StackLayout Margin="0" Spacing="0">
+                    <Label
+                        Margin="10"
+                        Style="{DynamicResource HeadingStyle}"
+                        Text="{Binding Name}" />
+                    <component:TileGroup
+                        x:Name="Tiles"
+                        HeightRequest="300"
+                        ItemPadding="10"
+                        Scrolled="OnUserInteraction"
+                        SelectedItem="{Binding BindingContext.SelectedItem, Source={x:Reference Page}}"
+                        SelectionChangedCommand="{Binding BindingContext.NavigateCommand, Source={x:Reference Page}}"
+                        SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference Tiles}}"
+                        SelectionMode="Single" />
+                </StackLayout>
+            </DataTemplate>
+            <DataTemplate x:Key="List">
+                <component:ListItem
+                    Title="{Binding Name}"
+                    Caption="{Binding SearchSubtitle}"
+                    Image="{Binding SearchImage}"
+                    IsSelected="{Binding IsSelected}" />
+            </DataTemplate>
+            <template:ContentDataTemplateSelector
+                x:Key="ContentTemplateSelector"
+                GroupedTiles="{StaticResource Tiles}"
+                List="{StaticResource List}" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid BackgroundColor="{DynamicResource BackgroundColor}" RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <SearchBar
+                Grid.Row="0"
+                Grid.Column="0"
+                BackgroundColor="{DynamicResource BackgroundColor}"
+                Placeholder="{l10n:Translate SearchPrompt}"
+                Text="{Binding Query, Mode=TwoWay}"
+                TextChanged="OnUserInteraction"
+                VerticalOptions="Start" />
+            <component:PERLSCollectionView
+                x:Name="Collection"
+                Grid.Row="1"
+                Grid.Column="0"
+                ItemSizingStrategy="{Binding ElementSizingStrategy}"
+                ItemTemplate="{StaticResource ContentTemplateSelector}"
+                ItemsSource="{Binding Elements}"
+                SelectedItem="{Binding SelectedItem}"
+                SelectionChangedCommand="{Binding NavigateCommand}"
+                SelectionChangedCommandParameter="{Binding SelectedItem, Source={x:Reference Collection}}"
+                SelectionMode="Single">
+                <component:PERLSCollectionView.Header>
+                    <component:Message
+                        Title="{l10n:Translate OfflineMessageTitle}"
+                        Body="{Binding OfflineMessageBody}"
+                        IsVisible="{Binding ContainsCachedData}"
+                        TappedCommand="{Binding RefreshCommand}" />
+                </component:PERLSCollectionView.Header>
+                <component:PERLSCollectionView.Footer>
+                    <component:ContentFeedbackView BindingContext="{Binding BindingContext, Source={x:Reference Page}}" IsVisible="{Binding ShowsFeedbackButton}">
+                        <component:ContentFeedbackView.Style>
+                            <Style TargetType="component:ContentFeedbackView">
+                                <Style.Triggers>
+                                    <DataTrigger
+                                        Binding="{Binding IsEmpty}"
+                                        TargetType="component:ContentFeedbackView"
+                                        Value="true">
+                                        <Setter Property="IsVisible" Value="False" />
+                                        <Setter Property="HeightRequest" Value="1" />
+                                    </DataTrigger>
+                                    <DataTrigger
+                                        Binding="{Binding IsEmpty}"
+                                        TargetType="component:ContentFeedbackView"
+                                        Value="false">
+                                        <Setter Property="IsVisible" Value="True" />
+                                        <Setter Property="HeightRequest" Value="-1" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </component:ContentFeedbackView.Style>
+                    </component:ContentFeedbackView>
+                </component:PERLSCollectionView.Footer>
+                <component:PERLSCollectionView.EmptyView>
+                    <StackLayout>
+                        <component:CenteredImageTitleDetailView
+                            Title="{Binding EmptyMessageTitle}"
+                            Detail="{Binding EmptyLabel}"
+                            HeightRequest="0"
+                            Image="{Binding EmptyImageName}"
+                            IsVisible="{Binding ShowNoResults}"
+                            VerticalOptions="FillAndExpand" />
+                    </StackLayout>
+                </component:PERLSCollectionView.EmptyView>
+            </component:PERLSCollectionView>
+            <component:ContentFeedbackView
+                Grid.Row="2"
+                Grid.Column="0"
+                BindingContext="{Binding BindingContext, Source={x:Reference Page}}"
+                IsVisible="{Binding ShowNoResults}" />
+        </Grid>
+    </ContentPage.Content>
+</page:BasePage>
